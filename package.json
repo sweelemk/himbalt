@@ -1,11 +1,11 @@
 {
-  "name": "Coderiver-Project",
-  "version": "0.2.0",
-  "description": "Riverco.de gulp template",
-  "author": "Coderiver <html@coderiver.com.ua>",
+  "name": "Sweelemk-Project",
+  "version": "0.0.1",
+  "description": "Gulp template",
+  "author": "Sweelemk",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coderiver/gulp"
+    "url": "https://github.com/sweelemk/gulp-pug"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.7",
