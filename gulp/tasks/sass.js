@@ -25,13 +25,13 @@ gulp.task('sass', function() {
     ];
 
     return gulp.src(config.src.sass+'*.sass')
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
     .pipe(sass().on('error', notify.onError({
             title: 'Sass Error!',
             message: '<%= error.message %>'
         })))
     .pipe(postcss(processors))
-    .pipe(sourcemaps.write('./'))
+    //.pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.dest.css));
 });
 

@@ -6,8 +6,8 @@ gulp.task('watch', [
     'sprite:watch',
     'sass:watch',
     'copy:watch',
-    // 'pug:watch',
-    'html:watch',
+    'pug:watch',
+    // 'html:watch',
     'font:watch',
     'js:watch'
 ]);
