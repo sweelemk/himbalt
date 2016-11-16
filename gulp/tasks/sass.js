@@ -12,7 +12,7 @@ var cssnano = require('cssnano');
 gulp.task('sass', function() {
 
     var processors = [
-        autoprefixer({browsers: ['last 10 versions'], cascade: false}),
+        autoprefixer({browsers: ['last 10 versions', 'IE 11'], cascade: false}),
         mqpacker({
             sort: function (a, b) {
                 a = a.replace(/\D/g,'');
