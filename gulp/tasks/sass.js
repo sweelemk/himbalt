@@ -7,6 +7,7 @@ var notify = require('gulp-notify');
 var mqpacker = require("css-mqpacker");
 var config = require('../config');
 var cssnano = require('cssnano');
+var rename = require('gulp-rename');
 
 
 gulp.task('sass', function() {
@@ -20,8 +21,19 @@ gulp.task('sass', function() {
                 return b-a;
                 // replace this with a-b for Mobile First approach
             }
+        })
+    ];
+    var processorsNano = [
+        autoprefixer({browsers: ['last 10 versions', 'IE 11'], cascade: false}),
+        mqpacker({
+            sort: function (a, b) {
+                a = a.replace(/\D/g,'');
+                b = b.replace(/\D/g,'');
+                return b-a;
+                // replace this with a-b for Mobile First approach
+            }
         }),
-        cssnano(),
+        cssnano()
     ];
 
     return gulp.src(config.src.sass+'*.sass')
@@ -32,6 +44,11 @@ gulp.task('sass', function() {
         })))
     .pipe(postcss(processors))
     //.pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(config.dest.css))
+    .pipe(postcss(processorsNano))
+    .pipe(rename({
+        suffix: '.min'
+    }))
     .pipe(gulp.dest(config.dest.css));
 });
 
