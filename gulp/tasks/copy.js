@@ -4,7 +4,7 @@ var imgIcons = config.src.img+'icons/*.*';
 var imgSvg = config.src.img+'svg/*.*';
 // copy static files
 gulp.task('copy', function() {
-   gulp.src(config.src.img + '**/*.*')
+   gulp.src([config.src.img+'**/*.*', '!'+imgSvg])
    .pipe(gulp.dest(config.dest.img));
    gulp.src(config.src.root+'fonts/*.*')
    .pipe(gulp.dest(config.dest.root+'fonts/'));
@@ -13,7 +13,7 @@ gulp.task('copy', function() {
 });
 
 gulp.task('copy:watch', function() {
-    gulp.watch(config.src.img + '**/*.*', ['copy']);
+    gulp.watch([config.src.img + '*' + imgIcons], ['copy']);
     gulp.watch(config.src.root+'fonts/*', ['copy']);
 });
 

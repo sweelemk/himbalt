@@ -5,7 +5,7 @@ var pug = require("gulp-pug");
 var config = require('../config');
 // var changed = require("gulp-changed");
 
-gulp.task('pug', function() {
+gulp.task('pug', ['svg'], function() {
     return gulp.src([
             config.src.pug + '/*.pug', 
             '!' + config.src.pug + '/_*.pug', 
@@ -17,7 +17,7 @@ gulp.task('pug', function() {
 });
 
 
-gulp.task('pug-all', function() {
+gulp.task('pug-all', ['svg'], function() {
     return gulp.src([
         config.src.pug + '/*.pug', 
         '!' + config.src.pug + '/_*.pug', 
