@@ -1,0 +1,96 @@
+extends _layout
+
+block title
+	title Blog
+block content
+	.wrapper
+		.header
+			- var bool = true
+			- var currentClass = "Company"
+			include includes/_header
+		.wrap.wrap-portfolio
+			.intro
+				.intro-bg
+					.intro-bg_in(style="background-color: #f7f7f7;")
+				.l
+					.intro-inner
+						.intro-head
+							.bread-crumbs
+								ul.bread-crumbs_list
+									li
+										a(href="#") Home
+									li
+										a(href="#") Company
+									li
+										span Portfolio
+							h1 PORTFOLIO
+			section.section.section-portfolio
+				.section-inner
+						.portfolio-container.portfolio-manipulation
+							.portfolio-navigation
+								.portfolio-nav
+									ul.portfolio-nav_tab
+										- var tab = ["solution", "industries", "technologies"]
+										- var tabCurent = "solution"
+										each tabs in tab
+											li(class={active: tabCurent === tabs})
+												h4
+													a(href="#" data-tab=tabs) #{tabs}
+									//- .tags
+										//- .tags-list
+											- var currentTags = "Portals";
+											- var tags = ["Portals", "eCommerce", "Media Content Distribution", "Social Networking", "Billing & Payments", "Collaboration Tools", "eLearning & Online Training", "Gaming", "Geolocation", "Mobility", "Business Intelligence", "Customer Relationship Management", "Enterprise Resource Management", "Document & Content Management"]
+											//- each tagsItem in tags
+											//- 	a(href="" class="tags-item" class={active: currentTags === tagsItem})
+											//- 		span #{tagsItem}
+							.portfolio-wrapper
+								.l
+									.portfolio-wrapper_inner
+										.portfolio_list
+											.card-container.projects-ajax
+												//- mixin card(style, image, brand, jsCalc, tags, name, descr)
+												//- 	.card(class=style)
+												//- 		div(class="card-item")
+												//- 			a(href="#").image-container
+												//- 				.img(style="background-image: url("+image+")")
+												//- 			if(brand)
+												//- 				.brand-container
+												//- 					img(src=brand)
+												//- 			.tags(class=jsCalc)
+												//- 				.tags-list
+												//- 					each tgItem in tags
+												//- 						a(href="#" class="tags-item") 
+												//- 							span #{tgItem}
+												//- 				//- if jsCalc
+												//- 				//- 	.tags-list_hidden
+												//- 				//- 		.trigger.hidden
+												//- 				//- 			span ...
+												//- 				//- 		.tags-list-container
+												//- 				//- 			.tag-list-hidden
+												//- 			.card-info
+												//- 				a(href="#").title #{name}
+												//- 				if descr
+												//- 					.descr
+												//- 						p #{descr}
+												//- - var tags1 = ["Retail", "Manufacturing", "Mobile", "Portals", "Social Networking", "Mobility", "C/C++"]
+												//- - var tags2 = ["Retail", "Media & Entertainment", "Portals", "Python", "eCommerce"]
+												//- - var tags3 = ["Public Sector", "Portals", "C/C++"]
+												//- - var tags4 = ["ISVs", "Portals", "Public Sector", "Portals", "C/C++"]
+												//- - var tags5 = ["ISVs"]
+												//- +card("full-width", "img/portfolio/portfolio.jpg", "img/brand/brand-1.png", "", tags1, "ADIDAS MICOACH", "adidas needed a comprehensive solution meeting latest technology requirements and corresponding to usability expectations when looking to revamp its award-winning miCoach device management back-end application. Adidas miCoach product family includes Speed Cell, Pacer Bundle, and Heart Rate Monitor connected to a PC/Mac and an iPod/iPhone to pass aggregated data to the miCoach.com.")
+												//- +card("medium-width", "img/blog/blog-3.jpg", "img/brand/brand-2.png", "", tags2, "WORD-OF-MOUTH MARKETING TOOL")
+												//- +card("medium-width", "img/blog/blog-3.jpg", "","",  tags3, "SURVEILANCE VIDEO STREAMING")
+												//- +card("one-quarter-width", "img/blog/blog-3.jpg", "img/brand/brand-3.png", "js-count", tags5, "SURVEILANCE VIDEO STREAMING")
+												//- +card("one-quarter-width", "img/blog/blog-3.jpg", "", "js-count", tags3, "WORLDWIDE VEHICLE TRACKING")
+												//- +card("one-quarter-width", "img/blog/blog-3.jpg", "img/brand/brand-4.png", "js-count", tags3, "CRM AND OFFICE 365 EMAIL INTEGRATION")
+												//- +card("three-quarter-width", "img/blog/blog-3.jpg", "", "", tags3, "PARTNER PORTAL: WEB-BASED ACCESS TO SAP CRM", "Itransition delivered an advanced platform allowing security personnel of all-kind organizations to connect to the networks of surveillance cameras installed, view live streaming with zero downtime, record the footage and save the portal content as video files on PCs.")
+												//- +card("one-quarter-width", "img/blog/blog-3.jpg", "", "js-count", tags3, "SAAS PORTAL FOR PUBLIC AND AFFORDABLE HOUSING COMMUNITY")
+												//- +card("medium-width", "img/blog/blog-3.jpg", "img/brand/brand-5.png", "", tags2, "ITRANSITION HELPS EXPEDIA INVIGORATE PARTNER NETWORK")
+												//- +card("medium-width", "img/blog/blog-3.jpg", "img/brand/brand-6.png","",  tags3, "INTERACTIVE TRAINING PORTAL FOR PHILIPS DYNALITE")
+												//- +card("full-width", "img/portfolio/portfolio.jpg", "", "", tags1, "PROjECT CONTROL & ASSURANCE PLANS AUTOMATION SYSTEM", "Pursuing to cover every aspect of patent portfolio management, the Customer, nXn Tech, came up with an idea of a web-enabled application that patent prosecution paralegals could benefit when managing infringement in complex patent cases")
+												//- +card("one-quarter-width", "img/blog/blog-3.jpg", "", "js-count", tags4, "ADVANCED PORTAL FOR MISSION-CRITICAL DOCUMENT MANAGEMENT")
+												//- +card("three-quarter-width", "img/blog/blog-3.jpg", "img/brand/brand-7.png", "", tags1, "PATRIOT: ONLINE PATENT HANDLING TOOL FOR IP LITIGATION", "Pursuing to cover every aspect of patent portfolio management, the Customer, nXn Tech, came up with an idea of a web-enabled application that patent prosecution paralegals could benefit when managing infringement in complex patent cases.")
+											a(class="load-card" href="#")
+												span Load more
+	.footer
+		include includes/_footer

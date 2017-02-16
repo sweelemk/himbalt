@@ -9,7 +9,9 @@ output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  vertical-align: baseline; }
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 100%; }
 
 body, html {
   height: 100%; }
@@ -46,79 +48,24 @@ table {
   border-collapse: collapse;
   width: 100%; }
 
-html {
+*, *:after, *:before {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit; }
+a {
+  text-decoration: none;
+  color: #332f2e; }
 
-@font-face {
-  font-family: "Book";
-  src: url("../fonts/FuturaNewBook.eot");
-  src: url("../fonts/FuturaNewBook.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewBook.woff") format("woff"), url("../fonts/FuturaNewBook.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
+img {
+  display: block; }
 
-@font-face {
-  font-family: "BoolOblique";
-  src: url("../fonts/FuturaNewBookOblique.eot");
-  src: url("../fonts/FuturaNewBookOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewBookOblique.woff") format("woff"), url("../fonts/FuturaNewBookOblique.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
+button {
+  background-color: transparent;
+  outline: none; }
 
-@font-face {
-  font-family: "Bold";
-  src: url("../fonts/FuturaNewBold.eot");
-  src: url("../fonts/FuturaNewBold.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewBold.woff") format("woff"), url("../fonts/FuturaNewBold.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "BoldOblique";
-  src: url("../fonts/FuturaNewCondBoldOblique.eot");
-  src: url("../fonts/FuturaNewCondBoldOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewCondBoldOblique.woff") format("woff"), url("../fonts/FuturaNewCondBoldOblique.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Medium";
-  src: url("../fonts/FuturaNewMedium.eot");
-  src: url("../fonts/FuturaNewMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewMedium.woff") format("woff"), url("../fonts/FuturaNewMedium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "CondMedium";
-  src: url("../fonts/FuturaNewCondMedium.eot");
-  src: url("../fonts/FuturaNewCondMedium.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewCondMedium.woff") format("woff"), url("../fonts/FuturaNewCondMedium.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Demi";
-  src: url("../fonts/FuturaNewDemi.eot");
-  src: url("../fonts/FuturaNewDemi.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewDemi.woff") format("woff"), url("../fonts/FuturaNewDemi.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Heavy";
-  src: url("../fonts/FuturaNewHeavy.eot");
-  src: url("../fonts/FuturaNewHeavy.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewHeavy.woff") format("woff"), url("../fonts/FuturaNewHeavy.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "Light";
-  src: url("../fonts/FuturaNewLight.eot");
-  src: url("../fonts/FuturaNewLight.eot?#iefix") format("embedded-opentype"), url("../fonts/FuturaNewLight.woff") format("woff"), url("../fonts/FuturaNewLight.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
-body {
-  background-color: #000; }
+svg {
+  width: 100%;
+  height: 100%; }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 

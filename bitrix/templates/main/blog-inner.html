@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Title of template</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta content="IE=9" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" media="all" href="css/screen.min.css">
+  </head>
+  <body>
+    <script type="text/javascript">!function(e){function t(o){if(n[o])return n[o].exports;var c=n[o]={exports:{},id:o,loaded:!1};return e[o].call(c.exports,c,c.exports,t),c.loaded=!0,c.exports}var n={};return t.m=e,t.c=n,t.p="/assets/",t(0)}({0:function(e,t,n){n(18),n(19)},18:function(e,t){!function(){"use strict";function e(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)}function t(e){return window.localStorage&&localStorage.font_css_cache}function n(){if(window.localStorage&&window.XMLHttpRequest)if(t(c))o(localStorage.font_css_cache);else{var e=new XMLHttpRequest;e.open("GET",c,!0),e.onreadystatechange=function(){4===e.readyState&&(o(e.responseText),localStorage.font_css_cache=e.responseText,localStorage.font_css_cache_file=c)},e.send()}else{var n=document.createElement("link");n.href=c,n.rel="stylesheet",n.type="text/css",document.getElementsByTagName("head")[0].appendChild(n),document.cookie="font_css_cache"}}function o(e){var t=document.createElement("style");t.setAttribute("type","text/css"),t.styleSheet?t.styleSheet.cssText=e:t.innerHTML=e,document.getElementsByTagName("head")[0].appendChild(t),window.onFontLoad&&window.onFontLoad()}var c=window.fonts_href||"../css/font.css";window.localStorage&&localStorage.font_css_cache||document.cookie.indexOf("font_css_cache")>-1?n():e(window,"load",n)}()},19:function(e,t){}});</script>
+    <div class="svg-defs-container" style="display: none"><svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon-card" viewBox="0 0 21.5 18"><path d="M21 0H.4C.2 0 0 .2 0 .4v17.1c0 .3.2.5.4.5H21c.2 0 .4-.2.4-.4V.4c.1-.2-.1-.4-.4-.4zm-.4 17.1H.9V.9h19.7v16.2zM3.3 11h6.4c.3 0 .6-.3.6-.6v-.9c0-.3-.2-.5-.4-.6-1.7-.6-2.1-.9-2.2-1v-.1c.2-.2.4-.5.5-.8.1-.1.2-.3.3-.5 0-.2 0-.4-.1-.6v-.7c0-1.1-.7-1.7-1.8-1.7s-1.8.7-1.8 1.7v.6c-.3.2-.3.4-.3.6 0 .2.1.4.3.5.1.3.3.6.5.9v.1c-.1.1-.6.4-2.2 1-.2.1-.4.3-.4.6v.8c0 .4.3.7.6.7zm.2-1.4C5.7 8.7 5.9 8.4 6 8.1v-.4c0-.1 0-.2-.1-.3-.1-.2-.3-.4-.4-.8 0-.1-.1-.2-.1-.2l-.1-.1v-.1c.1-.1.1-.2.1-.2v-.8c0-.6.4-.9 1.1-.9.7 0 1.1.3 1.1.9V6c0 .1 0 .2.1.2v.1s0 .1-.1.1c0 .1-.1.2-.1.2-.1.4-.3.6-.4.8-.1.1-.1.2-.1.3v.4c.1.3.4.6 2.6 1.5v.6H3.5v-.6zM13 8.3h5.4c.2 0 .4-.2.4-.4s-.2-.4-.4-.4H13c-.2 0-.4.2-.4.4-.1.2.1.4.4.4zm0-2.6h5.4c.2 0 .4-.2.4-.4s-.2-.4-.4-.4H13c-.2 0-.4.2-.4.4-.1.2.1.4.4.4zm0 5.3h5.4c.2 0 .4-.2.4-.4s-.2-.4-.4-.4H13c-.2 0-.4.2-.4.4-.1.2.1.4.4.4zm-1.4 2.6h6.7c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-6.7c-.2 0-.4.2-.4.4s.2.4.4.4zm-8.5 0h6.7c.2 0 .4-.2.4-.4s-.2-.4-.4-.4H3.1c-.2 0-.4.2-.4.4s.2.4.4.4z"/></symbol><symbol id="icon-close" viewBox="0 0 60 60"><path d="M58.084.132l-28 28.1-28.1-28.1-1.9 1.9 28 28.1-28 28.1 1.9 1.9 28.1-28.1 28 28.1 2-1.9-28.1-28.1 28.1-28.1z"/></symbol><symbol id="icon-docs" viewBox="0 0 17.5 18.5"><path d="M4.1 17.6H.9V.9h13.8v3.6c0 .2.2.5.5.5s.5-.2.5-.5v-4c0-.2-.2-.5-.5-.5H.5C.2 0 0 .2 0 .5V18c0 .2.2.5.5.5h3.7c.3 0 .5-.2.5-.5-.1-.2-.3-.4-.6-.4zm13.3-9.4L15.2 6c-.1-.1-.2-.1-.3-.1H6c-.3 0-.5.2-.5.5V18c0 .2.2.5.5.5h11c.3 0 .5-.2.5-.5V8.5c0-.2 0-.3-.1-.3zm-.8 9.4H6.4V6.8h8.3l1.9 1.9v8.9zm-2.3-2.7H8.7c-.3 0-.5.2-.5.5 0 .2.2.5.5.5h5.5c.3 0 .5-.2.5-.5s-.2-.5-.4-.5zm0-2.7H8.7c-.3 0-.5.2-.5.5 0 .2.2.5.5.5h5.5c.3 0 .5-.2.5-.5s-.2-.5-.4-.5zm0-2.7H8.7c-.3 0-.5.2-.5.5 0 .2.2.5.5.5h5.5c.3 0 .5-.2.5-.5s-.2-.5-.4-.5z"/></symbol><symbol id="icon-down" viewBox="0 0 44.8 24.5"><path d="M44.603 2.176L42.517.09 22.353 20.255 2.189.09.103 2.176l22.25 22.25z"/></symbol><symbol id="icon-drop" viewBox="0 0 22.7 11.1"><path d="M22.5 1c.3.3.2.5 0 .8L11.7 11c-.3.2-.5.2-.8 0L.2 1.8C0 1.6-.1 1.3.2 1L.9.2c.3-.3.5-.3.8 0l9.7 8.5L21 .2c.3-.3.5-.2.8 0l.7.8z"/></symbol><symbol id="icon-email" viewBox="0 0 22.2 16.2"><path d="M21.102 2.128v-1.02h-20v1.02l10 7.667 10-7.667zm0 1.257V14.4L14.863 8.16l6.239-4.774zm-.707 11.723H1.812l6.331-6.334 2.959 2.263 2.96-2.265 6.333 6.336zm-19.293-.704V3.385l6.24 4.775-6.24 6.244zM.102.108h22v16h-22v-16z"/></symbol><symbol id="icon-facebook-share" viewBox="0 0 9 18.1"><path d="M8.897 6.068h-3.25v-2a1 1 0 0 1 1-1h2v-3h-2.5a4 4 0 0 0-4 4v2h-2v3h2v9h3.5v-9h2.5l.75-3z"/></symbol><symbol id="icon-facebook" viewBox="0 0 30 30"><path d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm3.7 10.6h-2c-.5 0-.9.4-.9 1v.8h2.9l-.5 2.6h-2.4v7.2h-2.9V15H11v-2.7h1.9V11c.1-1.6.6-3 3.5-3.1h2.4v2.7h-.1z"/></symbol><symbol id="icon-googleplus-share" viewBox="0 0 26 23.5"><path stroke="null" d="M25.355 9.568h-3.889V5.68a.538.538 0 0 0-.537-.538h-1.107a.538.538 0 0 0-.539.538v3.888h-3.888a.54.54 0 0 0-.538.539v1.107c0 .297.242.538.538.538h3.888v3.89c0 .296.241.537.54.537h1.106c.297 0 .537-.24.537-.538v-3.89h3.889c.296 0 .538-.24.538-.538v-1.107a.539.539 0 0 0-.538-.538z"/><path stroke="null" d="M12.287 12.977c-.817-.58-1.56-1.429-1.574-1.69 0-.475.043-.702 1.109-1.532 1.378-1.08 2.136-2.498 2.136-3.996 0-1.359-.415-2.566-1.121-3.414h.548a.535.535 0 0 0 .315-.101l1.53-1.109a.54.54 0 0 0-.314-.974H8.074c-.748 0-1.509.133-2.255.39-2.493.86-4.236 2.984-4.236 5.164 0 3.09 2.393 5.432 5.593 5.506a2.911 2.911 0 0 0-.094.722c0 .476.12.927.369 1.363h-.088c-3.05 0-5.803 1.497-6.848 3.724a4.084 4.084 0 0 0-.411 1.742c0 .563.144 1.104.427 1.612.657 1.175 2.068 2.087 3.974 2.568a12.85 12.85 0 0 0 3.14.375c.986 0 1.927-.127 2.797-.379 2.711-.787 4.464-2.783 4.464-5.087 0-2.21-.711-3.535-2.619-4.884zm-8.64 5.06c0-1.607 2.044-3.018 4.372-3.018h.063c.507.006 1.001.08 1.467.224l.462.316c1.08.735 1.792 1.22 1.99 1.999.047.196.07.392.07.582 0 2.003-1.493 3.018-4.44 3.018-2.234 0-3.984-1.37-3.984-3.12zm2.12-15.196c.364-.415.84-.635 1.376-.635l.06.001c1.512.045 2.959 1.73 3.225 3.756.15 1.135-.103 2.202-.673 2.852a1.788 1.788 0 0 1-1.392.636H8.337c-1.48-.045-2.959-1.794-3.223-3.818-.149-1.132.09-2.15.653-2.792z"/></symbol><symbol id="icon-handshake" viewBox="0 0 20.8 17"><path d="M16.3 11.6l-.1-.1-2.7-2.4c-.3-.2-.7-.2-.9.1-.2.3 0 .5.2.8l2.5 2 .5.5c.5.5.1 2.1-1.3 1.1l-.7-.6-.1-.1-2.2-1.9c-.3-.2-.7-.2-.9.1-.2.3 0 .6.2.9l2.5 2s.4.1 0 0c.2.2 0 .8 0 1 0 .2-.3.4-.5.5-.3.1-.8-.3-1-.5l-2.5-2.5s.1.1 0 .1c0 0-.1 0-.1-.1h-.1H9h-.1-.1l-.1.1s-.1 0-.1.1c0 0 0 .1-.1.1 0 0 0 .1-.1.1v.1s-.1-.1.4.5l1 1c1.1 1.2-.3 2.2-1 1.5-1.7-1.3-6.2-5.2-7-7l1.5-7c.3-.1 1.2 0 3 0-.5.6-.9 1.7-1 2.5-.2 1.2 0 2.2.5 2.5.7.4 2 1.1 3.9-1.5.4 0 .7-.4 1.1-.5 0 0 5.7 4.9 6.5 5.5.8.6.4 2.3-1 1.1zm2-1.6c-.1-.2-.3-.3-.5-.5L11.3 4c-.2-.1-.3-.1-.5 0-.5.2-1.3.5-1.5.5-.3-.1-.4.3-.5.5-.9 1.4-1.7 1.6-2 1.5-.7-.2-.7-1.1-.5-2 .3-1.5 1.8-3.1 4-3.5 0 0 1.6-.1 5.5 2 .1.1.3 0 .5 0l1-.5 2 8c-.2.1-.8-.5-1-.5zm2.4.6L18.3 2s-.2-1.3-1-1.1c-.3.1-.4.3-.5.6l-.5.5C12.1-.2 10 0 9.9.1c-.8.1-1.5.6-2.1.9-2.1.1-3.2-.1-4 0-.1-.2 0-.9-.5-1-.5 0-.6.5-.6.5s-2 7.8-2.6 10c-.5 1.8.5 1.5.7 1l.5-1.5c1.9 2.5 6.1 6 6.6 6.4.5.4 1 .6 1.4.6.5 0 1-.3 1.3-.6l.3-.6.2.2c.4.4.9.6 1.4.6.2 0 .4 0 .6-.1.6-.2 1-.7 1.2-1.4.8.2 1.5-.1 2-.7.3-.4.5-.8.5-1.3.5-.1 1-.3 1.3-.8.2-.3.4-.6.5-.9.3 0 .5 0 .8-.1l.1.4c0 .2.2.3.3.4.2 0 1.4.1.9-1.5z"/></symbol><symbol id="icon-headphones" viewBox="0 0 18 21"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 8.9V7c0-3.9-3.1-7-7-7S2 3.1 2 7v1.9c-1.1.1-2 .9-2 1.9v3.3c0 1 1 1.9 2.1 1.9h1.3c.3 0 .5-.2.5-.5v-6c0-.3-.2-.5-.5-.5H3V7c0-3.3 2.7-6 6-6s6 2.7 6 6v1.9h-.5c-.3 0-.5.2-.5.5v6c0 .3.2.5.5.5l1 .1h.5c-.3 2.3-1.8 3.1-4.4 3.3 0-.6-.8-.8-1.1-.8h-1c-.5 0-1 .5-1 1.5 0 .6.7 1 1.1 1h.9c.5 0 .9-.3 1.1-.7 3.1-.2 5.1-1.5 5.4-4.8.5-.3 1-.8 1-1.4v-3.3c0-1-.9-1.8-2-1.9zM1 14.1V11c0-.3.2-.7.5-.8v4.7c-.3-.2-.5-.5-.5-.8zM3 10v5h-.5v-5H3zm7.5 10h-1c-.2 0-.2-.5 0-.5h1c.2 0 .2.5 0 .5zm4.5-5v-5h.5v5H15zm2-1c0 .3-.2.7-.5.8v-4.7c.3.2.5.5.5.8V14z"/></symbol><symbol id="icon-instrument" viewBox="0 0 20 20"><path d="M3.5 11.7S1.7 3.8 9.8 3.1c2.4-.2 4.6 1.6 4.6 1.6l-1 .8s-3-1.5-5.1-1c-2.4.6-4.9 1.9-4.3 6.8.1.2-.5.4-.5.4zM16.3 6.5s.8 1.3.9 3.2c.1 1-.5 2.2-.5 2.2l-.9-.3s.4-1.4.3-2.5c-.1-.9-.6-1.3-.8-1.7l1-.9zM9.5 8.4c.3-.2 5.4-2.4 5.4-2.4s-3 4.2-3.1 4.4c-.2.3-.9 1.1-1.7 1.1-.9 0-1.6-.7-1.6-1.6-.1-.8.7-1.3 1-1.5zM15.6 13c.4 0 .7.3.7.7s-.3.7-.7.7c-.4 0-.7-.3-.7-.7s.3-.7.7-.7zM12.8 14.9c.4 0 .7.3.7.7 0 .4-.3.7-.7.7s-.7-.3-.7-.7c0-.4.3-.7.7-.7zM9.5 15.8c.4 0 .7.3.7.7 0 .4-.3.7-.7.7s-.7-.3-.7-.7c0-.4.3-.7.7-.7zM6.3 14.9c.4 0 .7.3.7.7 0 .4-.3.7-.7.7-.4 0-.7-.3-.7-.7 0-.4.3-.7.7-.7z" fill-rule="evenodd" clip-rule="evenodd"/><path d="M10 1c5 0 9 4 9 9s-4 9-9 9-9-4-9-9 4-9 9-9m0-1C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0z"/></symbol><symbol id="icon-left" viewBox="0 0 14 23"><path fill-rule="evenodd" d="M1.769 12.106l9.002 8.999a1.014 1.014 0 0 0 1.43 0 1.009 1.009 0 0 0 0-1.428l-8.287-8.285L12.2 3.107a1.01 1.01 0 0 0 0-1.43 1.014 1.014 0 0 0-1.431 0l-9.002 9a1.02 1.02 0 0 0 0 1.429z" clip-rule="evenodd"/></symbol><symbol id="icon-linked-share" viewBox="0 0 30 30"><path stroke="null" d="M.506 10.054h6.19V29.96H.506V10.054zM3.612.16c1.98 0 3.59 1.61 3.59 3.59 0 1.978-1.61 3.59-3.59 3.59-1.99 0-3.59-1.612-3.59-3.59 0-1.98 1.6-3.59 3.59-3.59" class="st0"/><path stroke="null" d="M10.585 10.054h5.925v2.727h.08c.83-1.564 2.843-3.21 5.857-3.21 6.259 0 7.421 4.12 7.421 9.48V29.96H23.69v-9.676c0-2.313-.035-5.281-3.21-5.281-3.222 0-3.705 2.52-3.705 5.108v9.849h-6.179V10.054h-.011z"/></symbol><symbol id="icon-linked" viewBox="0 0 30 30"><path d="M169-1394.1v-8.5h37v-.5c-2.7-1.7-12-10.6-13-13.5 2.2-1.5 3.3-4.1 6-5 5.3 5.5 10.7 11 16 16.5 2.2 2.2 5.8 4 6.5 7.5-5.5 5.3-11 10.7-16.5 16-2.1 2.1-4 5.4-7 6.5-1.5-2.2-4.1-3.3-5-6 4.3-4.2 8.7-8.3 13-12.5v-.5h-37z" clip-rule="evenodd" fill="none"/><path d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm-3 21H9.5v-9H12v9zm-1-10c-.8 0-1.5-.7-1.5-1.5S10.2 8 11 8s1.5.7 1.5 1.5c0 .9-.6 1.5-1.5 1.5zm10.5 10H19v-6s-.2-1-1.5-1-1.5 1-1.5 1v6h-2.5v-9H16v1s.6-1.5 2.5-1.5c2.2 0 3 1.6 3 3V21z" fill-rule="evenodd" clip-rule="evenodd"/></symbol><symbol id="icon-message" viewBox="0 0 28 18"><path stroke="null" d="M26.78.077H.128v17.78H27.91V.078h-1.13zm-1.111 1.111L14.936 11.921c-.49.49-1.344.49-1.833 0L2.368 1.188h23.3zm-24.43.443l7.216 7.215L1.24 16.06V1.631zm.887 15.115l7.115-7.114 3.076 3.075a2.39 2.39 0 0 0 1.702.705 2.39 2.39 0 0 0 1.702-.705l3.076-3.076 7.115 7.115H2.126zm24.673-.684l-7.216-7.216L26.8 1.629v14.433z"/></symbol><symbol id="icon-molecule" viewBox="0 0 23.1 26"><path d="M12.5 8.1c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z" clip-rule="evenodd" fill="none"/><path d="M9.8 12.6l.5.8-5.1 3.2-.5-.8 5.1-3.2zM17.7 4.7l.7.7L14.7 9l-.7-.6 3.7-3.7zM14.3 13.4l.5-.9 4.5 3-.5.9-4.5-3zM7.3 6.6l.7-.7 3 3-.7.7-3-3zM12 14.1h1v6h-1v-6z" fill-rule="evenodd" clip-rule="evenodd"/><path d="M19.5.6C20.9.6 22 1.7 22 3.1s-1.1 2.5-2.5 2.5S17 4.5 17 3.1 18.1.6 19.5.6zM20.5 15.1c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM6.5 3.1c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM12.7 20.1c1.5 0 2.8 1.2 2.8 2.8 0 1.5-1.2 2.8-2.8 2.8-1.5 0-2.8-1.2-2.8-2.8.1-1.6 1.3-2.8 2.8-2.8zM3 15.1c1.4 0 2.5 1.1 2.5 2.5S4.4 20.1 3 20.1.5 19 .5 17.6s1.1-2.5 2.5-2.5z" clip-rule="evenodd" fill="none"/></symbol><symbol id="icon-plus" viewBox="0 0 32 32"><path stroke="null" d="M30.714 14.847h-13.48V1.366C17.233.722 16.783.2 16.14.2s-1.093.522-1.093 1.166v13.481H1.566c-.644 0-1.166.45-1.166 1.093s.522 1.093 1.166 1.093h13.481v13.481c0 .644.45 1.166 1.093 1.166s1.093-.522 1.093-1.166v-13.48h13.481c.644 0 1.166-.45 1.166-1.094s-.522-1.093-1.166-1.093z"/></symbol><symbol id="icon-purse" viewBox="0 0 21.5 19"><path d="M21.5 16.7c0 1.3-1 2.3-2.3 2.3H2.3C1 19 0 18 0 16.7V3.2c0-1 .8-1.9 1.9-1.9h9.4L15.1 0c.2-.1.5 0 .6.3l.4 1.1h1.7c1 0 1.9.8 1.9 1.9v.9c1 0 1.9.8 1.9 1.9v10.6h-.1zM1.9 2.3c-.5 0-.9.4-.9.9s.4.9.9.9H3.6l5.1-1.8H1.9zm13.6.1L15 1l-1 .3-2.6.9-5.1 2h9.8l-.6-1.8zm3.2.8c0-.5-.4-.9-.9-.9h-1.3l.7 1.9h1.6v-1h-.1zm.9 1.9H1.9c-.4 0-.7-.1-1-.3v11.8c0 .8.6 1.4 1.4 1.4h16.8c.8 0 1.4-.6 1.4-1.4v-3.2h-1.9c-1 0-1.9-.8-1.9-1.9 0-1 .8-1.9 1.9-1.9h1.9V6c.1-.5-.4-.9-.9-.9zm1 7.4v-1.9h-1.9c-.5 0-.9.4-.9.9s.4.9.9.9h1.9v.1zm-1.9-1.4h.9v.9h-.9v-.9z"/></symbol><symbol id="icon-right" viewBox="0 0 14 23"><path fill-rule="evenodd" d="M12.354 10.596l-9.002-9a1.014 1.014 0 0 0-1.43 0 1.009 1.009 0 0 0 0 1.429l8.287 8.285-8.287 8.285a1.01 1.01 0 0 0 0 1.429 1.014 1.014 0 0 0 1.431 0l9.002-9a1.02 1.02 0 0 0 0-1.428z" clip-rule="evenodd"/></symbol><symbol id="icon-rss-share" viewBox="0 0 31.1 31.1"><circle r="5" cy="25.54" cx="5.048"/><path d="M18.571 31.04a2.5 2.5 0 0 1-2.5-2.5 13.515 13.515 0 0 0-13.5-13.5 2.5 2.5 0 0 1 0-5 18.521 18.521 0 0 1 18.5 18.5 2.5 2.5 0 0 1-2.5 2.5z"/><path d="M28.571 31.04a2.5 2.5 0 0 1-2.5-2.5 23.527 23.527 0 0 0-23.5-23.5 2.5 2.5 0 0 1 0-5 28.532 28.532 0 0 1 28.5 28.5 2.5 2.5 0 0 1-2.5 2.5z"/></symbol><symbol id="icon-rss" viewBox="0 0 30 30"><path clip-rule="evenodd" fill="none" d="M64.3-1392v-8.5h37v-.5c-2.7-1.7-12-10.6-13-13.5 2.2-1.5 3.3-4.1 6-5 5.3 5.5 10.7 11 16 16.5 2.2 2.2 5.8 4 6.5 7.5-5.5 5.3-11 10.7-16.5 16-2.1 2.1-4 5.4-7 6.5-1.5-2.2-4.1-3.3-5-6 4.3-4.2 8.7-8.3 13-12.5v-.5h-37z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm-2.8 20.5c-.9 0-1.7-.8-1.7-1.7 0-.9.8-1.7 1.7-1.7.9 0 1.7.8 1.7 1.7.1 1-.7 1.7-1.7 1.7zm4.8 0c-.7 0-1.2-.5-1.2-1.2 0-2.3-1.8-4.1-4.1-4.1-.7 0-1.2-.5-1.2-1.2s.5-1.2 1.2-1.2c3.6 0 6.5 2.9 6.5 6.5 0 .7-.5 1.2-1.2 1.2zm4.3 0c-.7 0-1.2-.6-1.2-1.2 0-4.6-3.7-8.3-8.3-8.3-.7 0-1.2-.6-1.2-1.2s.6-1.2 1.2-1.2c5.9 0 10.8 4.8 10.8 10.8-.1.6-.6 1.1-1.3 1.1z"/></symbol><symbol id="icon-search" viewBox="0 0 27.7 27.6"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.7 20.4l1.8-1.8 7.2 7.2-1.8 1.8-7.2-7.2z"/><path d="M11.7 2.1c5.2 0 9.5 4.3 9.5 9.5s-4.3 9.5-9.5 9.5-9.5-4.3-9.5-9.5 4.2-9.5 9.5-9.5m0-2C5.3.1.2 5.2.2 11.6s5.1 11.5 11.5 11.5S23.2 18 23.2 11.6 18 .1 11.7.1z"/></symbol><symbol id="icon-share" viewBox="0 0 30 30"><path stroke="null" d="M5.503 20.459A5.512 5.512 0 0 1 0 14.956a5.512 5.512 0 0 1 5.503-5.503 5.512 5.512 0 0 1 5.503 5.503 5.512 5.512 0 0 1-5.503 5.503zm0-9.771a4.272 4.272 0 0 0-4.268 4.268 4.272 4.272 0 0 0 4.268 4.267 4.272 4.272 0 0 0 4.268-4.267 4.272 4.272 0 0 0-4.268-4.268zM24.471 11.46a5.512 5.512 0 0 1-5.503-5.502A5.512 5.512 0 0 1 24.47.455a5.512 5.512 0 0 1 5.503 5.503 5.512 5.512 0 0 1-5.503 5.503zm0-9.77a4.272 4.272 0 0 0-4.268 4.268c0 2.353 1.915 4.267 4.268 4.267s4.268-1.914 4.268-4.267A4.272 4.272 0 0 0 24.47 1.69zM24.471 29.457a5.512 5.512 0 0 1-5.503-5.503 5.512 5.512 0 0 1 5.503-5.503 5.512 5.512 0 0 1 5.503 5.503 5.512 5.512 0 0 1-5.503 5.503zm0-9.771a4.272 4.272 0 0 0-4.268 4.268c0 2.353 1.915 4.268 4.268 4.268s4.268-1.915 4.268-4.268a4.272 4.272 0 0 0-4.268-4.268z"/><path stroke="null" d="M9.466 12.72a.609.609 0 0 1-.562-.37c-.14-.31 0-.679.31-.813l10.117-4.502c.31-.14.679 0 .814.31.14.31 0 .68-.31.814L9.717 12.667a.626.626 0 0 1-.252.052zM19.588 22.93a.571.571 0 0 1-.257-.06L9.308 18.229c-.31-.14-.445-.51-.298-.82s.51-.444.82-.298l10.016 4.642c.31.141.445.51.299.82a.622.622 0 0 1-.557.357z"/></symbol><symbol id="icon-tie" viewBox="0 0 9.5 20.5"><path d="M9.5 13.2l-4-7.8-.2-.9c.1 0 .2-.1.3-.2 1-1.9.7-3.1.1-3.6 0 0-.5-.7-1.8-.7C3 0 2.6.2 1.8.7c-.7.5-1 1.7.1 3.7 0 .1.1.1.2.2L0 17.4c0 .1 0 .3.1.4l3.4 2.5c.1.1.2.1.3.1.1 0 .2-.1.3-.1l3.2-2.6c.1-.1.1-.2.1-.4L7 14.9l1.2.1h.2c.2 0 .3-.1.4-.2l.7-1.2v-.4zM2.3 1.5c.7-.4.9-.5 1.5-.5 1.1 0 1.3.5 1.3.5.1 0 .6.7-.1 2.1-.8-.1-1.6-.1-2.5 0-.7-1.4-.3-2.1-.2-2.1zm1.5 17.9L.9 17.3 3 4.5h1.4l2.1 12.8-2.7 2.1zM8.2 14H6.9l-1-5.9 2.7 5.2-.4.7z"/></symbol><symbol id="icon-twit" viewBox="0 0 30 30"><path clip-rule="evenodd" fill="none" d="M116.5-1391.9v-8.5h37v-.5c-2.7-1.7-12-10.6-13-13.5 2.2-1.5 3.3-4.1 6-5 5.3 5.5 10.7 11 16 16.5 2.2 2.2 5.8 4 6.5 7.5-5.5 5.3-11 10.7-16.5 16-2.1 2.1-4 5.4-7 6.5-1.5-2.2-4.1-3.3-5-6 4.3-4.2 8.7-8.3 13-12.5v-.5h-37z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M15 .1C6.7.1 0 6.8 0 15.1s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm6.8 12.6v.4c0 4.2-3.3 9-9.5 9-1.9 0-3.6-.5-5.1-1.4H8c1.6 0 3-.5 4.1-1.4-1.5 0-2.7-.9-3.1-2.2.2 0 .4.1.6.1.3 0 .6 0 .9-.1-1.5-.2-2.6-1.5-2.6-3.1.4.2 1 .4 1.5.4-.9-.6-1.5-1.5-1.5-2.6 0-.6.2-1.1.5-1.6 1.6 1.9 4.1 3.2 6.9 3.3-.1-.2-.1-.5-.1-.7 0-1.8 1.5-3.2 3.3-3.2 1 0 1.8.4 2.4 1 .8-.1 1.5-.4 2.1-.8-.2.7-.8 1.4-1.5 1.8.7-.1 1.3-.2 1.9-.5-.4.6-1 1.2-1.6 1.6z"/></symbol><symbol id="icon-twitter-share" viewBox="0 0 32 27"><path d="M31.944 3.552a13.027 13.027 0 0 1-3.77 1.033A6.588 6.588 0 0 0 31.06.955a13.144 13.144 0 0 1-4.168 1.592A6.56 6.56 0 0 0 22.1.475a6.562 6.562 0 0 0-6.562 6.563c0 .514.057 1.016.169 1.496-5.455-.274-10.291-2.887-13.53-6.858a6.544 6.544 0 0 0-.887 3.3 6.564 6.564 0 0 0 2.919 5.464 6.544 6.544 0 0 1-2.972-.82l-.001.081A6.568 6.568 0 0 0 6.5 16.138a6.606 6.606 0 0 1-2.963.113 6.572 6.572 0 0 0 6.13 4.558 13.166 13.166 0 0 1-8.15 2.811c-.53 0-1.053-.03-1.566-.092a18.592 18.592 0 0 0 10.06 2.947c12.072 0 18.675-10 18.675-18.675 0-.284-.008-.568-.02-.85a13.315 13.315 0 0 0 3.276-3.398z"/></symbol><symbol id="icon-warning" viewBox="0 0 16.5 14.5"><path d="M7.9 4.7v2.9l.2 2.3h.4l.2-2.3V4.7h-.8zm0 7.2h.8v-1h-.8v1z"/><path d="M8.3 1c.4 0 .8.3 1 .8.5 1 3.5 5.9 5.1 8.6.5.8.8 1.4.9 1.5.2.3.2.8-.1 1.2-.2.4-.6.4-.7.4h-13c-.1-.1-.5-.3-.7-.6-.1-.3-.1-.8.2-1.3 0-.1 4.7-7.8 5.9-9.7.6-.6 1-.9 1.4-.9m0-1c-.7 0-1.4.4-2 1.4C5.1 3.3.4 11.1.4 11.1c-1.4 2.5.9 3.4 1.2 3.4h13.1c1.6 0 2.2-2 1.6-3.1-.4-.7-5.3-8.8-6-10.1C9.8.5 9.1 0 8.3 0z"/></symbol></svg></div>
+    <div class="svg_filters" style="display: none">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <filter id="grayscale">
+          <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"></feColorMatrix>
+        </filter>
+      </svg>
+    </div>
+    <!--BEGIN out-->
+    <div class="out">
+      <div class="wrapper">
+        <div class="header">
+          <div class="inner">
+            <div class="header-inner"><a class="logo white" href="/"></a>
+              <div class="header-navigation white">
+                <div class="navigation">
+                  <div class="navigation-body">
+                    <div class="navigation-body-inner">
+                      <ul class="navigation-list">
+                        <li class="navigation-item">
+                          <div class="navigation-item_head"><a href="">Services</a><i class="navigation-item_trigger"><i>
+                                <svg class="icon icon-down">
+                                  <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg></i></i></div>
+                          <div class="navigation-item_body">
+                            <ul class="list-links">
+                              <li class="list-item"><a href="#">IT Strategy &amp; Consulting</a></li>
+                              <li class="list-item"><a href="#">Application Development</a></li>
+                              <li class="list-item"><a href="#">Product Engineering</a></li>
+                              <li class="list-item"><a href="#">Systems Integration</a></li>
+                              <li class="list-item"><a href="#">QA &amp; Testing</a></li>
+                              <li class="list-item"><a href="#">Application Management</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navigation-item">
+                          <div class="navigation-item_head"><a href="">Solutions</a><i class="navigation-item_trigger"><i>
+                                <svg class="icon icon-down">
+                                  <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg></i></i></div>
+                          <div class="navigation-item_body">
+                            <ul class="list-links">
+                              <li class="list-item">
+                                <div class="navigation-item_head"><a href="#">Digital Enterprise</a><i class="navigation-item_trigger"><i>
+                                      <svg class="icon icon-down">
+                                        <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                      </svg></i></i></div>
+                                <div class="navigation-item_body">
+                                  <ul class="list-links">
+                                    <li class="list-item"><a href="#">Data Management</a></li>
+                                    <li class="list-item"><a href="#">Business Process Management</a></li>
+                                    <li class="list-item"><a href="#">Big Data & Analytics</a></li>
+                                    <li class="list-item"><a href="#">Collaboration</a></li>
+                                    <li class="list-item"><a href="#">Infrastructure Management</a></li>
+                                  </ul>
+                                </div>
+                              </li>
+                              <li class="list-item">
+                                <div class="navigation-item_head"><a href="#">Digital Engagement</a><i class="navigation-item_trigger"><i>
+                                      <svg class="icon icon-down">
+                                        <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                      </svg></i></i></div>
+                                <div class="navigation-item_body">
+                                  <ul class="list-links">
+                                    <li class="list-item"><a href="#">Data Management</a></li>
+                                    <li class="list-item"><a href="#">Business Process Management</a></li>
+                                    <li class="list-item"><a href="#">Big Data & Analytics</a></li>
+                                    <li class="list-item"><a href="#">Collaboration</a></li>
+                                    <li class="list-item"><a href="#">Infrastructure Management</a></li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navigation-item">
+                          <div class="navigation-item_head"><a href="">Technologies</a><i class="navigation-item_trigger"><i>
+                                <svg class="icon icon-down">
+                                  <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg></i></i></div>
+                          <div class="navigation-item_body">
+                            <ul class="list-links">
+                              <li class="list-item"><a href="#">Core Technologies</a></li>
+                              <li class="list-item"><a href="#">R&amp;D</a></li>
+                              <li class="list-item"><a href="#">Cloud</a></li>
+                              <li class="list-item"><a href="#">Mobility</a></li>
+                              <li class="list-item"><a href="#">Internet of Things</a></li>
+                              <li class="list-item"><a href="#">Augmented &amp; Virtual Reality</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navigation-item">
+                          <div class="navigation-item_head"><a href="">Domains</a><i class="navigation-item_trigger"><i>
+                                <svg class="icon icon-down">
+                                  <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg></i></i></div>
+                          <div class="navigation-item_body">
+                            <ul class="list-links">
+                              <li class="list-item"><a href="#">Domain 1</a></li>
+                              <li class="list-item"><a href="#">Domain 2</a></li>
+                              <li class="list-item"><a href="#">Domain 3</a></li>
+                              <li class="list-item"><a href="#">Domain 4</a></li>
+                              <li class="list-item"><a href="#">Domain 5</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="navigation-item">
+                          <div class="navigation-item_head"><a class="active" href="">Company</a><i class="navigation-item_trigger"><i>
+                                <svg class="icon icon-down">
+                                  <use xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                </svg></i></i></div>
+                          <div class="navigation-item_body">
+                            <ul class="list-links">
+                              <li class="list-item"><a href="#">About</a></li>
+                              <li class="list-item"><a href="#">Advantages</a></li>
+                              <li class="list-item"><a href="#">Approach</a></li>
+                              <li class="list-item"><a href="#">Awards and Recognition</a></li>
+                              <li class="list-item"><a href="#">Partnership</a></li>
+                              <li class="list-item"><a href="#">Career</a></li>
+                              <li class="list-item"><a href="#">Portfolio</a></li>
+                              <li class="list-item"><a href="#">Blog</a></li>
+                            </ul>
+                          </div>
+                        </li>
+                      </ul>
+                      <button class="navigation-link scrollto" type="button"><span>Contacts us</span></button>
+                    </div>
+                  </div>
+                  <div class="navigation-bg"></div>
+                  <div class="burger">
+                    <div class="humburger"><span></span><span></span><span></span></div>
+                    <div class="cross"><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="message">
+                <div class="message-cover">
+                  <svg class="icon icon-message">
+                    <use xlink:href="#icon-message" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="header-bg"></div>
+          </div>
+        </div>
+        <div class="wrap wrap-inner">
+          <div class="intro">
+            <div class="intro-bg">
+              <div class="intro-bg_in" style="background-image: url(img/blog-inner.jpg)"></div>
+            </div>
+            <div class="l">
+              <div class="intro-inner">
+                <div class="intro-head">
+                  <div class="bread-crumbs">
+                    <ul class="bread-crumbs_list">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Company</a></li>
+                      <li><span>Blog</span></li>
+                    </ul>
+                  </div>
+                  <h2>Bringing Long-Distance Collaboration to&nbsp;the&nbsp;Next Level, or Why Itransition Opened an Office in the UK</h2>
+                  <div class="read-time">Reading time: 15 min.</div>
+                </div>
+              </div>
+              <div class="intro-bottom">
+                <div class="intro-bottom_left">
+                  <div class="user">
+                    <div class="user-pic"><img src="img/writers/user.png"></div>
+                    <div class="user-info">
+                      <div class="user-name">Yury Chernikov</div>
+                      <div class="user-position">Head of Presales and Business Development</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="intro-bottom_right">
+                  <div class="share-center">
+                    <div class="share-head">
+                      <div class="share-trigger" type="button"><i>
+                          <svg class="icon icon-share">
+                            <use xlink:href="#icon-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                          </svg></i><span>Share</span></div>
+                    </div>
+                    <div class="share-body">
+                      <div class="share-container"><a class="share-item" href="#" data-social="facebook"><i class="icon icon-facebook"><img src="img/icons/icon-facebook.jpg"></i><span>Facebook</span></a><a class="share-item" href="#" data-social="twitter"><i class="icon icon-twitter"><img src="img/icons/icon-twitter.jpg"></i><span>Twitter</span></a><a class="share-item" href="#" data-social="linkedin"><i class="icon icon-linkedin"><img src="img/icons/icon-linkedin.jpg"></i><span>LinkedIn</span></a><a class="share-item" href="#" data-social="googleplus"><i class="icon icon-google"><img src="img/icons/icon-google.jpg"></i><span>Google+</span></a><a class="share-item" href="#"><i class="icon icon-rss"><img src="img/icons/icon-rss.jpg"></i><span>RSS</span></a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="section">
+            <div class="section-inner">
+              <div class="l">
+                <div class="text-container">
+                  <div class="text-inner">
+                    <p class="lead">When it comes to opening a regional office overseas, there is a ple&shy;thora of factors to consider, starting from operational costs up to added value. At Itransition, we have been debating whether to open a formal office in the UK for quite a while.</p>
+                    <p>Due to the proximity to our main Production Centre in Belarus, it was easier to hop on a plane and get to a business meeting in just a few hours. But as every business evolves over time, ours did too, bringing considerable changes to company goals, priorities and ambitions. Eventually, a regional office was officially established in Canary Wharf, London. This text discusses different branch office modes Itransition has tried over the years, the scheme we consider optimal for us at the moment, the offshore/local dilemma as well as some considerations on the efficient mixed team approach.</p>
+                  </div>
+                  <div class="figure-container">
+                    <figure class="figure"><img src="img/image-content/img-1.jpg">
+                      <figcaption class="figcaption">Settling in the new office</figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <div class="text-inner">
+                    <div class="title-head">
+                      <h3 class="h3"><span> <strong>Representative office modes </strong></span>we have tried</h3>
+                    </div>
+                    <p>Itransition has tried different options of setting up an office in London. As a legal entity, we have been working in the UK market for over a decade and our sales representatives have been offering our services for the UK clients for almost the same period. But, obviously, a pure sales front-office, however solid it is, is not enough to bring real value to the company. In the US, for instance, our onsite team always covers the production cycle by local specialists at least partly. In the UK, though, it was much more economically viable to fly out the necessary professionals whenever needed.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section full-color">
+            <div class="section-inner">
+              <div class="l">
+                <div class="table-container table_column">
+                  <div class="table-container_head">
+                    <h4>Representative office modes</h4>
+                  </div>
+                  <div class="table-container_body">
+                    <table class="responsive">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>USA</th>
+                          <th>UK</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-tie">
+                                                          <use xlink:href="#icon-tie" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Typical primary entry point of contact</div>
+                                                  </th>
+                                                  <td data-title="USA">Business owner or member or the board.</td>
+                                                  <td data-title="UK">Personal Assistant or functional manager.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-headphones">
+                                                          <use xlink:href="#icon-headphones" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Speed of communication</div>
+                                                  </th>
+                                                  <td data-title="USA">24 hours reply.</td>
+                                                  <td data-title="UK">48-72 hours reply.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-card">
+                                                          <use xlink:href="#icon-card" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Typical client profile</div>
+                                                  </th>
+                                                  <td data-title="USA">Startups, high tech companies and multinational corporations.</td>
+                                                  <td data-title="UK">Companies servicing the gover- ment sector, independent software vendors, multinational corporations.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-docs">
+                                                          <use xlink:href="#icon-docs" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Project requirements: documentation completeness and clarity</div>
+                                                  </th>
+                                                  <td data-title="USA">Information is given from the business needs are describedthe way the owner sees them. The vision is board.</td>
+                                                  <td data-title="UK">Requirements are more technical and issue oriented. The goal is to solve a particular issue here and now: automate a process, engineer code, develop a module. The vision is more narrow.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-handshake">
+                                                          <use xlink:href="#icon-handshake" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Attitude to long-term business relationship</div>
+                                                  </th>
+                                                  <td data-title="USA">A long-term relationship is the goal but you have very few chances to make mistakes. If you fail, you will part ways regadless of your successful track records. Barely no second chances</td>
+                                                  <td data-title="UK">If you solve incoming issues effec- tively, then the relationship may become long-term. The track record matters. You will be given a second chanceif your perfomance so far has been otherwise excellent.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-instrument">
+                                                          <use xlink:href="#icon-instrument" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Speed of decision making</div>
+                                                  </th>
+                                                  <td data-title="USA">Fast. From an inquiry to singing a deal — 90 days.</td>
+                                                  <td data-title="UK">Average. From an inquiry to signing a deal — up to 150 days.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-molecule">
+                                                          <use xlink:href="#icon-molecule" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Attitude to outsourcing</div>
+                                                  </th>
+                                                  <td data-title="USA">Very positive — most companies have had experience with outsourcing.</td>
+                                                  <td data-title="UK">Positive only with reprasentation. Provided there is a representative office and staff can visit and report often, the attitude is positive. Otherwise, your chances for success in a long-term partner- ship are lower.</td>
+                                                </tr>
+                                                <tr>
+                                                  <th> 
+                                                    <div class="title"><i>
+                                                        <svg class="icon icon-purse">
+                                                          <use xlink:href="#icon-purse" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                                        </svg></i>Typical entry contract budgets</div>
+                                                  </th>
+                                                  <td data-title="USA">Large budgets. Readiness to spend more money right away.</td>
+                                                  <td data-title="UK">Smaller budgets. The sun is broken down into iterations.</td>
+                                                </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-inner">
+              <div class="l">
+                <div class="text-container">
+                  <div class="text-inner">
+                    <p>So, for some time we used to follow a semi-local delivery office model. Our key specialists travelled to the UK regularly to work closer with our clients, better understand their actual business needs and realities, and provide extra confidence in our skills and capabilities, especially at the project beginning and during the final delivery. Besides, our account managers worked to overcome the concerns usually associated with offshore service providers and form long-term relationships with our key customers.</p>
+                    <p>Now, the company objectives evolved further and a transformation of our collaboration scheme became an indispensable step forward.</p>
+                  </div>
+                </div>
+                <div class="figure-container col-2">
+                  <figure class="figure"><img src="img/image-content/img-2.jpg">
+                    <figcaption class="figcaption">Compare 1</figcaption>
+                  </figure>
+                  <figure class="figure"><img src="img/image-content/img-3.jpg">
+                    <figcaption class="figcaption">Compare 2</figcaption>
+                  </figure>
+                </div>
+                <div class="text-container">
+                  <div class="text-inner">
+                    <div class="title-head">
+                      <h3 class="h3"><strong>So what is </strong>different now?</h3>
+                    </div>
+                    <p>The objective is that now we would like to bring our customers’ comfort to a completely new level. We want them to consider us their trusted regional IT partner, if not an integrated IT department. And it certainly involves a number of modifications to the format of our regional representation.</p>
+                    <p>Partnering with a multitude of clients from innovative startups to large global brands, we realized that the businesses and domains most interesting for us often cannot be effectively reached by current marketing channels and campaigns. So, we are seriously reinforcing the onsite sales team and boosting it with a solid presales expertise.</p>
+                    <p>Furthermore, the company account management is now handled under a unified Key account management program. It standardizes the business development interface for our new and existing clients, supports long-term relationships and enhances escalation proce&shy;dures, when needed.</p>
+                  </div>
+                  <div class="gallery-container">
+                    <div class="gallery gallery-main slider-for">
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                    </div>
+                    <div class="gallery gallery-thumbnails slider-thumbnails">
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                      <div class="gallery-item"><img src="img/image-content/img-4.jpg"></div>
+                    </div>
+                  </div>
+                  <div class="text-inner">
+                    <p>On the production front, we are planning to re-purpose the approach that proved its efficiency for our US office. An experienced team will work with the UK clients locally from our office in London. The focus will be set on the consulting and management parts, first of all, as we find them most practical when done onsite, with as much client involvement as possible.</p>
+                    <p>Key development, quality assurance and customer service expertise remains in Belarus, keeping our pricing strategy well-balanced. Though, we will still use the benefit of comparably insignificant proximity between our European offices to bring in core team leads onsite for the most important project stages and provide more flexibility and effectiveness.</p>
+                    <p>The updated office infrastructure seems quite solid and we genuinely believe that the software solutions we deliver can provide a strong technological backbone to enhance productivity of enterprises across the UK and the rest of Europe.</p>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <div class="text-inner">
+                    <div class="title-head">
+                      <h3 class="h3"><strong>Offshore  </strong>vs. Local</h3>
+                    </div>
+                    <p>The fact Itransition invests in well-established regional offices does not necessarily mean we are planning to limit the diversity of our engagement schemes. There are still a lot of cases where our new clients and existing partners do not really need us onsite. Smaller projects with straightforward requirements are easy to discuss and handle online and so can still be developed offshore, keeping both parties happy with the end result and the cost involved.</p>
+                    <p>However, a local presence certainly takes client relationships to a different level. When working with enterprise customers, for instance, decision- making is done in a completely different way: the client representatives we talk to directly are almost never the sole decision makers and report back to higher management. Each collaboration starts with a local sale contact who provides a powerful demonstration of what we do, persuades client representatives they made the right choice and helps communicate the idea to their supervisors. It is much more effective to do having a staff of professionals close to the clients. Besides, as hard as it may be to believe, not all companies are technically able to support multichannel video calls, so in those cases having a representative office is critical for business.</p>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <div class="important-info">
+                    <p>In most cases, though, a local team can effectively facilitate offshore services and&nbsp;we see serious potential in the balanced combination of both models.</p>
+                  </div>
+                </div>
+                <div class="figure-container">
+                  <figure class="figure"><img src="img/image-content/img-5.jpg">
+                    <figcaption class="figcaption">Andrey Syomkin, RFX manager from Minsk team, preparing for meeting with a local client</figcaption>
+                  </figure>
+                </div>
+                <div class="text-container">
+                  <div class="text-inner">
+                    <div class="title-head">
+                      <h3 class="h3"><span> <strong>Working in Mixed </strong></span>International Teams</h3>
+                    </div>
+                    <div class="footnote-container">
+                      <p>At Itransition we have been practicing the mixed team approach for many years now, experimenting with the level of local involvement, various development methodologies, delivery schemes and so forth.</p>
+                      <div class="footnote">
+                        <p>2 managers needed for&nbsp;mixed teams</p>
+                      </div>
+                    </div>
+                    <p>One of the organizational aspects we are exploring now and find quite important is the double subordination within our mixed teams. We have an operational manager in the Production Centre and a local manager in the regional office that both work with the same account, but have different areas of responsibility. The first coordinates the development team directly:</p>
+                    <ul class="dash">
+                      <li>manages daily routines;</li>
+                      <li>handles communication within the team and cooperation between various departments.</li>
+                    </ul>
+                    <p>The other supervises onsite activities – typically, core architecture set-up and business analysis:</p>
+                    <ul class="dash">
+                      <li>provides status updates;</li>
+                      <li>presentations and demonstrations;</li>
+                      <li>sometimes handles account management duties as well.</li>
+                    </ul>
+                    <p>There are also distinct peculiarities of organizing distributed teams, when another vendor or the client’s in-house team works on a project in parallel with us. It may sound trivial, but the atmosphere in the team is crucial. The client’s employees have to be sure we are not there to replace them, but rather extend the capabilities and get better results together. That is where intensive communication is important on all levels.</p>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <div class="important-info">
+                    <p>Our account managers work close with the client’s management to set up the right tone of cooperation.  We encourage frequent onsite trips for regular  team members.</p>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <div class="text-inner">
+                    <p>Daily stand-up meetings are also quite effective in this sense to create the feeling of unity no matter where any team member is situated geographically. And the effect is even more prominent for mixed Agile teams that include client’s employees and our specialists. This set-up can seem challenging as you make people from different companies handle the same tasks together, but, done right, it extracts unbelievable synergy as the team unites around common project goals.</p>
+                  </div>
+                </div>
+                <div class="text-container">
+                  <blockquote class="blockquote">
+                    <div class="blockquote-text">
+                      <p>One thing that's impressed us the most of the owner&shy;ship they take over their work. If it’s half past eight or nine in the evening where they are, it’s more than likely that they’re working on our features or impro&shy;ving something for us. They don’t nickel and dime you for their time.</p>
+                    </div>
+                    <div class="user">
+                      <div class="user-pic"><img src="img/writers/user.png"></div>
+                      <div class="user-info">
+                        <div class="user-name">Bill Chairman</div>
+                        <div class="user-position">Chair Co., Head of Presales and Business Development</div>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+                <div class="text-container">
+                  <div class="wrap-tags_share">
+                    <div class="wrap-tags_share-inner">
+                      <div class="tags">
+                        <div class="tags-name">Tags:</div>
+                        <div class="tags-list"><a class="tags-item" href=""><span>News</span></a><a class="tags-item" href=""><span>Options</span></a><a class="tags-item" href=""><span>2016</span></a>
+                        </div>
+                      </div>
+                      <div class="share">
+                        <div class="share-name">Share:</div>
+                        <div class="share-list">
+                          <button class="share-item share-item_facebook" type="button" data-social="facebook"><i class="share-facebook">
+                              <svg class="icon icon-facebook-share">
+                                <use xlink:href="#icon-facebook-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                              </svg></i><span class="counter" data-counter="facebook"></span></button>
+                          <button class="share-item share-item_twitter" type="button" data-social="twitter"><i class="share-twitter">
+                              <svg class="icon icon-twitter-share">
+                                <use xlink:href="#icon-twitter-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                              </svg></i></button>
+                          <button class="share-item share-item_linked" type="button" data-social="linkedin"><i class="share-linkedin">
+                              <svg class="icon icon-linkedin-share">
+                                <use xlink:href="#icon-linked-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                              </svg></i><span class="counter" data-counter="linkedin"></span></button>
+                          <button class="share-item share-item_googleplus" type="button" data-social="googleplus"><i class="share-googleplus">
+                              <svg class="icon icon-googleplus-share">
+                                <use xlink:href="#icon-googleplus-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                              </svg></i></button><a class="share-item share-item_rss" href="#"><i class="share-rss">
+                              <svg class="icon icon-rss-share">
+                                <use xlink:href="#icon-rss-share" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                              </svg></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section full-color">
+            <div class="section-inner">
+              <div class="l">
+                <div class="more-container">
+                  <div class="title-head">
+                    <h2>more on the <strong>Topic</strong></h2>
+                  </div>
+                  <div class="card-container">
+                                        <div class="card medium-width"><a href="#">
+                                            <div class="image-container">
+                                              <div class="img" style="background-image: url(img/blog/blog-3.jpg)"></div>
+                                            </div>
+                                            <div class="read-time">Reading time: 15 min.</div>
+                                            <div class="card-info">
+                                              <div class="author">By Press Office</div>
+                                              <div class="title">How to Conduct International Negotiations</div>
+                                            </div></a></div>
+                                        <div class="card small-width"><a href="#">
+                                            <div class="image-container">
+                                              <div class="img" style="background-image: url(img/blog/blog-3.jpg)"></div>
+                                            </div>
+                                            <div class="read-time">Reading time: 15 min.</div>
+                                            <div class="card-info">
+                                              <div class="author">By Press Office</div>
+                                              <div class="title">Itransition Ranked Among Top Companies on IAOP 2016 Global...</div>
+                                            </div></a></div>
+                                        <div class="card small-width"><a href="#">
+                                            <div class="image-container">
+                                              <div class="img" style="background-image: url(img/blog/blog-3.jpg)"></div>
+                                            </div>
+                                            <div class="read-time">Reading time: 15 min.</div>
+                                            <div class="card-info">
+                                              <div class="author">By Press Office</div>
+                                              <div class="title">Customer Testimonial: Anthony Peccerillo</div>
+                                            </div></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-topper" id="contacts">
+          <div class="l">
+            <div class="section">
+              <h3 class="section-title">Contact Us</h3>
+              <div class="feedback-form center">
+                <div class="feedback-form_inner">
+                  <form class="form js-validation" id="form-footer" method="" action="fileupload.php" data-maxfilesize="10" data-maxfile="5">
+                    <input class="hidden" type="text">
+                    <div class="form-row">
+                      <div class="form-field">
+                        <div class="form-field_group">
+                          <input class="input js-empty" type="text" name="name" data-validation="required" data-validation-error-msg="Specify your full name — we’ll discuss your project in person">
+                          <label class="form-label"><span>Full name</span></label><i class="warning">
+                            <svg class="icon icon-warning">
+                              <use xlink:href="#icon-warning" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                            </svg></i>
+                        </div>
+                      </div>
+                      <div class="form-field">
+                        <div class="form-field_group">
+                          <input class="input js-empty" type="email" name="email" data-validation="email" data-validation-error-msg="Please fill the field or enter a valid email">
+                          <label class="form-label"><span>E-mail</span></label><i class="warning">
+                            <svg class="icon icon-warning">
+                              <use xlink:href="#icon-warning" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                            </svg></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-field">
+                        <div class="form-field_group">
+                          <input class="input js-empty" type="tel" name="phone" data-validation="length" data-validation-length="4-19" data-validation-error-msg="Please fill the field or enter a valid phone number">
+                          <label class="form-label"><span>Phone number</span></label><i class="warning">
+                            <svg class="icon icon-warning">
+                              <use xlink:href="#icon-warning" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                            </svg></i>
+                        </div>
+                      </div>
+                      <div class="form-field">
+                        <div class="form-field_group">
+                          <div class="selectBox">
+                            <select class="selectbox" data-validation="length" size="2" data-validation-length="min1" data-validation-error-msg="Please fill the field" name="country">
+                              <option value="United States">United States</option>
+                              <option value="United Kingdom">United Kingdom</option>
+                              <option value="Afghanistan">Afghanistan</option>
+                              <option value="Aland Islands">Aland Islands</option>
+                              <option value="Albania">Albania</option>
+                              <option value="Algeria">Algeria</option>
+                              <option value="American Samoa">American Samoa</option>
+                              <option value="United States">United States</option>
+                              <option value="United Kingdom">United Kingdom</option>
+                              <option value="Afghanistan">Afghanistan</option>
+                              <option value="Aland Islands">Aland Islands</option>
+                              <option value="Albania">Albania</option>
+                              <option value="Algeria">Algeria</option>
+                              <option value="American Samoa">American Samoa</option>
+                            </select>
+                            <div class="select-container">
+                              <div class="select-text_container">
+                                <div class="select-text"></div>
+                                <div class="select-arrow">
+                                  <svg class="icon icon-drop">
+                                    <use xlink:href="#icon-drop" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg>
+                                </div>
+                              </div>
+                              <div class="select-dropdown"></div>
+                            </div>
+                          </div>
+                          <label class="form-label"><span>Country</span></label><i class="warning">
+                            <svg class="icon icon-warning">
+                              <use xlink:href="#icon-warning"></use>
+                            </svg></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-field form-field_textarea">
+                        <div class="form-field_group">
+                          <textarea class="textarea js-empty" type="text" name="message"></textarea>
+                          <label class="form-label"><span>Describe your idea</span></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-field">
+                        <div class="form-field_group form-field_file-collection">
+                          <div class="form-field_file-item">
+                            <div class="upload-files" id="dropzone">
+                              <div class="drop-row"><i class="icon">
+                                  <svg class="icon icon-plus">
+                                    <use xlink:href="#icon-plus" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg></i><span>Attach file</span></div>
+                              <div class="msg-container"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-field">
+                        <div class="form-field_group">
+                          <button class="submit-feedback" type="submit"><span>Send your message</span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <div id="previewTemplate">
+                    <div class="dz-preview dz-file-preview">
+                      <div class="dz-details">
+                        <div class="dz-filename"><span class="dz-name" data-dz-name></span><span class="dz-size" data-dz-size></span><span class="dz-remove" data-dz-remove></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="feedback-text">
+                <div class="textblock">
+                  <div class="textblock-title">
+                    <p>United States</p>
+                  </div>
+                  <div class="textblock-content">
+                    <p>720 207 2820</p>
+                  </div>
+                </div>
+                <div class="textblock">
+                  <div class="textblock-title">
+                    <p>United Kingdom</p>
+                  </div>
+                  <div class="textblock-content">
+                    <p>44 20 7712 1502 <br> Sales inquiries</p>
+                    <p>44 20 7712 1505 <br> General inquiries</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="l">
+            <div class="copyright">© 2016, Itransition</div><a class="private" href="#">Privacy Policy</a>
+            <div class="center">
+              <div class="social"><a class="social-item" href="#">
+                                  <svg class="icon icon-facebook">
+                                    <use xlink:href="#icon-facebook" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg></a><a class="social-item" href="#">
+                                  <svg class="icon icon-linked">
+                                    <use xlink:href="#icon-linked" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg></a><a class="social-item" href="#">
+                                  <svg class="icon icon-twit">
+                                    <use xlink:href="#icon-twit" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg></a><a class="social-item" href="#">
+                                  <svg class="icon icon-rss">
+                                    <use xlink:href="#icon-rss" xmlns:xlink="http://www.w3.org/1999/xlink"></use>
+                                  </svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END out-->
+    <script src="https://cdn.jsdelivr.net/jquery.goodshare.js/4/goodshare.min.js"></script>
+    <script src="js/lib.min.js"></script>
+    <script src="js/common.min.js"></script>
+  </body>
+</html>

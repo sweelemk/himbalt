@@ -1,0 +1,91 @@
+.navigation
+	.navigation-body
+		.navigation-body-inner
+			ul.navigation-list
+				li.navigation-item
+					.navigation-item_head
+						a(href="") Services
+						i.navigation-item_trigger
+							i
+								svg.icon.icon-down
+									use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.navigation-item_body
+						ul.list-links
+							- var items = ["IT Strategy & Consulting", "Application Development", "Product Engineering", "Systems Integration", "QA & Testing", "Application Management"]
+							each item in items
+								li.list-item
+									a(href="#") #{item}
+				li.navigation-item
+					.navigation-item_head
+						a(href="") Solutions
+						i.navigation-item_trigger
+							i
+								svg.icon.icon-down
+									use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.navigation-item_body
+						ul.list-links
+							- var items = ["Digital Enterprise", "Digital Engagement"]
+							each item in items
+								li.list-item
+									.navigation-item_head
+										a(href="#") #{item}
+										i.navigation-item_trigger
+											i
+												svg.icon.icon-down
+													use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+									.navigation-item_body
+										ul.list-links
+											li.list-item
+												a(href="#") Data Management
+											li.list-item
+												a(href="#") Business Process Management
+											li.list-item
+												a(href="#") Big Data & Analytics
+											li.list-item
+												a(href="#") Collaboration
+											li.list-item
+												a(href="#") Infrastructure Management
+				li.navigation-item
+					.navigation-item_head
+						a(href="") Technologies
+						i.navigation-item_trigger
+							i
+								svg.icon.icon-down
+									use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.navigation-item_body
+						ul.list-links
+							- var items = ["Core Technologies", "R&D", "Cloud", "Mobility", "Internet of Things", "Augmented & Virtual Reality"]
+							each item in items
+								li.list-item
+									a(href="#") #{item}
+				li.navigation-item
+					.navigation-item_head
+						a(href="") Domains
+						i.navigation-item_trigger
+							i
+								svg.icon.icon-down
+									use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.navigation-item_body
+						ul.list-links
+							- var items = ["Domain 1", "Domain 2", "Domain 3", "Domain 4", "Domain 5"]
+							each item in items
+								li.list-item
+									a(href="#") #{item}
+				li.navigation-item
+					.navigation-item_head
+						a(href="" class="active") Company
+						i.navigation-item_trigger
+							i
+								svg.icon.icon-down
+									use(xlink:href="#icon-down" xmlns:xlink="http://www.w3.org/1999/xlink")
+					.navigation-item_body
+						ul.list-links
+							- var items = ["About", "Advantages", "Approach", "Awards and Recognition", "Partnership", "Career", "Portfolio", "Blog"]
+							each item in items
+								li.list-item
+									a(href="#") #{item}
+
+			button(class="navigation-link scrollto" type="button")
+				span Contacts us
+	.navigation-bg
+	include ../includes/_burger

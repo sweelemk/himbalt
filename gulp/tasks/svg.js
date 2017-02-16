@@ -32,5 +32,7 @@ gulp.task('svgmin', function(){
 
 gulp.task('svg:watch', function() {
     gulp.watch(config.src.svg + '*', ['svg']);
-    gulp.watch(config.src.svg + '*', ['svgmin']);
 });
+gulp.task('svgmin:watch', function() {
+    gulp.watch(config.src.svg + '*', ['svgmin']);
+})
