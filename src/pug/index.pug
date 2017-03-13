@@ -1,5 +1,25 @@
 extends _layout
 
 block title
-	title Blog
+	title Index
 block content
+	.root_wrapper.load-dom
+		i.overlay
+		.ui-menu
+			span.ui-menu__content
+				i.ui-menu-line.ui-menu-line-1
+				i.ui-menu-line.ui-menu-line-2
+				i.ui-menu-line.ui-menu-line-3
+		.root_frame
+			.root_frame-content
+				.pages
+					section.constant-section
+						include includes/_constant-section
+					section.variable-section.main-page
+						- var Index = true
+						if(Index)
+							.logo
+						else
+							a(href="/" class="js-link")
+						.loader-container
+							.section-scroll(data-pages="index")

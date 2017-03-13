@@ -1,0 +1,24 @@
+.lang
+	.lang-inner
+		a(href="/" class="active")
+			span en
+		a(href="/")
+			span ru
+.account
+	a(href="#" class="account-enter")
+		span Personal account
+nav.navigation-site
+	ul.navigation-list
+		- var navList = ["Base oils", "Petrochemicals", "Paraffin wax"]
+		each nav in navList
+			li.navigation-item
+				a.js-link(href="#")
+					span #{nav}
+.company-based
+	i.icon.icon-based
+address.address
+	.address-item
+		p Tvaika iela, 35, LV-1034, Riga, Latvia
+	.address-item
+		a(href="#" class="js-link")
+			span Contact us
