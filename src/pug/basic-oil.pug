@@ -12,21 +12,20 @@ block content
 				i.ui-menu-line.ui-menu-line-3
 		.root_frame
 			.root_frame-content
-				.pages
-					section.constant-section
+				.pages.inner-page
+					section.constant-section.inactive
 						include includes/_constant-section
 					section.variable-section
-						- var Index = true
+						- var Index = false
 						if(Index)
 							.logo
 						else
 							a(href="/" class="js-link logo")
-						.breadcumbs
+						.breadcumbs.show
 							.breadcumbs-inner
 								a(href="/" class="js-link")
-									span main
+									span Products
 						.loader-container
-							.section-scroll.js-ajx(data-pages="false")
-
+							.section-scroll.js-ajx(data-pages="true")
 		- var active = "Home"
 		include includes/_navigation

@@ -75,6 +75,13 @@ body {
   overflow: hidden;
   background-color: #ac252a;
   font-family: "FiraSansBook"; }
+  body.navigation_show .overlay {
+    opacity: 1;
+    visibility: visible; }
+  body.navigation_show .menu {
+    -webkit-transform: translate(-100%, 0);
+    -ms-transform: translate(-100%, 0);
+    transform: translate(-100%, 0); }
 
 .root {
   position: relative;
@@ -94,14 +101,14 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.22);
   z-index: 15;
-  -webkit-transition: opacity 0.3s ease, visibility  0.3s ease;
-  transition: opacity 0.3s ease, visibility  0.3s ease;
+  -webkit-transition: opacity 0.3s linear, visibility  0.3s linear;
+  transition: opacity 0.3s linear, visibility  0.3s linear;
   opacity: 0;
   visibility: hidden; }
 
 .ui-menu {
   position: absolute;
-  z-index: 20;
+  z-index: 910;
   right: 20px;
   top: 20px;
   padding: 30px;
@@ -157,23 +164,23 @@ body {
   top: 0;
   left: 0; }
 
-.constant-section {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 38.43%;
-  z-index: 5; }
-
 .variable-section {
   position: absolute;
   top: 0;
   height: 100%;
   background-color: #fff;
   right: 0;
-  z-index: 3;
+  z-index: 5;
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease;
   width: 0; }
+
+.constant-section {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 38.43%;
+  z-index: 3; }
 
 .logo {
   position: absolute;
@@ -183,7 +190,10 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   top: 3.125rem;
-  left: 5.3125rem; }
+  left: 5.3125rem;
+  z-index: 4;
+  -webkit-transition: left 0.3s linear;
+  transition: left 0.3s linear; }
 
 .loader-container {
   position: absolute;
@@ -196,10 +206,15 @@ body {
   -webkit-transition: width 0.5s ease;
   transition: width 0.5s ease; }
 
-.load-dom .variable-section.main-page {
+.load-dom .variable-section {
   width: 61.56%; }
-  .load-dom .variable-section.main-page .loader-container {
+  .load-dom .variable-section .loader-container {
     width: 61.56vw; }
+
+.load-dom .inner-page .variable-section {
+  width: 80.9%; }
+  .load-dom .inner-page .variable-section .loader-container {
+    width: 80.9vw; }
 
 .lang {
   position: absolute;
@@ -244,7 +259,9 @@ body {
   position: absolute;
   left: 34.1%;
   z-index: 2;
-  top: 26.8%; }
+  top: 26.8%;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear; }
   .navigation-site .navigation-list .navigation-item {
     display: block; }
     .navigation-site .navigation-list .navigation-item a {
@@ -285,7 +302,9 @@ body {
 .address {
   position: absolute;
   bottom: 3rem;
-  left: 34.1%; }
+  left: 34.1%;
+  -webkit-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear; }
   .address .address-item:not(:last-child) {
     margin-bottom: 0.3125rem; }
   .address .address-item p {
@@ -302,6 +321,75 @@ body {
     -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease; }
     .address .address-item a:hover {
+      color: #e3a7aa; }
+
+.inactive .navigation-site, .inactive .address {
+  opacity: 0.5; }
+
+.menu {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 915;
+  background-color: #fff;
+  -webkit-transform-style: flat;
+  transform-style: flat;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 50%;
+  left: 100%;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear; }
+
+.menu_content {
+  position: absolute;
+  background-color: #eee;
+  right: 3.125rem;
+  top: 3.125rem;
+  bottom: 6.875rem;
+  left: 3.125rem; }
+  .menu_content .lang {
+    top: 0;
+    left: 0; }
+  .menu_content .account {
+    top: 0.5rem;
+    left: 23.5%; }
+    .menu_content .account .account-enter span {
+      color: #1c1c1c; }
+
+.inner-page .logo {
+  left: 3.5rem; }
+
+.breadcumbs {
+  position: fixed;
+  left: 2.5rem;
+  top: 54.1%;
+  height: 50px;
+  width: 50px;
+  -webkit-transform: translate(-10rem, 0);
+  -ms-transform: translate(-10rem, 0);
+  transform: translate(-10rem, 0);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  transition: -webkit-transform 0.3s linear;
+  transition: transform 0.3s linear;
+  transition: transform 0.3s linear, -webkit-transform 0.3s linear; }
+  .breadcumbs.show {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none; }
+  .breadcumbs .breadcumbs-inner {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .breadcumbs .breadcumbs-inner a span {
+      font-family: "FiraSansMedium";
+      font-size: 2.625rem;
+      color: #fff;
+      -webkit-transition: color 0.3s ease;
+      transition: color 0.3s ease; }
+    .breadcumbs .breadcumbs-inner a:hover span {
       color: #e3a7aa; }
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 

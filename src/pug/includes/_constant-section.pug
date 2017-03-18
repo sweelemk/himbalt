@@ -10,10 +10,17 @@
 nav.navigation-site
 	ul.navigation-list
 		- var navList = ["Base oils", "Petrochemicals", "Paraffin wax"]
-		each nav in navList
+		//- each nav in navList
+			//- li.navigation-item
+			//- 	a.js-link(href="#")
+			//- 		span #{nav}
+		mixin navMix(name, link)
 			li.navigation-item
-				a.js-link(href="#")
-					span #{nav}
+				a.js-link(href=link)
+					span #{name}
+		+navMix("Base oils", "basic-oil.html")
+		+navMix("Petrochemicals", "basic-oil.html")
+		+navMix("Paraffin wax", "basic-oil.html")
 .company-based
 	i.icon.icon-based
 address.address

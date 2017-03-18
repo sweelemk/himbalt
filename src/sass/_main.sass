@@ -18,6 +18,12 @@ body
 	overflow: hidden
 	background-color: $maincolor
 	font-family: $Book
+	&.navigation_show
+		.overlay
+			opacity: 1
+			visibility: visible
+		.menu
+			transform: translate(-100%, 0)
 .root
 	position: relative
 	width: 100%
@@ -34,12 +40,12 @@ body
 	height: 100%
 	background-color: rgba(0, 0, 0, .22)
 	z-index: 15
-	transition: opacity 0.3s ease, visibility  0.3s ease
+	transition: opacity 0.3s linear, visibility  0.3s linear
 	opacity: 0
 	visibility: hidden
 .ui-menu
 	position: absolute
-	z-index: 20
+	z-index: 910
 	right: 20px
 	top: 20px
 	padding: 30px
@@ -84,21 +90,21 @@ body
 	height: 100%
 	top: 0
 	left: 0
-.constant-section
-	position: absolute
-	top: 0
-	height: 100%
-	width: 38.43%
-	z-index: 5
 .variable-section
 	position: absolute
 	top: 0
 	height: 100%
 	background-color: $white
 	right: 0
-	z-index: 3
+	z-index: 5
 	transition: width 0.5s ease
 	width: 0
+.constant-section
+	position: absolute
+	top: 0
+	height: 100%
+	width: 38.43%
+	z-index: 3
 .logo
 	position: absolute
 	+rem(width, 160px)
@@ -108,6 +114,8 @@ body
 	background-repeat: no-repeat
 	+rem(top, 50px)
 	+rem(left, 85px)
+	z-index: 4
+	transition: left 0.3s linear
 .loader-container
 	position: absolute
 	top: 0
@@ -119,10 +127,14 @@ body
 	transition: width 0.5s ease
 .load-dom
 	.variable-section
-		&.main-page
-			width: 61.56%
+		width: 61.56%
+		.loader-container
+			width: 61.56vw
+	.inner-page
+		.variable-section
+			width: 80.9%
 			.loader-container
-				width: 61.56vw
+				width: 80.9vw
 .lang
 	position: absolute
 	+rem(top, 50px)
@@ -166,6 +178,7 @@ body
 	left: 34.1%
 	z-index: 2
 	top: 26.8%
+	transition: opacity 0.3s linear
 	.navigation-list
 		.navigation-item
 			display: block
@@ -208,6 +221,7 @@ body
 	position: absolute
 	+rem(bottom, 48px)
 	left: 34.1%
+	transition: opacity 0.3s linear
 	.address-item
 		&:not(:last-child)
 			+rem(margin-bottom, 5px)
@@ -225,3 +239,57 @@ body
 			transition: color 0.3s ease
 			&:hover
 				color: $hover
+.inactive
+	.navigation-site, .address
+		opacity: 0.5
+.menu
+	position: absolute
+	top: 0
+	height: 100%
+	z-index: 915
+	background-color: $white
+	transform-style: flat
+	backface-visibility: hidden
+	width: 50%
+	left: 100%
+	transition: transform 0.3s linear
+.menu_content
+	position: absolute
+	background-color: #eee
+	+rem(right, 50px)
+	+rem(top, 50px)
+	+rem(bottom, 110px)
+	+rem(left, 50px)
+	.lang
+		top: 0
+		left: 0
+	.account
+		+rem(top, 8px)
+		left: 23.5%
+		.account-enter
+			span
+				color: $darkHover
+.inner-page
+	.logo
+		+rem(left, 56px)
+.breadcumbs
+	position: fixed
+	+rem(left, 40px)
+	top: 54.1%
+	height: 50px
+	width: 50px
+	transform: translate(-10rem, 0)
+	transition: transform 0.3s linear
+	&.show
+		transform: none
+	.breadcumbs-inner
+		transform: rotate(-90deg)
+		a 
+			span
+				font-family: $Medium
+				+rem(font-size, 42px)
+				color: $white
+				transition: color 0.3s ease
+			&:hover
+				span 
+					color: $hover
