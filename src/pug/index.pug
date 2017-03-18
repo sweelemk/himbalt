@@ -26,7 +26,28 @@ block content
 								a(href="/" class="js-link")
 									span main
 						.loader-container
-							.section-scroll.js-ajx(data-pages="false")
-
+							.contacts-header
+								ul.contacts
+									li.contacts-item
+										a.phone(href="callto:+37166165507")
+											span +371 6616 5507
+									li.contacts-item
+										a.skype(href="skype:himbalt.lv?call")
+											i.icon.icon-skype
+												svg(class="icon")
+													use(xlink:href="#icon-skype")
+											span himbalt.lv
+									li.contacts-item
+										a.mail(href="mailto:info@himbalt.lv")
+											span info@himbalt.lv
+							.section-scroll-container
+								.section-scroll.js-ajx(data-pages="false")
+									.intro-head.index-page
+										h1.h1
+											span Twenty five 
+											| years of effective operations in the petroleum products market
+										.mouse
+											.mousewheel
+									.container-content
 		- var active = "Home"
 		include includes/_navigation

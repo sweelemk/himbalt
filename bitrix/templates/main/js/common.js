@@ -62,12 +62,13 @@ function Loading(){
 				}
 				var fragment = $(content).find(".js-ajx");
 				var bredcrumbs = $(content).find(".breadcumbs-inner").html();
-				var fragmentContent = fragment.html();
+				var fragmentContent = fragment.parent().html();
+
+				console.log(fragmentContent)
 					
 				setTimeout(function(){
 					$(".js-ajx").parent().html(fragmentContent).promise().done(function(){
 						console.log("Congratulations! AJAX success!");
-						$(_this.options.breadcumbs).find(".breadcumbs-inner").html(bredcrumbs);
 						if(fragment.data("pages")) {
 							$(_this.options.pages).addClass("inner-page");
 							$(_this.options.constantSection).addClass("inactive");
@@ -76,8 +77,8 @@ function Loading(){
 							$(_this.options.pages).removeClass("inner-page");
 							$(_this.options.constantSection).removeClass("inactive");
 							$(_this.options.breadcumbs).removeClass("show");
-						}
-
+						}						
+						$(_this.options.breadcumbs).find(".breadcumbs-inner").html(bredcrumbs);
 						_this.initHandler();
 						_this.options.isAnimation = false;
 					});

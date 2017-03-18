@@ -83,6 +83,12 @@ body {
     -ms-transform: translate(-100%, 0);
     transform: translate(-100%, 0); }
 
+h1, .h1 {
+  font-family: "FiraSansBold";
+  font-size: 3.75rem; }
+  h1 span, .h1 span {
+    color: #ac252a; }
+
 .root {
   position: relative;
   width: 100%;
@@ -259,7 +265,7 @@ body {
   position: absolute;
   left: 34.1%;
   z-index: 2;
-  top: 26.8%;
+  top: 23.6%;
   -webkit-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear; }
   .navigation-site .navigation-list .navigation-item {
@@ -362,6 +368,27 @@ body {
 .inner-page .logo {
   left: 3.5rem; }
 
+.inner-page .intro-head {
+  padding-top: 12rem;
+  margin-left: 6.6875rem;
+  text-align: right;
+  margin-bottom: 3.125rem;
+  max-width: 61.25rem;
+  text-align: right;
+  display: inline-block;
+  width: 100%; }
+  .inner-page .intro-head h1, .inner-page .intro-head .h1 {
+    max-width: 48.75rem;
+    text-align: left;
+    display: inline-block;
+    width: 100%; }
+
+.inner-page .container-content {
+  text-align: right;
+  margin-left: 6.6875rem;
+  max-width: 61.25rem;
+  width: 100%; }
+
 .breadcumbs {
   position: fixed;
   left: 2.5rem;
@@ -391,7 +418,121 @@ body {
       transition: color 0.3s ease; }
     .breadcumbs .breadcumbs-inner a:hover span {
       color: #e3a7aa; }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+.l {
+  max-width: 48.75rem;
+  text-align: left;
+  display: inline-block; }
+
+.section-scroll {
+  min-height: 100vh;
+  overflow: hidden; }
+
+.intro-head {
+  position: relative; }
+  .intro-head.index-page {
+    height: 100vh;
+    width: 100%;
+    max-width: 61.56vw;
+    padding-left: 5.3125rem; }
+    .intro-head.index-page h1 {
+      position: absolute;
+      bottom: 10.9375rem; }
+
+.mouse {
+  position: absolute;
+  bottom: 0;
+  left: 5.3125rem;
+  height: 43px;
+  width: 29px;
+  border: 3px solid #ac252a;
+  border-radius: 15px;
+  bottom: 3.0625rem; }
+  .mouse .mousewheel {
+    width: 5px;
+    height: 11px;
+    background-color: #ac252a;
+    border-radius: 4px;
+    position: absolute;
+    top: 5px;
+    left: 9px;
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-animation: mouse-wheel 1.25s infinite linear;
+    animation: mouse-wheel 1.25s infinite linear; }
+
+@-webkit-keyframes mouse-wheel {
+  0%, to {
+    -webkit-transform: scaleY(0.4) translateY(0);
+    transform: scaleY(0.4) translateY(0); }
+  20% {
+    -webkit-transform: scaleY(1) translateY(0);
+    transform: scaleY(1) translateY(0); }
+  60% {
+    -webkit-transform: scaleY(0.4) translateY(12px);
+    transform: scaleY(0.4) translateY(12px); } }
+
+@keyframes mouse-wheel {
+  0%, to {
+    -webkit-transform: scaleY(0.4) translateY(0);
+    transform: scaleY(0.4) translateY(0); }
+  20% {
+    -webkit-transform: scaleY(1) translateY(0);
+    transform: scaleY(1) translateY(0); }
+  60% {
+    -webkit-transform: scaleY(0.4) translateY(12px);
+    transform: scaleY(0.4) translateY(12px); } }
+
+.contacts-header {
+  position: absolute;
+  right: 13.875rem;
+  top: 3.875rem;
+  z-index: 9; }
+  .contacts-header .contacts {
+    font-size: 0; }
+    .contacts-header .contacts .contacts-item {
+      display: inline-block;
+      vertical-align: top;
+      position: relative; }
+      .contacts-header .contacts .contacts-item:not(:last-child)::after {
+        content: ".";
+        position: absolute;
+        bottom: 0;
+        font-size: 12px;
+        right: 0; }
+      .contacts-header .contacts .contacts-item a {
+        font-family: "FiraSansBook";
+        font-size: 12px;
+        color: #1c1c1c;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        padding: 0 17px;
+        -webkit-transition: color 0.3s linear;
+        transition: color 0.3s linear; }
+        .contacts-header .contacts .contacts-item a span {
+          display: inline-block;
+          vertical-align: middle; }
+        .contacts-header .contacts .contacts-item a .icon {
+          margin-right: 8px; }
+          .contacts-header .contacts .contacts-item a .icon svg {
+            fill: #1c1c1c;
+            -webkit-transition: fill 0.3s linear;
+            transition: fill 0.3s linear; }
+        .contacts-header .contacts .contacts-item a:hover {
+          color: #ac252a; }
+          .contacts-header .contacts .contacts-item a:hover .icon svg {
+            fill: #ac252a; }
+
+.icon-skype {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle; }
+  .icon-skype svg {
+    width: 100%;
+    height: 100%; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }

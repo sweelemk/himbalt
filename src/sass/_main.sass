@@ -24,6 +24,11 @@ body
 			visibility: visible
 		.menu
 			transform: translate(-100%, 0)
+h1, .h1
+	font-family: $Bold
+	+rem(font-size, 60px)
+	span 
+		color: $maincolor
 .root
 	position: relative
 	width: 100%
@@ -177,7 +182,7 @@ body
 	position: absolute
 	left: 34.1%
 	z-index: 2
-	top: 26.8%
+	top: 23.6%
 	transition: opacity 0.3s linear
 	.navigation-list
 		.navigation-item
@@ -272,6 +277,25 @@ body
 .inner-page
 	.logo
 		+rem(left, 56px)
+	.intro-head
+		+rem(padding-top, 192px)
+		+rem(margin-left, 107px)
+		text-align: right
+		+rem(margin-bottom, 50px)
+		+rem(max-width, 980px)
+		text-align: right
+		display: inline-block
+		width: 100%
+		h1, .h1
+			+rem(max-width, 780px)
+			text-align: left
+			display: inline-block
+			width: 100%
+	.container-content
+		text-align: right
+		+rem(margin-left, 107px)
+		+rem(max-width, 980px)
+		width: 100%
 .breadcumbs
 	position: fixed
 	+rem(left, 40px)
@@ -293,3 +317,93 @@ body
 			&:hover
 				span 
 					color: $hover
+.l
+	+rem(max-width, 780px)
+	text-align: left
+	display: inline-block
+.section-scroll
+	min-height: 100vh
+	overflow: hidden
+.intro-head
+	position: relative
+	&.index-page
+		height: 100vh
+		width: 100%
+		max-width: 61.56vw
+		+rem(padding-left, 85px)
+		h1
+			position: absolute
+			+rem(bottom, 175px)
+.mouse
+	position: absolute
+	bottom: 0
+	+rem(left, 85px)
+	height: 43px
+	width: 29px
+	border: 3px solid $maincolor
+	border-radius: 15px
+	+rem(bottom, 49px)
+	.mousewheel
+		width: 5px
+		height: 11px
+		background-color: $maincolor
+		border-radius: 4px
+		position: absolute
+		top: 5px	
+		left: 9px
+		transform-origin: 50% 0
+		animation: mouse-wheel 1.25s infinite linear
+@keyframes mouse-wheel
+	0%,to
+		transform: scaleY(.4) translateY(0)
+	20%
+		transform: scaleY(1) translateY(0)
+	60%
+		transform: scaleY(.4) translateY(12px)
+.contacts-header
+	position: absolute
+	+rem(right, 222px)
+	+rem(top, 62px)
+	z-index: 9
+	.contacts
+		font-size: 0
+		.contacts-item
+			display: inline-block
+			vertical-align: top
+			position: relative
+			&:not(:last-child)
+				&::after
+					content: "."
+					position: absolute
+					bottom: 0
+					font-size: 12px
+					right: 0
+			a
+				font-family: $Book
+				font-size: 12px
+				color: $dark
+				text-transform: uppercase
+				letter-spacing: 0.6px
+				padding: 0 17px
+				transition: color 0.3s linear
+				span
+					display: inline-block
+					vertical-align: middle
+				.icon
+					margin-right: 8px
+					svg
+						fill: $dark
+						transition: fill 0.3s linear
+				&:hover
+					color: $maincolor
+					.icon
+						svg
+							fill: $maincolor
+.icon-skype
+	width: 15px
+	height: 15px
+	display: inline-block
+	vertical-align: middle
+	svg
+		width: 100%
+		height: 100%
