@@ -46,7 +46,7 @@
                 </div>
                 <div class="loader-container">
                   <div class="contacts-header">
-                    <ul class="contacts">
+                    <ul class="contacts-list">
                       <li class="contacts-item"><a class="phone" href="callto:+37166165507"><span>+371 6616 5507</span></a></li>
                       <li class="contacts-item"><a class="skype" href="skype:himbalt.lv?call"><i class="icon icon-skype">
                             <svg class="icon">
@@ -57,6 +57,22 @@
                   </div>
                   <div class="section-scroll-container">
                     <div class="section-scroll js-ajx" data-pages="false">
+                      <div class="container-svg">
+                        <div class="svg-icon-number"><svg id="icon-numbers" width="882.2" height="609" viewBox="0 0 882.2 609" xmlns="http://www.w3.org/2000/svg"><g><path d="m0.7,101.1l80,63.6c33.2,-40.1 68.5,-60.2 105.8,-60.2c22.9,0 41.1,6.7 54.6,20.2c13.5,13.5 20.2,32 20.2,55.5c0,35 -14.9,71.7 -44.7,110.1c-29.8,38.4 -95.2,107.5 -196.1,207.3l0,96.3l378.4,0l13.8,-104.1l-238.3,0c89.4,-81.4 149.5,-144.2 180.2,-188.3c30.7,-44.1 46,-89.1 46,-135c0,-47 -17.8,-86.4 -53.3,-118.2c-35.6,-31.9 -84.6,-47.8 -147.1,-47.8c-82,0 -148.5,33.5 -199.5,100.6l0,0z" stroke-miterlimit="10" stroke="#AC252A" fill="none"/><path d="m499,12.5l0,313.9l92,0c25.2,-13.8 48.4,-20.6 69.7,-20.6c54.5,0 81.7,32.4 81.7,97.2c0,33.3 -8.2,58.8 -24.5,76.5c-16.3,17.8 -39.4,26.7 -69.2,26.7c-43.6,0 -81.1,-18.6 -112.7,-55.9l-75.7,70.5c50.4,58.5 114.9,87.7 193.5,87.7c68.8,0 124,-18.9 165.5,-56.8c41.6,-37.8 62.3,-87.7 62.3,-149.6c0,-59 -15.5,-105.3 -46.4,-138.9c-31,-33.5 -71.1,-50.3 -120.4,-50.3c-30.4,0 -59.1,6.3 -86,18.9l0,-122.1l210.7,0l15.5,-97.2l-356,0z" stroke-miterlimit="10" stroke="#AC252A" fill="none"/></svg>
+                          <script type="text/javascript">
+                            console.log("svg vivus initial")
+                            var viv = new Vivus("icon-numbers", {
+                            	type: "sync",
+                            	duration: 300,
+                            	animTimingFunction: Vivus.EASE_IN,
+                            	onReady: function(viv){
+                            		console.log("init vivus");
+                            		viv.play()
+                            	}
+                            })
+                          </script>
+                        </div>
+                      </div>
                       <div class="intro-head index-page">
                         <h1 class="h1"><span>Twenty five </span>years of effective operations in the petroleum products market</h1>
                         <div class="mouse">
@@ -73,10 +89,44 @@
         </div>
         <nav class="menu">
           <div class="menu_content">
+            <div class="cross-head">
+              <div class="cross-container"><span class="cross cross-1"></span><span class="cross cross-2"></span></div>
+            </div>
             <div class="lang">
               <div class="lang-inner"><a class="active" href="/"><span>en</span></a><a href="/"><span>ru</span></a></div>
             </div>
             <div class="account"><a class="account-enter" href="#"><span>Personal account</span></a></div>
+            <div class="menu-elements">
+              <div class="menu-elements_container">
+                <ul class="menu-primary">
+                                    <li class="menu-primary_item"><a class="menu-primary_item-link js-link active" href="/"><span>Home</span></a></li>
+                                    <li class="menu-primary_item"><a class="menu-primary_item-link js-link" href="/"><span>Company</span></a></li>
+                                    <li class="menu-primary_item"><a class="menu-primary_item-link js-link" href="/"><span>Logistics</span></a></li>
+                                    <li class="menu-primary_item"><a class="menu-primary_item-link js-link" href="/"><span>News</span></a></li>
+                                    <li class="menu-primary_item"><a class="menu-primary_item-link js-link" href="/"><span>Contacts</span></a></li>
+                </ul>
+                <ul class="menu-secondary">
+                                    <li class="menu-secondary_item"><a class="menu-secondary_item-link js-link" href="basic-oil.html"><span>Base oils</span></a></li>
+                                    <li class="menu-secondary_item"><a class="menu-secondary_item-link js-link" href="/"><span>Petrochemicals</span></a></li>
+                                    <li class="menu-secondary_item"><a class="menu-secondary_item-link js-link" href="/"><span>Paraffin wax</span></a></li>
+                </ul>
+              </div>
+              <div class="menu-contacts">
+                <address class="address">
+                  <div class="address-item">
+                    <p>Tvaika iela, 35, LV-1034, Riga, Latvia</p>
+                  </div>
+                  <div class="address-item"><a class="phone" href="callto:+37166165507"><span>+371 6616 5507</span></a></div>
+                </address>
+                <ul class="contacts-list">
+                  <li class="contacts-item"><a class="skype" href="skype:himbalt.lv?call"><i class="icon icon-skype">
+                        <svg class="icon">
+                          <use xlink:href="#icon-skype"></use>
+                        </svg></i><span>himbalt.lv</span></a></li>
+                  <li class="contacts-item"><a class="mail" href="mailto:info@himbalt.lv"><span>info@himbalt.lv</span></a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </nav>
       </div>

@@ -351,7 +351,6 @@ h1, .h1 {
 
 .menu_content {
   position: absolute;
-  background-color: #eee;
   right: 3.125rem;
   top: 3.125rem;
   bottom: 6.875rem;
@@ -489,40 +488,82 @@ h1, .h1 {
   right: 13.875rem;
   top: 3.875rem;
   z-index: 9; }
-  .contacts-header .contacts {
-    font-size: 0; }
-    .contacts-header .contacts .contacts-item {
-      display: inline-block;
-      vertical-align: top;
-      position: relative; }
-      .contacts-header .contacts .contacts-item:not(:last-child)::after {
-        content: ".";
-        position: absolute;
-        bottom: 0;
-        font-size: 12px;
-        right: 0; }
-      .contacts-header .contacts .contacts-item a {
-        font-family: "FiraSansBook";
-        font-size: 12px;
-        color: #1c1c1c;
-        text-transform: uppercase;
-        letter-spacing: 0.6px;
-        padding: 0 17px;
-        -webkit-transition: color 0.3s linear;
-        transition: color 0.3s linear; }
-        .contacts-header .contacts .contacts-item a span {
-          display: inline-block;
-          vertical-align: middle; }
-        .contacts-header .contacts .contacts-item a .icon {
-          margin-right: 8px; }
-          .contacts-header .contacts .contacts-item a .icon svg {
-            fill: #1c1c1c;
-            -webkit-transition: fill 0.3s linear;
-            transition: fill 0.3s linear; }
-        .contacts-header .contacts .contacts-item a:hover {
-          color: #ac252a; }
-          .contacts-header .contacts .contacts-item a:hover .icon svg {
-            fill: #ac252a; }
+
+.contacts-list {
+  font-size: 0; }
+  .contacts-list .contacts-item {
+    display: inline-block;
+    vertical-align: top;
+    position: relative; }
+    .contacts-list .contacts-item:not(:last-child)::after {
+      content: ".";
+      position: absolute;
+      bottom: 0;
+      font-size: 12px;
+      right: 0; }
+    .contacts-list .contacts-item a {
+      font-family: "FiraSansBook";
+      font-size: 12px;
+      color: #1c1c1c;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 0 17px;
+      -webkit-transition: color 0.3s linear;
+      transition: color 0.3s linear; }
+      .contacts-list .contacts-item a span {
+        display: inline-block;
+        vertical-align: middle; }
+      .contacts-list .contacts-item a .icon {
+        margin-right: 8px; }
+        .contacts-list .contacts-item a .icon svg {
+          fill: #1c1c1c;
+          -webkit-transition: fill 0.3s linear;
+          transition: fill 0.3s linear; }
+      .contacts-list .contacts-item a:hover {
+        color: #ac252a; }
+        .contacts-list .contacts-item a:hover .icon svg {
+          fill: #ac252a; }
+
+.cross-head {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer; }
+  .cross-head:hover .cross-container {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+    .cross-head:hover .cross-container .cross {
+      background-color: #ac252a; }
+
+.cross-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+
+.cross {
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background-color: #1c1c1c;
+  top: 50%;
+  margin-top: -2px;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; }
+  .cross.cross-1 {
+    -webkit-transform: rotate(-45deg) scale(1.25);
+    -ms-transform: rotate(-45deg) scale(1.25);
+    transform: rotate(-45deg) scale(1.25); }
+  .cross.cross-2 {
+    -webkit-transform: rotate(45deg) scale(1.25);
+    -ms-transform: rotate(45deg) scale(1.25);
+    transform: rotate(45deg) scale(1.25); }
 
 .icon-skype {
   width: 15px;
@@ -532,7 +573,114 @@ h1, .h1 {
   .icon-skype svg {
     width: 100%;
     height: 100%; }
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+.container-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%; }
+  .container-svg .svg-icon-number {
+    width: 85%;
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+
+.menu-elements {
+  position: absolute;
+  top: 23%;
+  *zoom: 1;
+  left: 23.5%;
+  right: 3.125rem; }
+  .menu-elements:after {
+    content: " ";
+    display: table;
+    clear: both; }
+  .menu-elements .menu-elements_container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15.4%; }
+
+.menu-primary_item {
+  display: block;
+  margin-bottom: 1.5rem; }
+
+.menu-primary_item-link {
+  font-family: "FiraSansBold";
+  color: #1b1b1b;
+  font-size: 1.875rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative; }
+  .menu-primary_item-link::after {
+    content: "";
+    width: 5.375rem;
+    height: 2px;
+    background-color: #ac252a;
+    opacity: 0;
+    position: absolute;
+    left: -7.3125rem;
+    top: -webkit-calc(50% + 1px);
+    top: calc(50% + 1px);
+    pointer-events: none; }
+  .menu-primary_item-link:hover {
+    color: #ac252a; }
+  .menu-primary_item-link.active {
+    color: #ac252a; }
+    .menu-primary_item-link.active::after {
+      opacity: 1; }
+
+.menu-secondary {
+  padding-left: 15.4%; }
+
+.menu-secondary_item {
+  display: block;
+  margin-bottom: 1.5rem; }
+
+.menu-secondary_item-link {
+  font-family: "FiraSansBold";
+  color: #1b1b1b;
+  font-size: 1.875rem;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease; }
+  .menu-secondary_item-link:hover {
+    color: #ac252a; }
+  .menu-secondary_item-link.active {
+    color: #ac252a; }
+
+.menu-contacts {
+  padding-left: 1px; }
+  .menu-contacts .address {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-bottom: 2.1875rem; }
+    .menu-contacts .address .address-item p, .menu-contacts .address .address-item a {
+      color: #000; }
+    .menu-contacts .address .address-item a:hover {
+      color: #e3a7aa; }
+  .menu-contacts .contacts-list {
+    margin-left: -1.1875rem; }
+
+.section-scroll-container {
+  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+  transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
+  transition: opacity 0.3s linear, transform 0.3s linear;
+  transition: opacity 0.3s linear, transform 0.3s linear, -webkit-transform 0.3s linear; }
+
+.pages.transfer-pages .loader-container {
+  overflow: hidden; }
+
+.pages.transfer-pages .section-scroll-container {
+  opacity: 0;
+  -webkit-transform: translate(0, 10%);
+  -ms-transform: translate(0, 10%);
+  transform: translate(0, 10%); }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }

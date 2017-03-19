@@ -1,15 +1,16 @@
 function menu(){
 	var trigger = $(".ui-menu"),
 		overlay = $(".overlay"),
-		body = $("body");
+		body = $("body"),
+		close = $(".cross-head");
 
 	trigger.on("click", function(){
 		if(body.hasClass("navigation_show")) return;
 		body.addClass("navigation_show");
 	});
-	overlay.on("click", function(){
+	overlay.add(close).on("click", function(){
 		body.removeClass("navigation_show");
-	})
+	});
 };
 
 function Loading(){
@@ -22,11 +23,17 @@ function Loading(){
 		openMenuClass: "navigation_show",
 		pages: ".pages",
 		constantSection: ".constant-section",
-		breadcumbs: ".breadcumbs"
+		breadcumbs: ".breadcumbs",
+		menu: ".menu-elements"
 	}
 
 	_this.initHandler = function(){
 		$(_this.options.trigger).on("click vclick", function(event){
+
+			if($(this).hasClass("active")) {
+				return false;
+			}
+
 			if(_this.options.isAnimation) {
 				return false;
 			}
@@ -37,7 +44,7 @@ function Loading(){
 
 			if($(_this.options.body).hasClass(_this.options.openMenuClass)){
 				$(_this.options.body).removeClass(_this.options.openMenuClass);
-				setTimeuot(function(){
+				setTimeout(function(){
 					_this.action(_this.link, true);
 				},300);
 			} else {
@@ -55,6 +62,12 @@ function Loading(){
 			dataType: "html",
 			beforeSend: function(){
 				$(_this.options.trigger).off("click vclick");
+				if(typeof viv !== "undefined"){
+					viv
+						.stop()
+						.destroy();	
+				}				
+				$(_this.options.pages).addClass("transfer-pages");
 			},
 			success: function(content){
 				if(to_popstate !== false) {
@@ -63,8 +76,7 @@ function Loading(){
 				var fragment = $(content).find(".js-ajx");
 				var bredcrumbs = $(content).find(".breadcumbs-inner").html();
 				var fragmentContent = fragment.parent().html();
-
-				console.log(fragmentContent)
+				var menu = $(content).find(".menu-elements").html();
 					
 				setTimeout(function(){
 					$(".js-ajx").parent().html(fragmentContent).promise().done(function(){
@@ -77,12 +89,16 @@ function Loading(){
 							$(_this.options.pages).removeClass("inner-page");
 							$(_this.options.constantSection).removeClass("inactive");
 							$(_this.options.breadcumbs).removeClass("show");
-						}						
+						}
+						$(_this.options.menu).html(menu);
 						$(_this.options.breadcumbs).find(".breadcumbs-inner").html(bredcrumbs);
 						_this.initHandler();
 						_this.options.isAnimation = false;
+						setTimeout(function(){
+							$(_this.options.pages).removeClass("transfer-pages");
+						}, 500);
 					});
-				},1000);
+				},800);
 			}
 		});
 	};

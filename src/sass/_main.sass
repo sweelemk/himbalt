@@ -260,7 +260,6 @@ h1, .h1
 	transition: transform 0.3s linear
 .menu_content
 	position: absolute
-	background-color: #eee
 	+rem(right, 50px)
 	+rem(top, 50px)
 	+rem(bottom, 110px)
@@ -365,40 +364,70 @@ h1, .h1
 	+rem(right, 222px)
 	+rem(top, 62px)
 	z-index: 9
-	.contacts
-		font-size: 0
-		.contacts-item
-			display: inline-block
-			vertical-align: top
-			position: relative
-			&:not(:last-child)
-				&::after
-					content: "."
-					position: absolute
-					bottom: 0
-					font-size: 12px
-					right: 0
-			a
-				font-family: $Book
+.contacts-list
+	font-size: 0
+	.contacts-item
+		display: inline-block
+		vertical-align: top
+		position: relative
+		&:not(:last-child)
+			&::after
+				content: "."
+				position: absolute
+				bottom: 0
 				font-size: 12px
-				color: $dark
-				text-transform: uppercase
-				letter-spacing: 0.6px
-				padding: 0 17px
-				transition: color 0.3s linear
-				span
-					display: inline-block
-					vertical-align: middle
+				right: 0
+		a
+			font-family: $Book
+			font-size: 12px
+			color: $dark
+			text-transform: uppercase
+			letter-spacing: 0.6px
+			padding: 0 17px
+			transition: color 0.3s linear
+			span
+				display: inline-block
+				vertical-align: middle
+			.icon
+				margin-right: 8px
+				svg
+					fill: $dark
+					transition: fill 0.3s linear
+			&:hover
+				color: $maincolor
 				.icon
-					margin-right: 8px
 					svg
-						fill: $dark
-						transition: fill 0.3s linear
-				&:hover
-					color: $maincolor
-					.icon
-						svg
-							fill: $maincolor
+						fill: $maincolor
+.cross-head
+	position: absolute
+	top: 0
+	right: 0
+	width: 25px
+	height: 25px
+	cursor: pointer
+	&:hover
+		.cross-container
+			transform: rotate(180deg)
+			.cross
+				background-color: $maincolor
+.cross-container
+	width: 100%
+	height: 100%
+	position: relative
+	transition: transform 0.3s ease
+.cross
+	position: absolute
+	height: 4px
+	width: 100%
+	background-color: $dark
+	top: 50%
+	margin-top: -2px
+	transition: background-color 0.3s ease
+	&.cross-1
+		transform: rotate(-45deg) scale(1.25)
+	&.cross-2
+		transform: rotate(45deg) scale(1.25)
+
 .icon-skype
 	width: 15px
 	height: 15px
@@ -407,3 +436,89 @@ h1, .h1
 	svg
 		width: 100%
 		height: 100%
+.container-svg
+	position: absolute
+	top: 0
+	left: 0
+	height: 100vh
+	width: 100%
+	.svg-icon-number
+		width: 85%
+		position: absolute
+		bottom: 0
+		right: 0
+.menu-elements
+	position: absolute
+	top: 23%
+	+clr
+	left: 23.5%
+	+rem(right, 50px)
+	.menu-elements_container
+		display: flex
+		width: 100%
+		margin-bottom: 15.4%
+.menu-primary
+.menu-primary_item
+	display: block
+	+rem(margin-bottom, 24px)
+.menu-primary_item-link
+	font-family: $Bold
+	color: $menucolor
+	+rem(font-size, 30px)
+	transition: color 0.3s ease
+	position: relative
+	&::after
+		content: ""
+		+rem(width, 86px)
+		height: 2px
+		background-color: $maincolor
+		opacity: 0
+		position: absolute
+		+rem(left, -117px)
+		top: calc(50% + 1px)
+		pointer-events: none
+	&:hover
+		color: $maincolor
+	&.active
+		color: $maincolor
+		&::after
+			opacity: 1
+.menu-secondary
+	padding-left: 15.4%
+.menu-secondary_item
+	display: block
+	+rem(margin-bottom, 24px)
+.menu-secondary_item-link
+	font-family: $Bold
+	color: $menucolor
+	+rem(font-size, 30px)
+	transition: color 0.3s ease
+	&:hover
+		color: $maincolor
+	&.active
+		color: $maincolor
+.menu-contacts
+	padding-left: 1px
+	.address
+		position: relative
+		bottom: auto
+		left: auto
+		+rem(margin-bottom, 35px)
+		.address-item
+			p, a
+				color: $black
+			a
+				&:hover
+					color: $hover
+	.contacts-list
+		+rem(margin-left, -19px)
+
+.section-scroll-container
+	transition: opacity 0.3s linear, transform 0.3s linear
+.pages
+	&.transfer-pages
+		.loader-container
+			overflow: hidden
+		.section-scroll-container
+			opacity: 0
+			transform: translate(0, 10%)

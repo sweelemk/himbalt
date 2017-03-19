@@ -1,5 +1,9 @@
 nav.menu
 	.menu_content
+		.cross-head
+			.cross-container
+				span.cross.cross-1
+				span.cross.cross-2
 		.lang
 			.lang-inner
 				a(href="/" class="active")
@@ -9,3 +13,41 @@ nav.menu
 		.account
 			a(href="#" class="account-enter")
 				span Personal account
+		.menu-elements
+			.menu-elements_container
+				ul.menu-primary
+					mixin mPrimary(name, link)
+						li.menu-primary_item
+							a.menu-primary_item-link.js-link(href=link class={active: name === active})
+								span #{name}
+
+					+mPrimary("Home", "/")
+					+mPrimary("Company", "/")
+					+mPrimary("Logistics", "/")
+					+mPrimary("News", "/")
+					+mPrimary("Contacts", "/")
+				ul.menu-secondary
+					mixin mSecondary(name, link)
+						li.menu-secondary_item
+							a.menu-secondary_item-link.js-link(href=link class={active: name === active})
+								span #{name}
+					+mSecondary("Base oils", "basic-oil.html")
+					+mSecondary("Petrochemicals", "/")
+					+mSecondary("Paraffin wax", "/")
+			.menu-contacts
+				address.address
+					.address-item
+						p Tvaika iela, 35, LV-1034, Riga, Latvia
+					.address-item
+						a.phone(href="callto:+37166165507")
+							span +371 6616 5507
+				ul.contacts-list
+					li.contacts-item
+						a.skype(href="skype:himbalt.lv?call")
+							i.icon.icon-skype
+								svg(class="icon")
+									use(xlink:href="#icon-skype")
+							span himbalt.lv
+					li.contacts-item
+						a.mail(href="mailto:info@himbalt.lv")
+							span info@himbalt.lv
