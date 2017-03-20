@@ -15,16 +15,16 @@ block content
 				.pages.inner-page
 					section.constant-section.inactive
 						include includes/_constant-section
+						.breadcumbs.show
+							.breadcumbs-inner
+								a(href="/" class="js-link")
+									span Products
 					section.variable-section
 						- var Index = false
 						if(Index)
 							.logo
 						else
 							a(href="/" class="js-link logo")
-						.breadcumbs.show
-							.breadcumbs-inner
-								a(href="/" class="js-link")
-									span Products
 						.loader-container
 							include includes/_header
 							.section-scroll-container

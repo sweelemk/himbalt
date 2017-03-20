@@ -63,11 +63,19 @@ function Loading(){
 			beforeSend: function(){
 				$(_this.options.trigger).off("click vclick");
 				if(typeof viv !== "undefined"){
-					viv
-						.stop()
-						.destroy();	
-				}				
-				$(_this.options.pages).addClass("transfer-pages");
+					viv.stop();
+					setTimeout(function(){
+						viv.destroy();
+					}, 400);
+				}
+
+				$(_this.options.pages).addClass("transfer-pages pages-out");
+				if($(".variable-section").hasClass("transition")){
+					setTimeout(function(){
+						$(".variable-section").removeClass("transition");
+					}, 400);
+					
+				}
 			},
 			success: function(content){
 				if(to_popstate !== false) {
@@ -95,13 +103,24 @@ function Loading(){
 						_this.initHandler();
 						_this.options.isAnimation = false;
 						setTimeout(function(){
-							$(_this.options.pages).removeClass("transfer-pages");
+							$(_this.options.pages).removeClass("pages-out").addClass("pages-in");
+
+							_this.checkTransition();
 						}, 500);
 					});
-				},800);
+				},600);
 			}
 		});
 	};
+
+	_this.checkTransition = function(){
+		$(_this.options.pages).on("animationend", function(e){
+			$(this).removeClass("pages-in");
+			setTimeout(function(){
+				$(this).removeClass("transfer-pages");
+			}, 400);
+		});
+	}
 
 	_this.history = function(url) {
 		window.history.replaceState("page" + url, document.title, location.href);
@@ -114,15 +133,35 @@ function Loading(){
 
 			_this.action(pageState, false);
 		})
-	}
+	};
 
 	_this.initHandler();
 	_this.browserState();
 
 };
 
+function actionContent() {
+	var container = $(".variable-section");
+	var constant = $(".constant-section");
+
+	container.on("mouseleave", function(){
+		console.log("true")
+		if($(".pages").hasClass("inner-page")) {
+			$(this).addClass("transition");
+			constant.removeClass("inactive");
+		}
+	});
+	container.on("mouseenter", function(){
+		if($(this).hasClass("transition")) {
+			$(this).removeClass("transition");
+			constant.addClass("inactive");
+		}
+	});
+};
+
 
 $(document).ready(function(){
 	// init menu
 	menu();
+	actionContent();
 });

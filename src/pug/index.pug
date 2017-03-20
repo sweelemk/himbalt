@@ -15,29 +15,28 @@ block content
 				.pages
 					section.constant-section
 						include includes/_constant-section
+						.breadcumbs
+							.breadcumbs-inner
+								a(href="/" class="js-link")
+									span main
 					section.variable-section
 						- var Index = true
 						if(Index)
 							.logo
 						else
 							a(href="/" class="js-link logo")
-						.breadcumbs
-							.breadcumbs-inner
-								a(href="/" class="js-link")
-									span main
 						.loader-container
 							include includes/_header
 							.section-scroll-container
 								.section-scroll.js-ajx(data-pages="false")
 									.container-svg
 										.svg-icon-number
-											<svg id="icon-numbers" width="882.2" height="609" viewBox="0 0 882.2 609" xmlns="http://www.w3.org/2000/svg"><g><path d="m0.7,101.1l80,63.6c33.2,-40.1 68.5,-60.2 105.8,-60.2c22.9,0 41.1,6.7 54.6,20.2c13.5,13.5 20.2,32 20.2,55.5c0,35 -14.9,71.7 -44.7,110.1c-29.8,38.4 -95.2,107.5 -196.1,207.3l0,96.3l378.4,0l13.8,-104.1l-238.3,0c89.4,-81.4 149.5,-144.2 180.2,-188.3c30.7,-44.1 46,-89.1 46,-135c0,-47 -17.8,-86.4 -53.3,-118.2c-35.6,-31.9 -84.6,-47.8 -147.1,-47.8c-82,0 -148.5,33.5 -199.5,100.6l0,0z" stroke-miterlimit="10" stroke="#AC252A" fill="none"/><path d="m499,12.5l0,313.9l92,0c25.2,-13.8 48.4,-20.6 69.7,-20.6c54.5,0 81.7,32.4 81.7,97.2c0,33.3 -8.2,58.8 -24.5,76.5c-16.3,17.8 -39.4,26.7 -69.2,26.7c-43.6,0 -81.1,-18.6 -112.7,-55.9l-75.7,70.5c50.4,58.5 114.9,87.7 193.5,87.7c68.8,0 124,-18.9 165.5,-56.8c41.6,-37.8 62.3,-87.7 62.3,-149.6c0,-59 -15.5,-105.3 -46.4,-138.9c-31,-33.5 -71.1,-50.3 -120.4,-50.3c-30.4,0 -59.1,6.3 -86,18.9l0,-122.1l210.7,0l15.5,-97.2l-356,0z" stroke-miterlimit="10" stroke="#AC252A" fill="none"/></svg>
+											<svg id="icon-numbers" width="741" height="510.2" viewBox="0 0 741 510.2" xmlns="http://www.w3.org/2000/svg"><path d="m1.1,84.7l0,0l67,53.3c27.8,-33.6 57.4,-50.4 88.6,-50.4c19.2,0 34.4,5.6 45.7,16.9c11.3,11.3 16.9,26.8 16.9,46.5c0,29.3 -12.5,60.1 -37.5,92.2s-79.8,90.1 -164.3,173.7l0,80.7l317,0" stroke-miterlimit="10" stroke="#AC252A" fill="none"/><path d="m334.8,497.6l11.6,-87.2l-199.7,0c74.9,-68.2 125.3,-120.8 151,-157.8s38.5,-74.7 38.5,-113.1c0,-39.4 -14.9,-72.4 -44.7,-99c-29.8,-26.7 -70.9,-40 -123.2,-40c-68.7,0 -124.4,28.1 -167.1,84.3l0,0" stroke-miterlimit="10" stroke="#AC252A" fill="none"/><path d="m716.9,10.5l-298.3,0l0,263l77.1,0c21.1,-11.6 40.6,-17.3 58.4,-17.3c45.7,0 68.5,27.1 68.5,81.4c0,27.9 -6.9,49.3 -20.5,64.1c-13.7,14.9 -33,22.4 -58,22.4c-36.5,0 -67.9,-15.6 -94.4,-46.8l-63.4,59.1" stroke-miterlimit="10" stroke="#AC252A" fill="none"/><path d="m386.2,436.3c42.2,49 96.3,73.5 162.1,73.5c57.6,0 103.9,-15.8 138.7,-47.6c34.9,-31.7 52.2,-73.5 52.2,-125.3c0,-49.4 -13,-88.2 -38.9,-116.4c-26,-28.1 -59.6,-42.1 -100.9,-42.1c-25.5,0 -49.5,5.3 -72.1,15.8l0,-102.3l176.5,0l13,-81.4" stroke-miterlimit="10" stroke="#AC252A" fill="none"/></svg>
 											script(type="text/javascript").
 												console.log("svg vivus initial")
 												var viv = new Vivus("icon-numbers", {
 													type: "sync",
-													duration: 300,
-													animTimingFunction: Vivus.EASE_IN,
+													duration: 100,
 													onReady: function(viv){
 														console.log("init vivus");
 														viv.play()

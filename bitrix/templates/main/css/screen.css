@@ -177,9 +177,13 @@ h1, .h1 {
   background-color: #fff;
   right: 0;
   z-index: 5;
-  -webkit-transition: width 0.5s ease;
-  transition: width 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   width: 0; }
+  .variable-section.transition {
+    -webkit-transform: translate(10%, 0);
+    -ms-transform: translate(10%, 0);
+    transform: translate(10%, 0); }
 
 .constant-section {
   position: absolute;
@@ -665,20 +669,62 @@ h1, .h1 {
   .menu-contacts .contacts-list {
     margin-left: -1.1875rem; }
 
-.section-scroll-container {
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s linear, -webkit-transform 0.3s linear;
-  transition: opacity 0.3s linear, transform 0.3s linear;
-  transition: opacity 0.3s linear, transform 0.3s linear, -webkit-transform 0.3s linear; }
-
 .pages.transfer-pages .loader-container {
   overflow: hidden; }
 
-.pages.transfer-pages .section-scroll-container {
-  opacity: 0;
-  -webkit-transform: translate(0, 10%);
-  -ms-transform: translate(0, 10%);
-  transform: translate(0, 10%); }
+.pages.pages-out .section-scroll-container {
+  -webkit-animation: contentOut 0.6s ease forwards;
+  animation: contentOut 0.6s ease forwards; }
+
+.pages.pages-in .section-scroll-container {
+  -webkit-animation: contentIn 0.6s ease forwards;
+  animation: contentIn 0.6s ease forwards; }
+
+.pages.pages-in.animate-pages .section-scroll-container {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+@-webkit-keyframes contentOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, 10%);
+    transform: translate(0, 10%); } }
+
+@keyframes contentOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(0, 10%);
+    transform: translate(0, 10%); } }
+
+@-webkit-keyframes contentIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, -10%);
+    transform: translate(0, -10%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
+@keyframes contentIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, -10%);
+    transform: translate(0, -10%); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
