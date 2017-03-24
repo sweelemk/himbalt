@@ -12,7 +12,7 @@ block content
 				i.ui-menu-line.ui-menu-line-3
 		.root_frame
 			.root_frame-content
-				.pages.inner-page
+				.pages.inner-page(id="my-scrollbar")
 					section.constant-section.inactive
 						include includes/_constant-section
 						.breadcumbs.show
@@ -26,7 +26,7 @@ block content
 						else
 							a(href="/" class="js-link logo")
 						.loader-container
-							.section-scroll-container(id="my-scrollbar")
+							.section-scroll-container
 								include includes/_header
 								.section-scroll.js-ajx(data-pages="true")
 									.intro-head

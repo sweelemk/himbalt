@@ -48,57 +48,80 @@ table {
   border-collapse: collapse;
   width: 100%; }
 
-[data-scrollbar], [scrollbar], scrollbar {
-  display: block;
-  position: relative; }
+[data-scrollbar],
+[scrollbar],
+scrollbar {
+  position: relative;
+  display: block; }
 
-[data-scrollbar] .scroll-content, [scrollbar] .scroll-content, scrollbar .scroll-content {
+[data-scrollbar] .scroll-content,
+[scrollbar] .scroll-content,
+scrollbar .scroll-content {
   -webkit-transform: translateZ(0);
   transform: translateZ(0); }
 
-[data-scrollbar].sticky .scrollbar-track, [scrollbar].sticky .scrollbar-track, scrollbar.sticky .scrollbar-track {
+[data-scrollbar].sticky .scrollbar-track,
+[scrollbar].sticky .scrollbar-track,
+scrollbar.sticky .scrollbar-track {
   background: rgba(222, 222, 222, 0.75); }
 
-[data-scrollbar] .scrollbar-track, [scrollbar] .scrollbar-track, scrollbar .scrollbar-track {
+[data-scrollbar] .scrollbar-track,
+[scrollbar] .scrollbar-track,
+scrollbar .scrollbar-track {
   position: absolute;
-  opacity: 0;
   z-index: 1;
-  -webkit-transition: opacity .5s ease-out,background .5s ease-out;
-  transition: opacity .5s ease-out,background .5s ease-out;
-  background: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+  -webkit-transition: opacity .5s ease-out,background .5s ease-out;
+  transition: opacity .5s ease-out,background .5s ease-out;
+  opacity: 0;
+  background: none; }
 
-[data-scrollbar] .scrollbar-track.show, [data-scrollbar] .scrollbar-track:hover, [scrollbar] .scrollbar-track.show, [scrollbar] .scrollbar-track:hover, scrollbar .scrollbar-track.show, scrollbar .scrollbar-track:hover {
+[data-scrollbar] .scrollbar-track.show,
+[data-scrollbar] .scrollbar-track:hover,
+[scrollbar] .scrollbar-track.show,
+[scrollbar] .scrollbar-track:hover,
+scrollbar .scrollbar-track.show,
+scrollbar .scrollbar-track:hover {
   opacity: 1; }
 
-[data-scrollbar] .scrollbar-track:hover, [scrollbar] .scrollbar-track:hover, scrollbar .scrollbar-track:hover {
+[data-scrollbar] .scrollbar-track:hover,
+[scrollbar] .scrollbar-track:hover,
+scrollbar .scrollbar-track:hover {
   background: rgba(222, 222, 222, 0.75); }
 
-[data-scrollbar] .scrollbar-track-x, [scrollbar] .scrollbar-track-x, scrollbar .scrollbar-track-x {
+[data-scrollbar] .scrollbar-track-x,
+[scrollbar] .scrollbar-track-x,
+scrollbar .scrollbar-track-x {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 8px; }
+  height: 4px; }
 
-[data-scrollbar] .scrollbar-track-y, [scrollbar] .scrollbar-track-y, scrollbar .scrollbar-track-y {
+[data-scrollbar] .scrollbar-track-y,
+[scrollbar] .scrollbar-track-y,
+scrollbar .scrollbar-track-y {
   top: 0;
   right: 0;
-  width: 8px;
+  width: 4px;
   height: 100%; }
 
-[data-scrollbar] .scrollbar-thumb, [scrollbar] .scrollbar-thumb, scrollbar .scrollbar-thumb {
+[data-scrollbar] .scrollbar-thumb,
+[scrollbar] .scrollbar-thumb,
+scrollbar .scrollbar-thumb {
   position: absolute;
   top: 0;
   left: 0;
-  width: 8px;
+  width: 4px;
   height: 8px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 4px; }
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5); }
 
-[data-scrollbar] .overscroll-glow, [scrollbar] .overscroll-glow, scrollbar .overscroll-glow {
+[data-scrollbar] .overscroll-glow,
+[scrollbar] .overscroll-glow,
+scrollbar .overscroll-glow {
   position: absolute;
   top: 0;
   left: 0;
@@ -227,10 +250,14 @@ h1, .h1 {
   top: 0;
   left: 0; }
 
+.scroll-content {
+  height: 100%; }
+
 .variable-section {
-  position: absolute;
+  position: relative;
   top: 0;
-  height: 100%;
+  min-height: 100%;
+  float: right;
   background-color: #fff;
   right: 0;
   z-index: 5;
@@ -263,7 +290,7 @@ h1, .h1 {
   transition: left 0.3s linear; }
 
 .loader-container {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   width: 100%;
@@ -442,7 +469,7 @@ h1, .h1 {
     display: inline-block;
     width: 100%; }
 
-.inner-page .container-content {
+.container-content {
   text-align: right;
   margin-left: 6.6875rem;
   max-width: 61.25rem;
@@ -482,6 +509,9 @@ h1, .h1 {
   max-width: 48.75rem;
   text-align: left;
   display: inline-block; }
+
+.section {
+  text-align: left; }
 
 .section-scroll {
   height: 100%;
@@ -732,6 +762,8 @@ h1, .h1 {
   height: 100%; }
   .pages.transfer-pages .loader-container {
     overflow: hidden; }
+  .pages.transfer-pages [data-scrollbar] .scrollbar-track {
+    opacity: 0; }
   .pages.pages-out .section-scroll-container {
     -webkit-animation: contentOut 0.6s ease forwards;
     animation: contentOut 0.6s ease forwards; }

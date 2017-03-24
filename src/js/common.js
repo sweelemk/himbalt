@@ -1,3 +1,10 @@
+var scrollsMain;
+
+window.onload = function(){
+	var scrollsMain = document.getElementById('my-scrollbar')
+	scrolls = new Scroller(scrollsMain);
+};
+
 function menu(){
 	var trigger = $(".ui-menu"),
 		overlay = $(".overlay"),
@@ -62,20 +69,26 @@ function Loading(){
 			dataType: "html",
 			beforeSend: function(){
 				$(_this.options.trigger).off("click vclick");
+				
 				if(typeof viv !== "undefined"){
 					viv.stop();
 					setTimeout(function(){
 						viv.destroy();
 					}, 400);
-				}
+				};
 
 				$(_this.options.pages).addClass("transfer-pages pages-out");
+				
 				if($(".variable-section").hasClass("transition")){
 					setTimeout(function(){
 						$(".variable-section").removeClass("transition");
 					}, 400);
-					
-				}
+				};
+
+				setTimeout(function(){
+					scrolls.scrollSet();
+				}, 300);
+
 			},
 			success: function(content){
 				if(to_popstate !== false) {
@@ -107,6 +120,7 @@ function Loading(){
 
 							_this.checkTransition();
 						}, 500);
+						scrolls.scrollUpdate(true);
 					});
 				},600);
 			}
@@ -115,9 +129,12 @@ function Loading(){
 
 	_this.checkTransition = function(){
 		$(_this.options.pages).on("animationend", function(e){
-			$(this).removeClass("pages-in");
+			var _ = $(this);
+			_.removeClass("pages-in");
 			setTimeout(function(){
-				$(this).removeClass("transfer-pages");
+				_.removeClass("transfer-pages");
+				console.log(_)
+				_.off("animationend");
 			}, 400);
 		});
 	}
@@ -158,39 +175,97 @@ function actionContent() {
 	});
 };
 
-function customScroller(){
-	var Scrollbar = window.Scrollbar;
+function Scroller(el){
 
-	var scrollbar = Scrollbar.init(document.getElementById('my-scrollbar'), {
-		speed: 1.5,
-		damping: 0.08,
-		alwaysShowTracks: true,
-		thumbMinSize: 8,
-		renderByPixels: true,
-		syncCallbacks: true
-	});
+	this.el = el;
 
-	scrollbar.addListener(function (status) {
-		var t = $(".js-section");
-		var posTop = scrollbar.scrollTop;
-		console.log(posTop)
-		t.each(function(){
-			var _ = $(this);
-			console.log(_.offset().top, posTop)
-			if(posTop >= (_.offset().top)) {
-				_.addClass(_.data("inview-class"));
-			}
-		})
-	});
-
-	function el() {
-
+	this.param = {
+		constant: ".js-constant",
+		aninElements: ".js-section",
+		window: "window"
 	}
-}
+
+	this.Scrollbar = window.Scrollbar;
+
+	this.init();
+};
+
+Scroller.prototype = {
+	init: function(){
+		var self = this;
+
+		this.fixedElement = document.querySelector(this.param.constant);
+		this.windowHeight = this.windowValue();
+
+		this.scrollbar = this.Scrollbar.init(this.el, {
+			speed: 1.5,
+			damping: 0.08,
+			alwaysShowTracks: true,
+			thumbMinSize: 8,
+			renderByPixels: true,
+			syncCallbacks: true
+		});
+
+		this.scrollbar.addListener(function(status){
+			self.fixedPositionSidebar(status);
+			self.updateOnScroll();
+		});
+
+		this.updateElements();
+
+		window.onresize = function(){
+			self.windowHeight = self.windowValue();
+		}
+	},
+	windowValue: function(){
+		return window.innerHeight;
+	},
+	fixedPositionSidebar: function(state){
+		var t_pos = state.offset.y;
+
+		this.fixedElement.style.top = t_pos + "px";
+	},
+	scrollSet: function(){
+		this.scrollbar.setPosition(0,0);
+	},
+	scrollUpdate: function(param){
+		var self = this;
+
+		this.scrollbar.update(true);
+		
+		if(param) {
+			self.updateElements();
+		}
+	},
+	updateElements: function(){
+		var scroll_el = [];
+
+		this.section_el = document.querySelectorAll(this.param.aninElements);
+
+		console.log(this.section_el);
+
+	},
+	updateOnScroll: function(){
+		var self = this;
+
+		this.section_el.forEach(function(node, i){
+
+			var getElementTop = node.getBoundingClientRect().top;
+
+			if(getElementTop <= self.windowHeight) {
+				self.setScrollClass(node);
+			}
+		});
+	},
+	setScrollClass: function(element){
+		var getAttr = element.getAttribute("data-inview-class");
+		element.classList.add(getAttr);
+	}
+};
 
 $(document).ready(function(){
 	// init menu
 	menu();
+
 	actionContent();
-	customScroller();
 });

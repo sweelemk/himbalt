@@ -95,10 +95,13 @@ h1, .h1
 	height: 100%
 	top: 0
 	left: 0
-.variable-section
-	position: absolute
-	top: 0
+.scroll-content
 	height: 100%
+.variable-section
+	position: relative
+	top: 0
+	min-height: 100%
+	float: right
 	background-color: $white
 	right: 0
 	z-index: 5
@@ -124,7 +127,7 @@ h1, .h1
 	z-index: 4
 	transition: left 0.3s linear
 .loader-container
-	position: absolute
+	position: relative
 	top: 0
 	right: 0
 	width: 100%
@@ -291,11 +294,11 @@ h1, .h1
 			text-align: left
 			display: inline-block
 			width: 100%
-	.container-content
-		text-align: right
-		+rem(margin-left, 107px)
-		+rem(max-width, 980px)
-		width: 100%
+.container-content
+	text-align: right
+	+rem(margin-left, 107px)
+	+rem(max-width, 980px)
+	width: 100%
 .breadcumbs
 	position: fixed
 	+rem(left, 40px)
@@ -321,6 +324,8 @@ h1, .h1
 	+rem(max-width, 780px)
 	text-align: left
 	display: inline-block
+.section
+	text-align: left
 .section-scroll
 	height: 100%
 	overflow: hidden
@@ -521,6 +526,9 @@ h1, .h1
 	&.transfer-pages
 		.loader-container
 			overflow: hidden
+		[data-scrollbar]
+			.scrollbar-track
+				opacity: 0
 	&.pages-out		
 		.section-scroll-container
 			animation: contentOut 0.6s ease forwards
