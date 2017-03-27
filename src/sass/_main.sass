@@ -29,6 +29,12 @@ h1, .h1
 	+rem(font-size, 60px)
 	span 
 		color: $maincolor
+h2, .h2 
+	font-family: $Medium
+	+rem(font-size, 42px)
+	span 
+		color: $maincolor
+
 .root
 	position: relative
 	width: 100%
@@ -559,3 +565,58 @@ h1, .h1
 
 .section
 	height: 100vh
+
+
+
+.container 
+	width: 100%
+	font-size: 0
+	[class^=column-]
+		display: inline-block
+		vertical-align: top
+	// div 
+	// 	font-size: 1rem;
+	.column-30
+		width: 33.33%
+	.column-50
+		width: 50%
+	.column-60
+		width: 66.66%
+	.column-70
+		width: 70%
+	.column-100
+		width: 100%
+
+
+.text-center 
+	text-align: center
+.text-left 
+	text-align: left
+.text-right
+	text-align: right
+
+.icon-text-wrapp
+	margin-bottom: 20px;
+	img
+		+rem(margin-bottom, 30px)
+		+rem(height, 60px)
+	p 
+		+rem(font-size, 20px)
+	.icon-star
+		+rem(width, 60px)
+	.icon-wave
+		+rem(width, 65px)
+	.icon-mountain
+		+rem(width, 62px)
+.more
+	+rem(font-size, 20px)
+	color: $maincolor
+	vertical-align: bottom;
+	svg
+		fill: $maincolor
+		width: 15px
+		vertical-align: text-top
+		padding-top: 3px
+.clear-height 
+	+rem(height, 60px)
+	+rem(width, 1px)

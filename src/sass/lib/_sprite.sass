@@ -1,18 +1,8 @@
 $icons: (0:0)
-$icons: map-merge($icons,(check: (X: -388px, Y:-159px, W: 48px, H: 48px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-1: (X: -89px, Y:-352px, W: 68px, H: 85px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-10: (X: 0px, Y:0px, W: 154px, H: 155px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-11: (X: -158px, Y:0px, W: 154px, H: 154px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-2: (X: 0px, Y:-263px, W: 87px, H: 85px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-3: (X: -91px, Y:-263px, W: 85px, H: 85px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-4: (X: -362px, Y:-263px, W: 77px, H: 55px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-5: (X: 0px, Y:-352px, W: 85px, H: 86px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-6: (X: -474px, Y:0px, W: 34px, H: 87px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-7: (X: -272px, Y:-263px, W: 86px, H: 73px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-8: (X: -180px, Y:-263px, W: 88px, H: 79px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(icon-9: (X: -316px, Y:0px, W: 154px, H: 154px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(logo-white: (X: 0px, Y:-211px, W: 384px, H: 48px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(logo: (X: 0px, Y:-159px, W: 384px, H: 48px, TW: 508px, TH: 438px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(icon-mountain: (X: -252px, Y:0px, W: 128px, H: 99px, TW: 380px, TH: 288px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(icon-since: (X: 0px, Y:0px, W: 121px, H: 195px, TW: 380px, TH: 288px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(icon-stars: (X: -125px, Y:0px, W: 123px, H: 122px, TW: 380px, TH: 288px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(icon-wave: (X: 0px, Y:-199px, W: 132px, H: 89px, TW: 380px, TH: 288px, IMG: '../img/icons.png')))
 
 
 // Gets an attribute from the sass map
@@ -49,87 +39,27 @@ $icons: map-merge($icons,(logo: (X: 0px, Y:-159px, W: 384px, H: 48px, TW: 508px,
 	+sprite-retina($i)	
 
 //
-//.icon-check
-//	width: 48px
-//	height: 48px
+//.icon-icon-mountain
+//	width: 128px
+//	height: 99px
 //	background-image: url('../img/icons.png')
-//	background-position: -388px -159px
+//	background-position: -252px 0px
 //
-//.icon-icon-1
-//	width: 68px
-//	height: 85px
-//	background-image: url('../img/icons.png')
-//	background-position: -89px -352px
-//
-//.icon-icon-10
-//	width: 154px
-//	height: 155px
+//.icon-icon-since
+//	width: 121px
+//	height: 195px
 //	background-image: url('../img/icons.png')
 //	background-position: 0px 0px
 //
-//.icon-icon-11
-//	width: 154px
-//	height: 154px
+//.icon-icon-stars
+//	width: 123px
+//	height: 122px
 //	background-image: url('../img/icons.png')
-//	background-position: -158px 0px
+//	background-position: -125px 0px
 //
-//.icon-icon-2
-//	width: 87px
-//	height: 85px
+//.icon-icon-wave
+//	width: 132px
+//	height: 89px
 //	background-image: url('../img/icons.png')
-//	background-position: 0px -263px
-//
-//.icon-icon-3
-//	width: 85px
-//	height: 85px
-//	background-image: url('../img/icons.png')
-//	background-position: -91px -263px
-//
-//.icon-icon-4
-//	width: 77px
-//	height: 55px
-//	background-image: url('../img/icons.png')
-//	background-position: -362px -263px
-//
-//.icon-icon-5
-//	width: 85px
-//	height: 86px
-//	background-image: url('../img/icons.png')
-//	background-position: 0px -352px
-//
-//.icon-icon-6
-//	width: 34px
-//	height: 87px
-//	background-image: url('../img/icons.png')
-//	background-position: -474px 0px
-//
-//.icon-icon-7
-//	width: 86px
-//	height: 73px
-//	background-image: url('../img/icons.png')
-//	background-position: -272px -263px
-//
-//.icon-icon-8
-//	width: 88px
-//	height: 79px
-//	background-image: url('../img/icons.png')
-//	background-position: -180px -263px
-//
-//.icon-icon-9
-//	width: 154px
-//	height: 154px
-//	background-image: url('../img/icons.png')
-//	background-position: -316px 0px
-//
-//.icon-logo-white
-//	width: 384px
-//	height: 48px
-//	background-image: url('../img/icons.png')
-//	background-position: 0px -211px
-//
-//.icon-logo
-//	width: 384px
-//	height: 48px
-//	background-image: url('../img/icons.png')
-//	background-position: 0px -159px
+//	background-position: 0px -199px
 //
