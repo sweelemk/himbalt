@@ -169,6 +169,12 @@ h1, .h1 {
   h1 span, .h1 span {
     color: #ac252a; }
 
+h2, .h2 {
+  font-family: "FiraSansMedium";
+  font-size: 2.625rem; }
+  h2 span, .h2 span {
+    color: #ac252a; }
+
 .root {
   position: relative;
   width: 100%;
@@ -818,6 +824,62 @@ h1, .h1 {
 
 .section {
   height: 100vh; }
+
+.container {
+  width: 100%;
+  font-size: 0; }
+  .container [class^=column-] {
+    display: inline-block;
+    vertical-align: top; }
+  .container .column-30 {
+    width: 33.33%; }
+  .container .column-50 {
+    width: 50%; }
+  .container .column-60 {
+    width: 66.66%; }
+  .container .column-70 {
+    width: 70%; }
+  .container .column-100 {
+    width: 100%; }
+
+.text-center {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.icon-text-wrapp {
+  margin-bottom: 20px; }
+  .icon-text-wrapp img {
+    margin-bottom: 1.875rem;
+    height: 3.75rem; }
+  .icon-text-wrapp p {
+    font-size: 1.25rem; }
+  .icon-text-wrapp .icon-star {
+    width: 3.75rem; }
+  .icon-text-wrapp .icon-wave {
+    width: 4.0625rem; }
+  .icon-text-wrapp .icon-mountain {
+    width: 3.875rem; }
+
+.more {
+  font-size: 1.25rem;
+  color: #ac252a;
+  vertical-align: bottom; }
+  .more svg {
+    fill: #ac252a;
+    width: 15px;
+    vertical-align: text-top;
+    padding-top: 3px; }
+
+.clear-height {
+  height: 3.75rem;
+  width: 0.0625rem;
+  margin-bottom: 1.875rem;
+  display: block; }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
