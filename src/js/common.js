@@ -1,7 +1,7 @@
-var scrollsMain;
+var scrolls;
 
 window.onload = function(){
-	var scrollsMain = document.getElementById('my-scrollbar')
+	var scrollsMain = document.getElementById('my-scrollbar');
 	scrolls = new Scroller(scrollsMain);
 };
 
@@ -133,7 +133,6 @@ function Loading(){
 			_.removeClass("pages-in");
 			setTimeout(function(){
 				_.removeClass("transfer-pages");
-				console.log(_)
 				_.off("animationend");
 			}, 400);
 		});
@@ -242,16 +241,12 @@ Scroller.prototype = {
 
 		this.section_el = document.querySelectorAll(this.param.aninElements);
 
-		console.log(this.section_el);
-
 	},
 	updateOnScroll: function(){
 		var self = this;
 
 		this.section_el.forEach(function(node, i){
-
 			var getElementTop = node.getBoundingClientRect().top;
-
 			if(getElementTop <= self.windowHeight) {
 				self.setScrollClass(node);
 			}
