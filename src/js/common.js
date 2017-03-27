@@ -1,8 +1,11 @@
-var scrolls;
+var scrolls, groupscroll;
 
 window.onload = function(){
 	var scrollsMain = document.getElementById('my-scrollbar');
-	scrolls = new Scroller(scrollsMain);
+	scrolls = new Scroller(scrollsMain, true);
+
+	var groupscrollMain = document.getElementById('groups-scroll');
+	groupscroll = new Scroller(groupscrollMain, false);
 };
 
 function menu(){
@@ -174,9 +177,10 @@ function actionContent() {
 	});
 };
 
-function Scroller(el){
+function Scroller(el, bool){
 
 	this.el = el;
+	this.bool = bool;
 
 	this.param = {
 		constant: ".js-constant",
@@ -206,6 +210,7 @@ Scroller.prototype = {
 		});
 
 		this.scrollbar.addListener(function(status){
+			if(!self.bool) return;
 			self.fixedPositionSidebar(status);
 			self.updateOnScroll();
 		});
