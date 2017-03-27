@@ -1,7 +1,7 @@
-var scrollsMain;
+var scrolls;
 
 window.onload = function(){
-	var scrollsMain = document.getElementById('my-scrollbar')
+	var scrollsMain = document.getElementById('my-scrollbar');
 	scrolls = new Scroller(scrollsMain);
 };
 
@@ -133,7 +133,6 @@ function Loading(){
 			_.removeClass("pages-in");
 			setTimeout(function(){
 				_.removeClass("transfer-pages");
-				console.log(_)
 				_.off("animationend");
 			}, 400);
 		});
@@ -242,16 +241,12 @@ Scroller.prototype = {
 
 		this.section_el = document.querySelectorAll(this.param.aninElements);
 
-		console.log(this.section_el);
-
 	},
 	updateOnScroll: function(){
 		var self = this;
 
 		this.section_el.forEach(function(node, i){
-
 			var getElementTop = node.getBoundingClientRect().top;
-
 			if(getElementTop <= self.windowHeight) {
 				self.setScrollClass(node);
 			}
@@ -263,9 +258,52 @@ Scroller.prototype = {
 	}
 };
 
+function initSlickSlider() {
+	 $(".js-slider-one-slide").slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		dots: false,
+		arrows: true,
+		// asNavFor: ".js-slider-one-fade",
+		infinite: false
+	});
+	// $('.js-slider-one-fade').slick({
+	// 	slidesToShow: 1,
+	// 	slidesToScroll: 1,
+	// 	asNavFor: ".js-slider-one-slide",
+	// 	dots: false,
+	// 	arrows: false,
+	// 	fade: true,
+	// 	infinite: false
+	// });
+	$(".js-slider-prev").on("click", function(){
+		$(".js-slider-one-slide").slick("slickPrev");
+		if ($(".js-slider-one-slide").find(".slick-prev").hasClass("slick-disabled")) $(".js-slider-prev").addClass("disable")
+		else $(".js-slider-prev").removeClass("disable")
+		if ($(".js-slider-one-slide").find(".slick-next").hasClass("slick-disabled")) $(".js-slider-next").addClass("disable")
+		else $(".js-slider-next").removeClass("disable")
+	})
+	$(".js-slider-next").on("click", function(){
+		$(".js-slider-one-slide").slick("slickNext");
+		if ($(".js-slider-one-slide").find(".slick-prev").hasClass("slick-disabled")) $(".js-slider-prev").addClass("disable")
+		else $(".js-slider-prev").removeClass("disable")
+		if ($(".js-slider-one-slide").find(".slick-next").hasClass("slick-disabled")) $(".js-slider-next").addClass("disable")
+		else $(".js-slider-next").removeClass("disable")
+	})
+	if ($(".js-slider-one-slide").find(".slick-prev").hasClass("slick-disabled")) $(".js-slider-prev").addClass("disable")
+	else $(".js-slider-prev").removeClass("disable")
+	if ($(".js-slider-one-slide").find(".slick-next").hasClass("slick-disabled")) $(".js-slider-next").addClass("disable")
+	else $(".js-slider-next").removeClass("disable")
+
+}
+
+
+
 $(document).ready(function(){
 	// init menu
 	menu();
 
 	actionContent();
+
+	initSlickSlider();
 });
