@@ -648,21 +648,26 @@ h2, .h2
 		+rem(width, 62px)
 .more
 	+rem(font-size, 18px)
-	color: $maincolor
 	vertical-align: bottom;
 	span
 		border-bottom: 1px solid $maincolor
 		padding-bottom: 7px
+		transition: all 0.3s ease-out
+		color: $maincolor
 	svg
 		fill: $maincolor
 		width: 15px
 		vertical-align: text-top
 		padding-top: 9px
 		margin-left: 15px
-		transition: transform 0.3s linear
-	&:hover 
+		transition: transform 0.3s ease-out
+	&:hover
+		span
+			border-bottom: none
+			color: #000
 		svg
 			transform: translate(10px, 0)
+			fill: #000
 .clear-height 
 	+rem(width, 1px)
 	+rem(margin-bottom, 73px)
@@ -818,7 +823,7 @@ h2, .h2
 .bg-gray + .l
 	position: relative
 	z-index: 2
-	
+
 .bg-gray:hover + .next-page-hover h2
 	color: $maincolor
 
