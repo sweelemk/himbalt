@@ -276,18 +276,9 @@ function initSlickSlider() {
 		slidesToScroll: 1,
 		dots: false,
 		arrows: true,
-		// asNavFor: ".js-slider-one-fade",
 		infinite: false
 	});
-	// $('.js-slider-one-fade').slick({
-	// 	slidesToShow: 1,
-	// 	slidesToScroll: 1,
-	// 	asNavFor: ".js-slider-one-slide",
-	// 	dots: false,
-	// 	arrows: false,
-	// 	fade: true,
-	// 	infinite: false
-	// });
+
 	$(".js-slider-prev").on("click", function(){
 		$(".js-slider-one-slide").slick("slickPrev");
 		if ($(".js-slider-one-slide").find(".slick-prev").hasClass("slick-disabled")) $(".js-slider-prev").addClass("disable")
@@ -390,8 +381,7 @@ Modals.prototype = {
 $(document).ready(function(){
 	// init menu
 	menu();
-
 	actionContent();
 
-	initSlickSlider();
+	
 });
