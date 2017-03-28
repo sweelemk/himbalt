@@ -611,14 +611,14 @@ h2, .h2
 		+rem(padding-left, 47px)
 .block-2
 	margin-right: 2%
-	padding-left: 21px
+	+rem(padding-left, 21px)
 	h2
 		padding-bottom: 48px
 .block-3
 	.column-60
 		padding: 10px 85px 0 48px
 .block-4
-	padding-left: 101px
+	+rem(padding-left, 101px)
 	margin-right: 0
 .block-5
 	padding-left: 19.7%
@@ -663,7 +663,7 @@ h2, .h2
 		transition: transform 0.3s ease-out
 	&:hover
 		span
-			border-bottom: none
+			border-bottom: transparent
 			color: #000
 		svg
 			transform: translate(10px, 0)
@@ -674,7 +674,10 @@ h2, .h2
 	display: block
 	
 .block-padding
-	padding: 100px 0
+	padding-left: 0
+	padding-right: 0
+	+rem(padding-top, 100px)
+	+rem(padding-bottom, 100px)
 
 .page-link
 	display: block
@@ -778,7 +781,10 @@ h2, .h2
 
 
 .next-page
-	padding: 50px 0 95px
+	+rem(padding-top, 50px)
+	+rem(padding-right, 0)
+	+rem(padding-bottom, 84px)
+	+rem(padding-left, 0)
 	span
 		+rem(font-size, 12px)
 		font-family: $Book
@@ -805,6 +811,7 @@ h2, .h2
 		z-index: 5
 		
 .next-page-hover:hover
+	display: block
 	h2
 		color: $maincolor
 
@@ -881,7 +888,7 @@ h2, .h2
 			fill: $maincolor
 	.dop_info
 		text-transform: uppercase
-		+rem(font-size, 12px)
+		font-size: 12px
 		span
 			padding-left: 10px
 			margin-left: 10px
@@ -902,12 +909,15 @@ h2, .h2
 
 .footer
 	.block-padding
-		padding: 100px 0px 80px
+		padding-left: 0
+		padding-right: 0
+		+rem(padding-top, 100px)
+		+rem(padding-bottom, 80px)
 	.column-100
 		position: relative
 	p 
 		text-transform: uppercase
-		+rem(font-size, 12px)
+		font-size: 12px
 		a
 			color: #000
 			transition: color 0.3s ease-out;

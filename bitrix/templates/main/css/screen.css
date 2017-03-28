@@ -936,7 +936,7 @@ h2, .h2 {
 
 .block-2 {
   margin-right: 2%;
-  padding-left: 21px; }
+  padding-left: 1.3125rem; }
   .block-2 h2 {
     padding-bottom: 48px; }
 
@@ -944,7 +944,7 @@ h2, .h2 {
   padding: 10px 85px 0 48px; }
 
 .block-4 {
-  padding-left: 101px;
+  padding-left: 6.3125rem;
   margin-right: 0; }
 
 .block-5 {
@@ -996,7 +996,7 @@ h2, .h2 {
     transition: transform 0.3s ease-out;
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
   .more:hover span {
-    border-bottom: none;
+    border-bottom: transparent;
     color: #000; }
   .more:hover svg {
     -webkit-transform: translate(10px, 0);
@@ -1010,7 +1010,10 @@ h2, .h2 {
   display: block; }
 
 .block-padding {
-  padding: 100px 0; }
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem; }
 
 .page-link {
   display: block;
@@ -1120,7 +1123,10 @@ h2, .h2 {
     stroke: #000; }
 
 .next-page {
-  padding: 50px 0 95px; }
+  padding-top: 3.125rem;
+  padding-right: 0;
+  padding-bottom: 5.25rem;
+  padding-left: 0; }
   .next-page span {
     font-size: 0.75rem;
     font-family: "FiraSansBook";
@@ -1147,8 +1153,10 @@ h2, .h2 {
     left: -34%;
     z-index: 5; }
 
-.next-page-hover:hover h2 {
-  color: #ac252a; }
+.next-page-hover:hover {
+  display: block; }
+  .next-page-hover:hover h2 {
+    color: #ac252a; }
 
 .bg-gray {
   height: 100%;
@@ -1224,7 +1232,7 @@ h2, .h2 {
       fill: #ac252a; }
   .contacts .dop_info {
     text-transform: uppercase;
-    font-size: 0.75rem; }
+    font-size: 12px; }
     .contacts .dop_info span {
       padding-left: 10px;
       margin-left: 10px;
@@ -1240,14 +1248,17 @@ h2, .h2 {
     transition: all 0.3s ease-out; }
 
 .footer .block-padding {
-  padding: 100px 0px 80px; }
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 6.25rem;
+  padding-bottom: 5rem; }
 
 .footer .column-100 {
   position: relative; }
 
 .footer p {
   text-transform: uppercase;
-  font-size: 0.75rem; }
+  font-size: 12px; }
   .footer p a {
     color: #000;
     -webkit-transition: color 0.3s ease-out;
