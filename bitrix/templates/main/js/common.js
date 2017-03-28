@@ -12,7 +12,7 @@ function menu(){
 	var trigger = $(".ui-menu"),
 		overlay = $(".overlay"),
 		body = $("body"),
-		close = $(".cross-head");
+		close = $(".cross-menu");
 
 	trigger.on("click", function(){
 		if(body.hasClass("navigation_show")) return;
@@ -210,7 +210,9 @@ Scroller.prototype = {
 		});
 
 		this.scrollbar.addListener(function(status){
-			if(!self.bool) return;
+			if(!self.bool) {
+				return;
+			}
 			self.fixedPositionSidebar(status);
 			self.updateOnScroll();
 		});
@@ -226,11 +228,16 @@ Scroller.prototype = {
 	},
 	fixedPositionSidebar: function(state){
 		var t_pos = state.offset.y;
-
 		this.fixedElement.style.top = t_pos + "px";
 	},
 	scrollSet: function(){
 		this.scrollbar.setPosition(0,0);
+	},
+	scrollToPosition: function(pos){
+		this.scrollbar.scrollTo(0, pos, 800);
+	},
+	scrollPosition: function(){
+		return this.scrollbar.scrollTop;
 	},
 	scrollUpdate: function(param){
 		var self = this;
@@ -293,6 +300,82 @@ function initSlickSlider() {
 
 }
 
+
+function goToAnchors(){
+	var anchorTrigger = $(".anchor-trigger");
+
+	anchorTrigger.on("click", function(e){
+		var data = $(this).attr("href");
+
+		var positionOfTop = $(data).offset().top - 25;
+		var positionScroll = scrolls.scrollPosition();
+
+		scrolls.scrollToPosition(positionOfTop + positionScroll);
+
+		e.preventDefault();
+	});
+};
+
+function Modals(el) {
+	this.el = el;
+
+
+	this.options = {
+		openClass: "modals_show",
+		openClassElements: "open",
+		showModal: "show-modal",
+		bodyElement: "body",
+		modalGoal: "[data-modals]",
+		close: ".cross-modal"
+	}
+
+	this.init();
+}
+
+Modals.prototype = {
+	init: function(){
+
+		this.body = document.querySelector(this.options.bodyElement);
+		this.elements = document.querySelectorAll(this.el);
+
+		this.eventHandler();
+	},
+	eventHandler: function() {
+		var self = this;
+		this.elements.forEach(function(element){
+			element.addEventListener("click", function(event){
+				var value = this.getAttribute("data-modal");
+				self.openModal(value);
+				event.preventDefault();
+			});	
+		});
+				
+	},
+	generateEventOnCloseModals: function(){
+		var self = this;
+		this.close = document.querySelector(this.options.close);
+		this.close.addEventListener("click", function(){
+			self.closeModal();
+			this.removeEventListener("click", arguments.callee);
+		});
+	},
+	openModal: function(goal_modal){
+		this.body.classList.add(this.options.openClass);
+		this.goalElement = document.querySelector("[data-modals=" + goal_modal + "]");
+		this.goalElement.classList.add(this.options.openClassElements);
+		this.goalElement.classList.add(this.options.showModal);
+
+		this.generateEventOnCloseModals();
+	},
+	closeModal: function(){
+		var self = this;
+		this.body.classList.remove(this.options.openClass);
+		this.goalElement.classList.remove(this.options.openClassElements);		
+		setTimeout(function(){
+			self.goalElement.classList.remove(self.options.showModal);
+		}, 300);
+	}
+};
 
 
 $(document).ready(function(){
