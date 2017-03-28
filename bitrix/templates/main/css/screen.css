@@ -978,25 +978,31 @@ h2, .h2 {
 
 .more {
   font-size: 1.125rem;
-  color: #ac252a;
   vertical-align: bottom; }
   .more span {
     border-bottom: 1px solid #ac252a;
-    padding-bottom: 7px; }
+    padding-bottom: 7px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    color: #ac252a; }
   .more svg {
     fill: #ac252a;
     width: 15px;
     vertical-align: text-top;
     padding-top: 9px;
     margin-left: 15px;
-    -webkit-transition: -webkit-transform 0.3s linear;
-    transition: -webkit-transform 0.3s linear;
-    transition: transform 0.3s linear;
-    transition: transform 0.3s linear, -webkit-transform 0.3s linear; }
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+  .more:hover span {
+    border-bottom: none;
+    color: #000; }
   .more:hover svg {
     -webkit-transform: translate(10px, 0);
     -ms-transform: translate(10px, 0);
-    transform: translate(10px, 0); }
+    transform: translate(10px, 0);
+    fill: #000; }
 
 .clear-height {
   width: 0.0625rem;
