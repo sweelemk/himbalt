@@ -24,6 +24,10 @@ body
 			visibility: visible
 		.menu
 			transform: translate(-100%, 0)
+	&.groups-modal-opened
+		.overlay
+			opacity: 1
+			visibility: visible
 h1, .h1
 	font-family: $Bold
 	+rem(font-size, 60px)
@@ -142,9 +146,9 @@ h2, .h2
 	transition: width 0.5s ease
 .load-dom
 	.variable-section
-		width: 61.56%
+		width: 61.95%
 		.loader-container
-			width: 61.56vw
+			width: 61.95vw
 	.inner-page
 		.variable-section
 			width: 80.9%
@@ -177,7 +181,7 @@ h2, .h2
 .account
 	position: absolute
 	+rem(top, 59px)
-	left: 34.1%
+	left: 33.7%
 	.account-enter
 		span
 			+rem(font-size, 12px)
@@ -190,7 +194,7 @@ h2, .h2
 				color: $hover
 .navigation-site
 	position: absolute
-	left: 34.1%
+	left: 33.7%
 	z-index: 2
 	top: 23.6%
 	transition: opacity 0.3s linear
@@ -221,7 +225,7 @@ h2, .h2
 							opacity: 1
 .company-based
 	position: absolute
-	+rem(bottom, 53px)
+	+rem(bottom, 50px)
 	+rem(left, 34px)
 	.icon
 		display: block
@@ -234,8 +238,8 @@ h2, .h2
 
 .address
 	position: absolute
-	+rem(bottom, 48px)
-	left: 34.1%
+	+rem(bottom, 46px)
+	left: 33.7%
 	transition: opacity 0.3s linear
 	.address-item
 		&:not(:last-child)
@@ -265,21 +269,22 @@ h2, .h2
 	background-color: $white
 	transform-style: flat
 	backface-visibility: hidden
-	width: 50%
+	width: 50.5%
 	left: 100%
 	transition: transform 0.3s linear
+	overflow: auto
 .menu_content
-	position: absolute
-	+rem(right, 50px)
-	+rem(top, 50px)
-	+rem(bottom, 110px)
-	+rem(left, 50px)
+	position: relative
+	+rem(padding, 76px 0px 110px 0px)	
+	+vertical
+	height: 100%
+	text-align: left
 	.lang
-		top: 0
-		left: 0
+		+rem(top, 50px)
+		+rem(left, 50px)
 	.account
-		+rem(top, 8px)
-		left: 23.5%
+		+rem(top, 63px)
+		left: 26.2%
 		.account-enter
 			span
 				color: $darkHover
@@ -337,7 +342,7 @@ h2, .h2
 	padding-left: 82px
 	margin-right: 10%
 .section-scroll
-	height: 100%
+	min-height: 100vh
 	overflow: hidden
 .intro-head
 	position: relative
@@ -377,7 +382,7 @@ h2, .h2
 		transform: scaleY(.4) translateY(12px)
 .contacts-header
 	position: absolute
-	+rem(right, 222px)
+	+rem(right, 239px)
 	+rem(top, 62px)
 	z-index: 9
 .contacts-list
@@ -416,14 +421,14 @@ h2, .h2
 						fill: $maincolor
 .cross-head
 	position: absolute
-	top: 0
-	right: 0
+	+rem(top, 50px)
+	+rem(right, 67px)
 	width: 25px
 	height: 25px
 	cursor: pointer
+	z-index: 5
 	&:hover
 		.cross-container
-			transform: rotate(180deg)
 			.cross
 				background-color: $maincolor
 .cross-container
@@ -459,21 +464,31 @@ h2, .h2
 	height: 100vh
 	width: 100%
 	.svg-icon-number
-		width: 85%
+		width: 88%
 		position: absolute
-		bottom: 0
-		right: 0
+		+rem(bottom, -19px)
+		+rem(right, -41px)
 .menu-elements
-	position: absolute
-	top: 23%
+	position: relative
+	display: inline-block
+	vertical-align: middle
+	text-align: left
+	left: 26.1%
+	right: 21.8%
+	max-width: 100%
 	+clr
-	left: 23.5%
-	+rem(right, 50px)
 	.menu-elements_container
 		display: flex
 		width: 100%
-		margin-bottom: 15.4%
+		margin-bottom: 11%
+		+rem(margin-top, 75px)
+		+clr
+		ul
+			// display: block
+			// width: 50%
+			// float: left
 .menu-primary
+
 .menu-primary_item
 	display: block
 	+rem(margin-bottom, 24px)
@@ -500,21 +515,28 @@ h2, .h2
 		&::after
 			opacity: 1
 .menu-secondary
-	padding-left: 15.4%
+	margin-left: 18%
 .menu-secondary_item
 	display: block
 	+rem(margin-bottom, 24px)
+	span
+		display: block
 .menu-secondary_item-link
 	font-family: $Bold
 	color: $menucolor
 	+rem(font-size, 30px)
+	display: block
+	width: 100%
 	transition: color 0.3s ease
 	&:hover
 		color: $maincolor
 	&.active
 		color: $maincolor
 .menu-contacts
-	padding-left: 1px
+	padding-left: 2px
+	position: relative
+	clear: both
+	+rem(padding, 37px 0)
 	.address
 		position: relative
 		bottom: auto
@@ -645,6 +667,7 @@ h2, .h2
 	+rem(width, 1px)
 	+rem(margin-bottom, 73px)
 	display: block
+	
 .block-padding
 	padding: 100px 0
 
@@ -795,6 +818,7 @@ h2, .h2
 .bg-gray + .l
 	position: relative
 	z-index: 2
+	
 .bg-gray:hover + .next-page-hover h2
 	color: $maincolor
 
@@ -890,3 +914,107 @@ h2, .h2
 		position: absolute
 		left: 0
 		    
+.gropus-modals
+	position: absolute
+	z-index: 999
+	width: 100%
+	left: 100%
+	height: 100%
+	top: 0
+	&.open
+		left: 0
+	.groups-modal-scroll
+		height: 100%
+	.groups-modal-content
+		width: 50%
+		min-height: 100%
+		background-color: $white
+		left: 100%
+		position: absolute
+		transition: transform 0.3s linear
+		transform-style: flat
+		backface-visibility: hidden
+	.row-request
+		position: absolute
+		bottom: 0
+		right: 0
+		width: 50%
+		height: 105px
+		border-top: 1px solid #bcbcbc
+	.content-container
+		min-height: 100vh
+		+rem(padding-bottom, 105px)
+		+rem(padding-top, 75px)
+		+rem(padding-left, 80px)
+		padding-right: 13%
+		.content-scrolls
+			height: 200vh
+.groups-modal-opened
+	.gropus-modals
+		left: 0
+		.groups-modal-content
+			transform: translate(-100%, 0)
+	.request-container
+		+clr
+		+rem(padding, 19px 35px)
+		.btn
+			float: right
+.btn
+	background-color: $maincolor
+	+rem(padding, 21px 10px)
+	+rem(min-width, 201px)
+	text-align: center
+	border-radius: 3px
+	transition: background-color 0.3s ease
+	&:hover
+		background-color: $darkmain
+	span 
+		font-family: $Book
+		color: $white
+		text-transform: uppercase
+		+rem(font-size, 12px)
+		display: inline-block
+		vertical-align: middle
+		+rem(margin-right, 10px)
+		+rem(letter-spacing, 1.2px)
+	.icon
+		display: inline-block
+		vertical-align: middle
+		&.icon-arrow
+			+rem(width, 16px)
+			+rem(height, 12px)
+			position: relative
+			svg
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+.request-access
+	display: inline-block
+	+rem(padding, 21px 14px)
+	.icon
+		display: inline-block
+		vertical-align: middle
+		+rem(width, 22px)
+		+rem(height, 19px)
+		+rem(margin-right, 9px)
+		svg
+			fill: $maincolor
+			transition: fill 0.3s ease
+	span
+		font-family: $Regular
+		display: inline-block
+		vertical-align: middle
+		+rem(letter-spacing, 0.8px)
+		border-bottom: 1px solid
+		padding-top: 2px
+		padding-bottom: 5px
+		transition: color 0.3s ease, border-color 0.3s ease
+	&:hover
+		.icon
+			svg
+				fill: $black
+		span
+			color: $black
+			border-color: transparent
