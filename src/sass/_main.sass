@@ -307,7 +307,7 @@ h2, .h2
 			width: 100%
 .container-content
 	text-align: right
-	+rem(margin-left, 107px)
+	+rem(margin-left, 81px)
 	+rem(max-width, 980px)
 	width: 100%
 .breadcumbs
@@ -332,9 +332,10 @@ h2, .h2
 				span 
 					color: $hover
 .l
-	+rem(max-width, 780px)
+	+rem(max-width, 800px)
 	text-align: left
 	display: inline-block
+	width: 100%;
 .section
 	text-align: left
 .section-scroll
@@ -585,11 +586,6 @@ h2, .h2
 		transform: translate(0, 0)
 
 
-.section
-	height: 100vh
-
-
-
 .container 
 	width: 100%
 	font-size: 0
@@ -608,6 +604,7 @@ h2, .h2
 		width: 70%
 	.column-100
 		width: 100%
+		display: block
 
 
 .text-center 
@@ -624,6 +621,7 @@ h2, .h2
 		+rem(height, 60px)
 	p 
 		+rem(font-size, 20px)
+		line-height: 1.5
 	.icon-star
 		+rem(width, 60px)
 	.icon-wave
@@ -634,14 +632,126 @@ h2, .h2
 	+rem(font-size, 20px)
 	color: $maincolor
 	vertical-align: bottom;
+	span
+		border-bottom: 1px solid $maincolor
+		padding-bottom: 7px
 	svg
 		fill: $maincolor
 		width: 15px
 		vertical-align: text-top
-		padding-top: 3px
+		padding-top: 9px
+		margin-left: 15px
+		transition: transform 0.3s linear
+	&:hover 
+		svg
+			transform: translate(10px, 0)
 .clear-height 
 	+rem(height, 60px)
 	+rem(width, 1px)
+	+rem(margin-bottom, 30px)
+	display: block
+	
+.block-padding
+	padding: 100px 0
+
+.page-link
+	+rem(font-size, 24px)
+	+rem(height, 250px)
+	position: relative
+	.svg-full-wrapp
+		position: absolute
+		width: 100%
+		height: 100%
+.content-wrapp
+	padding: 0 15px
+	font-size: 2rem
+	img 
+		width: 100%;
+	.date
+		font-family: $Book
+		font-size: 1.2rem
+	.desc
+		font-family: $Medium
+
+.border-top:before
+	content: ' '
+	+rem(width, 140px)
+	height: 2px 
+	background-color: $maincolor
+	position: absolute;
+
+.slider-img
+	padding-bottom: 40px
+	margin: 0 -15px
+	.slick-arrow 
+		display: none !important
+	.border-top
+		padding-top: 40px
+	.date
+		padding-top: 40px
+	.desc
+		padding-top: 20px
+
+
+.btn-slider
+	.btn-wrapp
+		width: 45px
+		display: inline-block
+		margin-top: 65px
+		&:first-child
+			margin-right: 15px
+		&:last-child
+			margin-left: 15px 
+		svg 
+			cursor: pointer
+			path
+				stroke: $maincolor
+		.disable
+			path
+				stroke: #e7c0c1
+.next-page
+	padding: 50px 0 95px
+	span
+		+rem(font-size, 12px)
+		font-family: $Book
+		text-transform: uppercase
+		position: relative
+		z-index: 5
+		color: #000
+	h2
+		position: relative
+		+rem(font-size, 60px)
+		z-index: 5
+		color: #000
+	h2:before 
+		content: ''
+		width: 30%
+		height: 2px
+		background-color: $maincolor
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		left: -40%
+		z-index: 5
+	
+.bg-gray
+	height: 100%
+	position: absolute
+	width: 100%
+	background-color: #f8f8f8
+	left: 0
+	z-index: 1;
+	max-height: 220px
+	a 
+		width: 100%
+		height: 100%
+		display: block
+.bg-gray + .l
+	position: relative
+	z-index: 2
+
+
 .gropus-modals
 	position: absolute
 	z-index: 999
