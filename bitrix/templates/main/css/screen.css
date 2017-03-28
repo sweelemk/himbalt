@@ -637,13 +637,10 @@ h2, .h2 {
   right: 4.1875rem;
   width: 25px;
   height: 25px;
-  cursor: pointer; }
-  .cross-head:hover .cross-container {
-    -webkit-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    transform: rotate(180deg); }
-    .cross-head:hover .cross-container .cross {
-      background-color: #ac252a; }
+  cursor: pointer;
+  z-index: 5; }
+  .cross-head:hover .cross-container .cross {
+    background-color: #ac252a; }
 
 .cross-container {
   width: 100%;
@@ -940,7 +937,10 @@ h2, .h2 {
     border-top: 1px solid #bcbcbc; }
   .gropus-modals .content-container {
     min-height: 100vh;
-    padding-bottom: 6.5625rem; }
+    padding-bottom: 6.5625rem;
+    padding-top: 4.6875rem;
+    padding-left: 5rem;
+    padding-right: 13%; }
     .gropus-modals .content-container .content-scrolls {
       height: 200vh; }
 
@@ -1004,11 +1004,24 @@ h2, .h2 {
     height: 1.1875rem;
     margin-right: 0.5625rem; }
     .request-access .icon svg {
-      fill: #ac252a; }
+      fill: #ac252a;
+      -webkit-transition: fill 0.3s ease;
+      transition: fill 0.3s ease; }
   .request-access span {
     font-family: "FiraSansRegular";
     display: inline-block;
-    vertical-align: middle; }
+    vertical-align: middle;
+    letter-spacing: 0.05rem;
+    border-bottom: 1px solid;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    -webkit-transition: color 0.3s ease, border-color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease; }
+  .request-access:hover .icon svg {
+    fill: #000; }
+  .request-access:hover span {
+    color: #000;
+    border-color: transparent; }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {

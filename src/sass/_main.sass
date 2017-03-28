@@ -422,9 +422,9 @@ h2, .h2
 	width: 25px
 	height: 25px
 	cursor: pointer
+	z-index: 5
 	&:hover
 		.cross-container
-			transform: rotate(180deg)
 			.cross
 				background-color: $maincolor
 .cross-container
@@ -672,6 +672,9 @@ h2, .h2
 	.content-container
 		min-height: 100vh
 		+rem(padding-bottom, 105px)
+		+rem(padding-top, 75px)
+		+rem(padding-left, 80px)
+		padding-right: 13%
 		.content-scrolls
 			height: 200vh
 .groups-modal-opened
@@ -726,7 +729,20 @@ h2, .h2
 		+rem(margin-right, 9px)
 		svg
 			fill: $maincolor
+			transition: fill 0.3s ease
 	span
 		font-family: $Regular
 		display: inline-block
 		vertical-align: middle
+		+rem(letter-spacing, 0.8px)
+		border-bottom: 1px solid
+		padding-top: 2px
+		padding-bottom: 5px
+		transition: color 0.3s ease, border-color 0.3s ease
+	&:hover
+		.icon
+			svg
+				fill: $black
+		span
+			color: $black
+			border-color: transparent
