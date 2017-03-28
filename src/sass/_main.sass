@@ -301,10 +301,11 @@ h2, .h2
 			display: inline-block
 			width: 100%
 .container-content
-	text-align: right
-	+rem(margin-left, 81px)
-	+rem(max-width, 980px)
-	width: 100%
+	// text-align: right
+	// +rem(margin-left, 82px)
+	// margin-right: 10%;
+	// +rem(max-width, 980px)
+	// width: 100%
 .breadcumbs
 	position: fixed
 	+rem(left, 40px)
@@ -327,12 +328,14 @@ h2, .h2
 				span 
 					color: $hover
 .l
-	+rem(max-width, 800px)
+	// +rem(max-width, 800px)
 	text-align: left
 	display: inline-block
 	width: 100%;
 .section
 	text-align: left
+	padding-left: 82px
+	margin-right: 10%
 .section-scroll
 	height: 100%
 	overflow: hidden
@@ -570,8 +573,6 @@ h2, .h2
 	[class^=column-]
 		display: inline-block
 		vertical-align: top
-	// div 
-	// 	font-size: 1rem;
 	.column-30
 		width: 33.33%
 	.column-50
@@ -583,7 +584,23 @@ h2, .h2
 	.column-100
 		width: 100%
 		display: block
-
+.block-1
+	.column-60
+		+rem(padding-left, 47px)
+.block-2
+	margin-right: 2%
+	padding-left: 21px
+	h2
+		padding-bottom: 48px
+.block-3
+	.column-60
+		padding: 10px 85px 0 48px
+.block-4
+	padding-left: 101px
+	margin-right: 0
+.block-5
+	padding-left: 19.7%
+	padding-right: 9%
 
 .text-center 
 	text-align: center
@@ -594,20 +611,21 @@ h2, .h2
 
 .icon-text-wrapp
 	margin-bottom: 20px;
+	padding-right: 20px;
 	img
-		+rem(margin-bottom, 30px)
-		+rem(height, 60px)
+		+rem(margin-bottom, 24px)
 	p 
 		+rem(font-size, 20px)
-		line-height: 1.5
+		line-height: 1.55
 	.icon-star
 		+rem(width, 60px)
 	.icon-wave
 		+rem(width, 65px)
+		+rem(margin-bottom, 41px)
 	.icon-mountain
 		+rem(width, 62px)
 .more
-	+rem(font-size, 20px)
+	+rem(font-size, 18px)
 	color: $maincolor
 	vertical-align: bottom;
 	span
@@ -624,38 +642,76 @@ h2, .h2
 		svg
 			transform: translate(10px, 0)
 .clear-height 
-	+rem(height, 60px)
 	+rem(width, 1px)
-	+rem(margin-bottom, 30px)
+	+rem(margin-bottom, 73px)
 	display: block
 .block-padding
 	padding: 100px 0
 
 .page-link
+	display: block
 	+rem(font-size, 24px)
 	+rem(height, 250px)
 	position: relative
+	.text-link
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+		font-family: $Medium
+		padding-top: 11px
+		color: #000
+		transition: color 0.3s ease-out;
 	.svg-full-wrapp
 		position: absolute
-		width: 100%
-		height: 100%
-.content-wrapp
+		width: 50%
+		height: 50%
+		transform: scale(2)
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+		margin: auto
+		transition: transform 0.3s ease-out;
+	&:hover
+		.svg-full-wrapp
+			transform: scale(1);
+		.text-link
+			color: $maincolor
+
+.slider-content-wrapp
 	padding: 0 15px
 	font-size: 2rem
 	img 
 		width: 100%;
+		transition: opacity 0.3s ease-out
 	.date
 		font-family: $Book
-		font-size: 1.2rem
+		+rem(font-size, 12px)
+		color: #000
 	.desc
 		font-family: $Medium
+		+rem(font-size, 20px)
+		color: #000
+		transition: color 0.3s ease-out
 
-.border-top:before
-	content: ' '
-	+rem(width, 140px)
-	height: 2px 
-	background-color: $maincolor
-	position: absolute;
+	.border-top:before
+		content: ' '
+		+rem(width, 140px)
+		height: 2px 
+		background-color: $maincolor
+		position: absolute;
+		transition: transform 0.3s ease-out
+
+	&:hover
+		img
+			opacity: 0.5
+		.desc
+			color: $maincolor
+		.border-top:before
+			transform: translateX(50px)
+
+
 
 .slider-img
 	padding-bottom: 40px
@@ -663,29 +719,36 @@ h2, .h2
 	.slick-arrow 
 		display: none !important
 	.border-top
-		padding-top: 40px
+		padding-top: 43px
 	.date
-		padding-top: 40px
+		padding-top: 30px
 	.desc
-		padding-top: 20px
+		padding-top: 14px
 
 
 .btn-slider
 	.btn-wrapp
 		width: 45px
 		display: inline-block
-		margin-top: 65px
+		margin-top: 59px
 		&:first-child
 			margin-right: 15px
 		&:last-child
-			margin-left: 15px 
+			margin-left: 19px 
 		svg 
 			cursor: pointer
 			path
+				transition: stroke 0.3s ease-out;
 				stroke: $maincolor
 		.disable
 			path
-				stroke: #e7c0c1
+				stroke: #e7c0c1 !important
+		&:hover
+			svg 
+				path
+					stroke: #000
+
+
 .next-page
 	padding: 50px 0 95px
 	span
@@ -700,18 +763,23 @@ h2, .h2
 		+rem(font-size, 60px)
 		z-index: 5
 		color: #000
+		transition: color 0.3s ease-out;
 	h2:before 
 		content: ''
-		width: 30%
+		width: 24%
 		height: 2px
 		background-color: $maincolor
 		position: absolute
 		top: 0
 		bottom: 0
 		margin: auto
-		left: -40%
+		left: -34%
 		z-index: 5
-	
+		
+.next-page-hover:hover
+	h2
+		color: $maincolor
+
 .bg-gray
 	height: 100%
 	position: absolute
@@ -727,3 +795,98 @@ h2, .h2
 .bg-gray + .l
 	position: relative
 	z-index: 2
+.bg-gray:hover + .next-page-hover h2
+	color: $maincolor
+
+.list-link 
+	+rem(font-size, 20px)
+	li
+		margin: 10px 0 21px;
+		a
+			color: #000
+			padding: 5px 0
+			font-family: $Medium
+			transition: color 0.3s ease-out;
+			&:hover
+				color: $maincolor
+
+.list-link_no-bold
+	li
+		margin: 11px 0;
+		a
+			font-family: $Book
+			+rem(font-size, 16px)
+	li:first-child
+		a
+			font-family: $Medium
+			+rem(font-size, 20px)
+
+.contacts
+	+rem(font-size, 20px)
+	+rem(padding-top, 93px)
+	max-width: 250px
+	.adress
+		+rem(font-size, 20px)
+		font-family: $Medium
+		position: relative
+		margin-bottom: 20px
+		line-height: 1.7
+		svg
+			width: 24px
+			height: 30px
+			position: absolute
+			left: -47px
+			top: 0
+			fill: $maincolor
+	.tel
+		+rem(font-size, 20px)
+		font-family: $Medium
+		position: relative
+		margin-bottom: 26px
+		svg
+			width: 22px
+			height: 25px
+			position: absolute
+			left: -47px
+			top: 0
+			fill: $maincolor
+	.dop_info
+		text-transform: uppercase
+		+rem(font-size, 12px)
+		span
+			padding-left: 10px
+			margin-left: 10px
+			border-left: 1px solid #000
+			svg
+				width: 14px
+				height: 15px
+				position: relative
+				top: 3px
+	a
+		color: #000
+		transition: all 0.3s ease-out;
+		// &:hover 
+		// 	color: $maincolor
+		// 	svg 
+		// 		fill: #000
+
+
+.footer
+	.block-padding
+		padding: 100px 0px 80px
+	.column-100
+		position: relative
+	p 
+		text-transform: uppercase
+		+rem(font-size, 12px)
+		a
+			color: #000
+			transition: color 0.3s ease-out;
+			&:hover
+				color: $maincolor
+		span
+			padding: 0 17px
+	.left
+		position: absolute
+		left: 0
+		    
