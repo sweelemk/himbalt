@@ -576,7 +576,7 @@ h2, .h2 {
 
 .section {
   text-align: left;
-  padding-left: 82px;
+  padding-left: 5.125rem;
   margin-right: 10%; }
 
 .section-scroll {
@@ -914,7 +914,7 @@ h2, .h2 {
     display: block; }
 
 .block-1 {
-  padding-top: 60px; }
+  padding-top: 4.8125rem; }
   .block-1 .column-60 {
     padding-left: 2.9375rem; }
 
@@ -922,10 +922,18 @@ h2, .h2 {
   margin-right: 2%;
   padding-left: 1.3125rem; }
   .block-2 h2 {
-    padding-bottom: 48px; }
+    padding-bottom: 3rem; }
+  .block-2 .block-padding {
+    padding-bottom: 3.75rem; }
 
 .block-3 .column-60 {
-  padding: 10px 85px 0 48px; }
+  padding-bottom: 0;
+  padding-top: 0.625rem;
+  padding-right: 5.3125rem;
+  padding-left: 3rem; }
+
+.block-3 .block-padding {
+  padding-bottom: 3.625rem; }
 
 .block-4 {
   padding-left: 6.3125rem;
@@ -934,6 +942,9 @@ h2, .h2 {
 .block-5 {
   padding-left: 19.7%;
   padding-right: 9%; }
+  .block-5 .block-padding {
+    padding-top: 9.0625rem;
+    padding-bottom: 12.6875rem; }
 
 .text-center {
   text-align: center; }
@@ -945,8 +956,8 @@ h2, .h2 {
   text-align: right; }
 
 .icon-text-wrapp {
-  margin-bottom: 20px;
-  padding-right: 20px; }
+  margin-bottom: 1.25rem;
+  padding-right: 1.25rem; }
   .icon-text-wrapp img {
     margin-bottom: 1.5rem; }
   .icon-text-wrapp p {
@@ -1076,16 +1087,16 @@ h2, .h2 {
     transform: translateX(50px); }
 
 .slider-img {
-  padding-bottom: 40px;
+  padding-bottom: 2.5rem;
   margin: 0 -15px; }
   .slider-img .slick-arrow {
     display: none !important; }
   .slider-img .border-top {
-    padding-top: 43px; }
+    padding-top: 2.6875rem; }
   .slider-img .date {
-    padding-top: 30px; }
+    padding-top: 1.875rem; }
   .slider-img .desc {
-    padding-top: 14px; }
+    padding-top: 0.875rem; }
 
 .btn-slider .btn-wrapp {
   width: 45px;
@@ -1109,7 +1120,7 @@ h2, .h2 {
 .next-page {
   padding-top: 3.125rem;
   padding-right: 0;
-  padding-bottom: 5.25rem;
+  padding-bottom: 5.1875rem;
   padding-left: 0; }
   .next-page span {
     font-size: 0.75rem;
@@ -1137,6 +1148,9 @@ h2, .h2 {
     left: -34%;
     z-index: 5; }
 
+.next-page-hover {
+  display: block; }
+
 .next-page-hover:hover {
   display: block; }
   .next-page-hover:hover h2 {
@@ -1149,7 +1163,7 @@ h2, .h2 {
   background-color: #f8f8f8;
   left: 0;
   z-index: 1;
-  max-height: 220px; }
+  max-height: 13.75rem; }
   .bg-gray a {
     width: 100%;
     height: 100%;
@@ -1193,13 +1207,13 @@ h2, .h2 {
     font-size: 1.25rem;
     font-family: "FiraSansMedium";
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     line-height: 1.7; }
     .contacts .adress svg {
-      width: 24px;
-      height: 30px;
+      width: 1.5rem;
+      height: 1.875rem;
+      left: -2.9375rem;
       position: absolute;
-      left: -47px;
       top: 0;
       fill: #ac252a; }
   .contacts .tel {
@@ -1208,10 +1222,10 @@ h2, .h2 {
     position: relative;
     margin-bottom: 26px; }
     .contacts .tel svg {
-      width: 22px;
-      height: 25px;
+      width: 1.375rem;
+      height: 1.5625rem;
+      left: -2.9375rem;
       position: absolute;
-      left: -47px;
       top: 0;
       fill: #ac252a; }
   .contacts .dop_info {
@@ -1222,8 +1236,8 @@ h2, .h2 {
       margin-left: 10px;
       border-left: 1px solid #000; }
       .contacts .dop_info span svg {
-        width: 14px;
-        height: 15px;
+        width: 0.875rem;
+        height: 0.9375rem;
         position: relative;
         top: 3px; }
   .contacts a {
@@ -1516,3 +1530,27 @@ h2, .h2 {
 
   html {
     font-size: 12px; } }
+      @media only screen and (max-width: 1024px) {
+
+  .block-1 .column-60 {
+    width: 100%;
+    padding-left: 0; }
+
+  .block-1 .column-30 {
+    width: 100%;
+    text-align: center; }
+
+  .block-1 .column-30 h2 {
+    padding-bottom: 3rem; }
+
+  .block-3 .column-30 {
+    width: 100%;
+    text-align: center; }
+
+  .block-3 .column-30 .btn-slider .btn-wrapp {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem; }
+
+  .block-3 .column-60 {
+    width: 100%;
+    padding: 0; } }

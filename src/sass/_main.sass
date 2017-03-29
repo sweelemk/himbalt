@@ -329,7 +329,7 @@ h2, .h2
 	width: 100%;
 .section
 	text-align: left
-	padding-left: 82px
+	+rem(padding-left, 82px)
 	margin-right: 10%
 .section-scroll
 	min-height: 100vh
@@ -597,24 +597,56 @@ h2, .h2
 		width: 100%
 		display: block
 .block-1
-	padding-top: 60px;
+	+rem(padding-top, 77px)
 	.column-60
 		+rem(padding-left, 47px)
+		+r(1024)
+			width: 100%
+			padding-left: 0
+	.column-30
+		+r(1024)
+			width: 100%
+			text-align: center
+			h2
+				padding-bottom: 3rem
 .block-2
 	margin-right: 2%
 	+rem(padding-left, 21px)
 	h2
-		padding-bottom: 48px
+		+rem(padding-bottom, 48px)
+	.block-padding
+		+rem(padding-bottom, 60px)
+
 .block-3
+	.column-30
+		+r(1024)
+			width: 100%
+			text-align: center
+			.btn-slider 
+				.btn-wrapp
+					+rem(margin-top, 40px)
+					+rem(margin-bottom, 20px)
 	.column-60
-		padding: 10px 85px 0 48px
+		padding-bottom: 0
+		+rem(padding-top, 10px)
+		+rem(padding-right, 85px)
+		+rem(padding-left, 48px)
+		+r(1024)
+			width: 100%
+			padding: 0
+
+
+	.block-padding
+		+rem(padding-bottom, 58px)
 .block-4
 	+rem(padding-left, 101px)
 	margin-right: 0
 .block-5
 	padding-left: 19.7%
 	padding-right: 9%
-
+	.block-padding
+		+rem(padding-top, 145px)
+		+rem(padding-bottom, 203px)
 .text-center 
 	text-align: center
 .text-left 
@@ -623,8 +655,8 @@ h2, .h2
 	text-align: right
 
 .icon-text-wrapp
-	margin-bottom: 20px;
-	padding-right: 20px;
+	+rem(margin-bottom, 20px)
+	+rem(padding-right, 20px)
 	img
 		+rem(margin-bottom, 24px)
 	p 
@@ -736,16 +768,16 @@ h2, .h2
 
 
 .slider-img
-	padding-bottom: 40px
+	+rem(padding-bottom, 40px)
 	margin: 0 -15px
 	.slick-arrow 
 		display: none !important
 	.border-top
-		padding-top: 43px
+		+rem(padding-top, 43px)
 	.date
-		padding-top: 30px
+		+rem(padding-top, 30px)
 	.desc
-		padding-top: 14px
+		+rem(padding-top, 14px)
 
 
 .btn-slider
@@ -774,7 +806,7 @@ h2, .h2
 .next-page
 	+rem(padding-top, 50px)
 	+rem(padding-right, 0)
-	+rem(padding-bottom, 84px)
+	+rem(padding-bottom, 83px)
 	+rem(padding-left, 0)
 	span
 		+rem(font-size, 12px)
@@ -800,7 +832,8 @@ h2, .h2
 		margin: auto
 		left: -34%
 		z-index: 5
-		
+.next-page-hover
+	display: block
 .next-page-hover:hover
 	display: block
 	h2
@@ -813,7 +846,7 @@ h2, .h2
 	background-color: #f8f8f8
 	left: 0
 	z-index: 1;
-	max-height: 220px
+	+rem(max-height, 220px)
 	a 
 		width: 100%
 		height: 100%
@@ -856,13 +889,13 @@ h2, .h2
 		+rem(font-size, 20px)
 		font-family: $Medium
 		position: relative
-		margin-bottom: 20px
+		+rem(margin-bottom, 20px)
 		line-height: 1.7
 		svg
-			width: 24px
-			height: 30px
+			+rem(width, 24px)
+			+rem(height, 30px)
+			+rem(left, -47px)
 			position: absolute
-			left: -47px
 			top: 0
 			fill: $maincolor
 	.tel
@@ -871,10 +904,10 @@ h2, .h2
 		position: relative
 		margin-bottom: 26px
 		svg
-			width: 22px
-			height: 25px
+			+rem(width, 22px)
+			+rem(height, 25px)
+			+rem(left, -47px)
 			position: absolute
-			left: -47px
 			top: 0
 			fill: $maincolor
 	.dop_info
@@ -885,8 +918,8 @@ h2, .h2
 			margin-left: 10px
 			border-left: 1px solid #000
 			svg
-				width: 14px
-				height: 15px
+				+rem(width, 14px)
+				+rem(height, 15px)
 				position: relative
 				top: 3px
 	a
