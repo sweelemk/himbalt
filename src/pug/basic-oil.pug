@@ -13,7 +13,7 @@ block content
 		.root_frame
 			.root_frame-content
 				.pages.inner-page(id="my-scrollbar")
-					section.constant-section.inactive
+					section.constant-section.inactive.js-constant
 						include includes/_constant-section
 						.breadcumbs.show
 							.breadcumbs-inner
@@ -34,8 +34,130 @@ block content
 											span Base oils 
 											| by four groups
 									article.container-content
-										.l Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+										section.section-anchors
+											.anchor-container
+												ul
+													mixin anchors(name, link)
+														li.achors-item
+															a.anchor-trigger(href="#" + link)
+																span #{name}
+													+anchors("Group I", "group-1")
+													+anchors("Group II", "group-2")
+													+anchors("Group III", "group-3")
+													+anchors("Group IV", "group-4")
+										section.section.js-section(data-inview-class="push-it")
+											.l
+												p.lead We develop multidirectional supply markets to minimize seasonal and regional market uctuations, providing stable accomplishment of customers requests and creating stable demand for base oils manufacturers during the year
+										section.section.js-section(data-inview-class="push-it")
+											.container-image
+												.image-element
+													img(src="img/image-content/img-1.jpg")
+												.text-elements
+													h2.h2 We deliver base oils in&nbsp;43 countries
+													p We develop multidirectional supply markets to minimize seasonal and regional market uctuations, providing stable accomplishment of customers requests and creating stable demand for base oils manufacturers during the year
+										section.section
+											.l
+												.groups-container-elements
+													.groups-container_item.js-section(data-inview-class="push-it")
+														.groups-head(id="group-1")
+															h2.h2 Group I
+														.groups-body
+															.elemets-container
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 80
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 100
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 150
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 250
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 350
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 400
+															.elemets-container
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 500
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 650
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 900
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span SN 1200
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span BS
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span BS 150
+													.groups-container_item.js-section(data-inview-class="push-it")
+														.groups-head(id="group-2")
+															h2.h2 Group II
+														.groups-body
+															.elemets-container
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span 70N
+													.groups-container_item.js-section(data-inview-class="push-it")
+														.groups-head(id="group-3")
+															h2.h2 Group III
+														.groups-body
+															.elemets-container
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span 4 cst
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span 6 cst
+													.groups-container_item.js-section(data-inview-class="push-it")
+														.groups-head(id="group-4")
+															h2.h2 Group IV
+														.groups-body
+															.elemets-container
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span Cylinder oil
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span Transmission oil
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span Turbine oil
+																.elements-field
+																	.element-trigger(data-id-content="" data-modal="projects")
+																		.element-name
+																			span Transformer oil
+										script(type="text/javascript").
+											$(goToAnchors)											
+											var modalsProject = new Modals("[data-modal]");
 		- var active = "Base oils"
 		include includes/_navigation
 		include includes/_groups-modal

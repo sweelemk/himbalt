@@ -14,6 +14,8 @@ svg
 html
 	overflow: hidden
 	font-size: 16px
+	+r(1279)
+		font-size: 12px
 body
 	overflow: hidden
 	background-color: $maincolor
@@ -24,7 +26,7 @@ body
 			visibility: visible
 		.menu
 			transform: translate(-100%, 0)
-	&.groups-modal-opened
+	&.modals_show
 		.overlay
 			opacity: 1
 			visibility: visible
@@ -158,22 +160,26 @@ h2, .h2
 	position: absolute
 	+rem(top, 50px)
 	+rem(left, 34px)
-	+rem(height, 26px)
-	+rem(width, 60px)
+	// +rem(height, 26px)
+	// +rem(width, 60px)
+	height: 26px
+	width: 60px
 	.lang-inner
 		position: relative
 		width: 100%
 		height: 100%
 		background-color: $maindark
 		padding: 2px
-		+rem(border-radius, 13px)
+		// +rem(border-radius, 13px)
+		border-radius: 13px
 		font-size: 0
 		a
-			+rem(font-size, 12px)
+			font-size: 12px
 			text-transform: uppercase
 			color: $white
 			display: inline-block
-			+rem(padding, 4px 6px 4px)
+			// +rem(padding, 4px 6px 4px)
+			padding: 4px 6px 4px
 			&.active
 				background-color: $white
 				color: $black
@@ -184,10 +190,11 @@ h2, .h2
 	left: 33.7%
 	.account-enter
 		span
-			+rem(font-size, 12px)
+			font-size: 12px
 			text-transform: uppercase
 			color: $white
-			+rem(letter-spacing, 0.6px)
+			// +rem(letter-spacing, 0.6px)
+			letter-spacing: 0.6px
 			transition: color 0.3s ease
 		&:hover
 			span
@@ -288,23 +295,6 @@ h2, .h2
 		.account-enter
 			span
 				color: $darkHover
-.inner-page
-	.logo
-		+rem(left, 56px)
-	.intro-head
-		+rem(padding-top, 192px)
-		+rem(margin-left, 107px)
-		text-align: right
-		+rem(margin-bottom, 50px)
-		+rem(max-width, 980px)
-		text-align: right
-		display: inline-block
-		width: 100%
-		h1, .h1
-			+rem(max-width, 780px)
-			text-align: left
-			display: inline-block
-			width: 100%
 .container-content
 	// text-align: right
 	// +rem(margin-left, 82px)
@@ -312,7 +302,7 @@ h2, .h2
 	// +rem(max-width, 980px)
 	// width: 100%
 .breadcumbs
-	position: fixed
+	position: absolute
 	+rem(left, 40px)
 	top: 54.1%
 	height: 50px
@@ -907,7 +897,6 @@ h2, .h2
 		// 	svg 
 		// 		fill: #000
 
-
 .footer
 	.block-padding
 		padding-left: 0
@@ -930,14 +919,14 @@ h2, .h2
 		position: absolute
 		left: 0
 		    
-.gropus-modals
+.groups-modals
 	position: absolute
 	z-index: 999
 	width: 100%
 	left: 100%
 	height: 100%
 	top: 0
-	&.open
+	&.show-modal
 		left: 0
 	.groups-modal-scroll
 		height: 100%
@@ -953,10 +942,11 @@ h2, .h2
 	.row-request
 		position: absolute
 		bottom: 0
-		right: 0
+		left: 100%
 		width: 50%
-		height: 105px
+		+rem(height, 105px)
 		border-top: 1px solid #bcbcbc
+		transition: transform 0.3s linear
 	.content-container
 		min-height: 100vh
 		+rem(padding-bottom, 105px)
@@ -965,11 +955,13 @@ h2, .h2
 		padding-right: 13%
 		.content-scrolls
 			height: 200vh
-.groups-modal-opened
-	.gropus-modals
-		left: 0
+	&.open
+		.row-request,
 		.groups-modal-content
 			transform: translate(-100%, 0)
+	&.show-modal
+		.groups-modals
+			left: 0
 	.request-container
 		+clr
 		+rem(padding, 19px 35px)
@@ -1034,3 +1026,120 @@ h2, .h2
 		span
 			color: $black
 			border-color: transparent
+.inner-page
+	.logo
+		+rem(left, 56px)
+	.intro-head
+		+rem(padding-top, 192px)
+		padding-left: 15.3%
+		margin-right: 13%
+		+rem(margin-left, 108px)
+		+rem(margin-bottom, 37px)
+		h1, .h1
+			display: inline-block
+			width: 100%
+	.container-content
+		margin-left: 0
+		text-align: left
+		max-width: 100%
+	.section
+		+rem(padding-left, 108px)
+		margin-right: 16%
+		+rem(margin-bottom, 70px)
+	.l
+		margin-left: 20.5%
+		max-width: 100%
+		width: auto
+		display: inherit
+	p
+		+rem(font-size, 20px)
+		line-height: 1.6
+		&.lead
+			font-family: $Medium
+.section-anchors
+	+rem(padding-left, 108px)
+	+rem(margin-bottom, 41px)
+	margin-right: 16%
+.anchor-container
+	margin-left: 20.5%
+	ul
+		+rem(margin, 0 -13px)
+	.achors-item
+		display: inline-block
+		.anchor-trigger
+			font-family: $Medium
+			+rem(font-size, 20px)
+			padding: 13px
+			display: inline-block
+			transition: color 0.3s ease
+			&:hover
+				color: $black
+.container-image
+	.image-element
+		+rem(max-width, 338px)
+		float: left
+		margin-right: 6.4%
+		+r(1150)
+			// +rem(max-width, 280px)
+		img
+			max-width: 100%
+	.text-elements
+		overflow: hidden
+		+rem(padding-top, 33px)
+		h2, .h2
+			max-width: 83%
+			+r(1400)
+				max-width: 90%
+			+rem(margin-bottom, 38px)
+			font-family: $Regular
+			line-height: 1
+.groups-container-elements
+	+rem(padding-top, 15px)
+	width: 100%
+	.groups-container_item
+		&:not(:last-child)
+			+rem(margin-bottom, 100px)
+	.groups-head
+		+rem(margin-bottom, 35px)
+	.groups-body
+		font-size: 0
+		.elemets-container
+			width: 48%
+			display: inline-block
+			vertical-align: top
+			+rem(padding-right, 70px)	
+.elemets-container
+	width: 100%
+	.elements-field
+		display: inline-block
+		vertical-align: top
+		width: 100%
+		.element-trigger
+			border-bottom: 1px solid #d0d0d0
+			+rem(padding-left, 15px)
+			+rem(padding-right, 25px)
+			+rem(padding-top, 18px)
+			+rem(padding-bottom, 20px)
+			cursor: pointer
+			position: relative
+			&::after
+				content: ""
+				+rem(width, 15px)
+				+rem(height, 15px)
+				position: absolute
+				border-right: 2px solid #d0d0d0
+				border-bottom: 2px solid #d0d0d0
+				transform: rotate(-45deg) translate(0, -50%)
+				right: 8px
+				top: 50%
+				transition: border-color 0.3s ease
+			.element-name
+				font-family: $Regular
+				+rem(font-size, 20px)
+				color: $dark
+				transition: color 0.3s ease
+			&:hover
+				&::after
+					border-color: $maincolor
+				.element-name
+					color: $maincolor
