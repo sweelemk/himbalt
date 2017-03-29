@@ -40,7 +40,9 @@ h2, .h2
 	+rem(font-size, 42px)
 	span 
 		color: $maincolor
-
+.scrollbar-track-x
+		opacity: 0
+		visibility: hidden
 .root
 	position: relative
 	width: 100%
@@ -119,6 +121,7 @@ h2, .h2
 	z-index: 5
 	transition: all 0.5s ease
 	width: 0
+	will-change: width
 	&.transition
 		transform: translate(10%, 0)
 .constant-section
@@ -146,6 +149,7 @@ h2, .h2
 	height: 100%
 	overflow: hidden
 	transition: width 0.5s ease
+	will-change: width
 .load-dom
 	.variable-section
 		width: 61.95%
@@ -768,7 +772,8 @@ h2, .h2
 
 
 .next-page
-	padding: 50px 0 95px
+	// padding: 50px 0 95px
+	+rem(padding, 50px 0 95px)
 	span
 		+rem(font-size, 12px)
 		font-family: $Book
@@ -776,6 +781,8 @@ h2, .h2
 		position: relative
 		z-index: 5
 		color: #000
+		display: inline-block
+		+rem(margin-bottom, 3px)
 	h2
 		position: relative
 		+rem(font-size, 60px)
@@ -784,16 +791,17 @@ h2, .h2
 		transition: color 0.3s ease-out;
 	h2:before 
 		content: ''
-		width: 24%
+		+rem(width, 140px)
 		height: 2px
 		background-color: $maincolor
 		position: absolute
 		top: 0
 		bottom: 0
 		margin: auto
-		left: -34%
+		left: -34.5%
 		z-index: 5
-		
+.next-page-hover
+	display: block
 .next-page-hover:hover
 	h2
 		color: $maincolor
@@ -1032,9 +1040,51 @@ h2, .h2
 		text-align: left
 		max-width: 100%
 	.section
+		position: relative
 		+rem(padding-left, 108px)
 		margin-right: 16%
 		+rem(margin-bottom, 70px)
+		&.footer, &.full-link
+			margin-bottom: 0
+			p
+				+rem(font-size, 12px)
+		&.bottom-nav
+			margin-bottom: 0
+			.l
+				margin-left: 6.4%
+			.block-padding
+				+rem(padding, 151px 0)
+			.container 
+				+clr
+				.column-60
+					float: left
+					width: 36.6%
+					+rem(padding-right, 15px)
+				.column-30
+					width: 22%
+					&:nth-of-type(3)
+						width: 18%
+		.contacts
+			+rem(padding-top, 6px)
+			.adress
+				+rem(margin-bottom, 15px)
+		&.full-link
+			margin-right: 0
+			padding-right: 16%
+			.l
+				margin-left: 11%
+		&.footer
+			+rem(padding-left, 52px)
+			.l
+				margin-left: 0
+			.block-padding
+				+rem(padding, 127px 0 81px)
+			p
+				letter-spacing: 0.5px
+				&:not(.left)
+					margin-left: 9.3%
+				span
+					+rem(padding, 0 16px)
 	.l
 		margin-left: 20.5%
 		max-width: 100%
@@ -1045,6 +1095,11 @@ h2, .h2
 		line-height: 1.6
 		&.lead
 			font-family: $Medium
+	.bg-gray
+		max-height: none
+	.next-page
+		+rem(padding, 50px 0 78px)
+
 .section-anchors
 	+rem(padding-left, 108px)
 	+rem(margin-bottom, 41px)
@@ -1116,8 +1171,8 @@ h2, .h2
 				+rem(width, 15px)
 				+rem(height, 15px)
 				position: absolute
-				border-right: 2px solid #d0d0d0
-				border-bottom: 2px solid #d0d0d0
+				border-right: 2px solid $black
+				border-bottom: 2px solid $black
 				transform: rotate(-45deg) translate(0, -50%)
 				right: 8px
 				top: 50%
