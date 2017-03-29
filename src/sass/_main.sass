@@ -1,8 +1,5 @@
 *, *:after, *:before
 	box-sizing: border-box
-a 
-	text-decoration: none
-	color: $maincolor
 img
 	display: block
 button
@@ -30,21 +27,7 @@ body
 		.overlay
 			opacity: 1
 			visibility: visible
-h1, .h1
-	font-family: $Bold
-	+rem(font-size, 60px)
-	span 
-		color: $maincolor
-h2, .h2 
-	font-family: $Medium
-	+rem(font-size, 42px)
-	span 
-		color: $maincolor
-h3, .h3
-	font-family: $Medium
-	+rem(font-size, 30px)
-	span 
-		color: $maincolor
+
 .scrollbar-track-x
 		opacity: 0
 		visibility: hidden
@@ -52,6 +35,23 @@ h3, .h3
 	position: relative
 	width: 100%
 	height: 100%
+	a 
+		text-decoration: none
+	h1, .h1
+		font-family: $Bold
+		+rem(font-size, 60px)
+		span 
+			color: $maincolor
+	h2, .h2 
+		font-family: $Medium
+		+rem(font-size, 42px)
+		span 
+			color: $maincolor
+	h3, .h3
+		font-family: $Medium
+		+rem(font-size, 30px)
+		span 
+			color: $maincolor
 .root__wrapper
 	position: absolute
 	width: 100%
@@ -706,10 +706,10 @@ h3, .h3
 		vertical-align: text-top
 		padding-top: 9px
 		margin-left: 15px
-		transition: transform 0.3s ease-out
+		transition: transform 0.3s ease, fill 0.3s ease
 	&:hover
 		span
-			border-bottom: transparent
+			border-color: transparent
 			color: #000
 		svg
 			transform: translate(10px, 0)
@@ -727,18 +727,21 @@ h3, .h3
 
 .page-link
 	display: block
-	+rem(font-size, 24px)
 	+rem(height, 250px)
 	position: relative
+	+vertical
 	.text-link
-		position: absolute
-		top: 50%
-		left: 50%
-		transform: translate(-50%,-50%)
+		// position: absolute
+		// top: 50%
+		// left: 50%
+		// transform: translate(-50%,-50%)
 		font-family: $Medium
 		padding-top: 11px
 		color: #000
 		transition: color 0.3s ease-out;
+		display: inline-block
+		vertical-align: middle
+		+rem(font-size, 24px)
 	.svg-full-wrapp
 		position: absolute
 		width: 50%
@@ -756,9 +759,10 @@ h3, .h3
 		.text-link
 			color: $maincolor
 
-.slider-content-wrapp
+.news-item
 	padding: 0 15px
 	font-size: 2rem
+	display: inline-block
 	img 
 		width: 100%;
 		transition: opacity 0.3s ease-out
@@ -772,6 +776,8 @@ h3, .h3
 		color: #000
 		transition: color 0.3s ease-out
 
+	.border-top
+		+rem(padding-top, 43px)
 	.border-top:before
 		content: ' '
 		+rem(width, 140px)
@@ -779,10 +785,13 @@ h3, .h3
 		background-color: $maincolor
 		position: absolute;
 		transition: transform 0.3s ease-out
-
+	.date
+		+rem(padding-top, 30px)
+	.desc
+		+rem(padding-top, 14px)
 	&:hover
 		img
-			opacity: 0.5
+			// opacity: 0.5
 		.desc
 			color: $maincolor
 		.border-top:before
@@ -795,12 +804,7 @@ h3, .h3
 	margin: 0 -15px
 	.slick-arrow 
 		display: none !important
-	.border-top
-		+rem(padding-top, 43px)
-	.date
-		+rem(padding-top, 30px)
-	.desc
-		+rem(padding-top, 14px)
+	
 
 
 .btn-slider
@@ -1374,6 +1378,7 @@ h3, .h3
 			+rem(font-size, 20px)
 			padding: 13px
 			display: inline-block
+			color: $maincolor
 			transition: color 0.3s ease
 			&:hover
 				color: $black
@@ -1455,3 +1460,31 @@ h3, .h3
 					border-color: $maincolor
 				.element-name
 					color: $maincolor
+.news-pagination-years
+	margin-left: 20.5%
+	ul
+		+rem(margin, 0 -13px)
+	.pagination-years_item
+		display: inline-block
+		.pagination-years-trigger
+			font-family: $Medium
+			+rem(font-size, 20px)
+			padding: 13px
+			display: inline-block
+			transition: color 0.3s ease 0s
+			color: $maincolor
+			span
+				border-bottom: 2px dotted
+				transition: border-color 0.3s ease 0s
+			&.active
+				color: $black
+				span
+					border-color: transparent
+			&:hover
+				color: $black
+				span
+					border-color: transparent
+.news-list
+	.news-item
+		padding: 0
+		width: 50%
