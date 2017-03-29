@@ -1039,16 +1039,30 @@ h3, .h3
 	left: 100%
 	height: 100%
 	top: 0
+	&::after
+		content: ""
+		width: 50%
+		background-color: $white
+		height: 100%
+		left: 100%
+		position: absolute
+		top: 0
+		transition: transform 0.3s linear
+		z-index: 0
 	&.show-modal
 		left: 0
+	.cross-head
+		+rem(right, 34px)
 	.groups-modal-scroll
 		height: 100%
+		z-index: 2
 	.groups-modal-content
 		width: 50%
 		min-height: 100%
 		background-color: $white
 		left: 100%
 		position: absolute
+		background-color: $white
 		transition: transform 0.3s linear
 		transform-style: flat
 		backface-visibility: hidden
@@ -1060,17 +1074,21 @@ h3, .h3
 		+rem(height, 105px)
 		border-top: 1px solid #bcbcbc
 		transition: transform 0.3s linear
+		z-index: 2
 	.content-container
 		min-height: 100vh
 		+rem(padding-bottom, 105px)
-		+rem(padding-top, 75px)
+		+rem(padding-top, 211px)
 		+rem(padding-left, 80px)
 		padding-right: 13%
 		.content-scrolls
-			height: 200vh
+			// min-height: 100vh
 	&.open
 		.row-request,
 		.groups-modal-content
+			transform: translate(-100%, 0)
+
+		&::after
 			transform: translate(-100%, 0)
 	&.show-modal
 		.groups-modals
@@ -1078,8 +1096,133 @@ h3, .h3
 	.request-container
 		+clr
 		+rem(padding, 19px 35px)
+
+		background-color: $white
 		.btn
 			float: right
+.groups-content
+	.content-head
+		border-bottom: 3px solid $black
+		+rem(padding-bottom, 40px)
+		+rem(margin-bottom, 29px)
+		.content-title 
+			font-family: $Medium
+			+rem(font-size, 42px)
+			overflow: hidden
+	.content-body
+		.h3, h3
+			font-family: $Medium
+			+rem(font-size, 20px)
+			line-height: 1.6
+	.content-goods
+		+rem(margin, 0 -15px 43px)
+		+clr
+		&.columns
+			.goods-title
+				width: 30.33%
+				float: left
+			.goods-desrciption
+				width: 69.66%
+				float: left
+		.goods-title, .goods-desrciption
+			+rem(padding, 0 15px)
+		.goods-title			
+			+rem(margin-bottom, 20px)
+	.elemets-container
+		border-top: 1px solid #d0d0d0
+	.table
+		display: table
+		width: 100%
+		// table-layout: fixed
+		.table-head
+			display: table-header-group
+			.table-head-row
+				display: table-row
+				.table-head-item
+					display: table-cell
+					+rem(padding, 7px 0 17px)
+					border-bottom: 1px solid #c9c9c9
+					&:nth-child(2)
+						+rem(width, 111px)
+					&:last-child
+						+rem(width, 65px)
+					span 
+						font-family: $Regular
+						+rem(font-size, 16px)
+						color: #cdcdcd
+		.table-body
+			display: table-row-group
+			.table-body-row
+				display: table-row
+				.table-body-item
+					display: table-cell
+					+rem(padding, 9px 0 14px)
+					border-bottom: 1px solid #c9c9c9
+					span
+						line-height: 1.4
+						color: $black
+					&:first-child
+						span
+							color: #858585
+	.navigation
+		float: right
+		+rem(padding-top, 8px)
+		.navigation-link
+			+rem(width, 18px)
+			+rem(height, 33px)
+			display: inline-block
+			vertical-align: top
+			.icon
+				width: 100%
+				height: 100%
+				svg
+					width: 100%
+					height: 100%
+					stroke: $black
+					transition: stroke 0.3s ease
+			&:hover
+				.icon
+					svg
+						stroke: $maincolor
+			&.navigation-prev
+				+rem(margin-right, 16px)
+			&.navigation-next
+				+rem(margin-left, 16px)
+			&.inactive
+				pointer-events: none
+				.icon
+					svg
+						stroke: rgba(0,0,0,.5)
+.container-show_more
+	.show_more-head
+	.show_more-body
+		display: none
+	.show_more-trigger
+		text-align: center
+		position: relative
+		cursor: pointer
+		z-index: 2
+		backface-visibility: hidden
+		&::after
+			content: ""
+			background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 51%,rgba(255,255,255,1) 100%)
+			position: absolute
+			+rem(height, 40px)
+			width: 100%
+			left: 0
+			bottom: 100%
+		&.open
+			+rem(margin-top, 10px)
+			&::after
+				display: none
+		span
+			color: $maincolor
+			border-bottom: 1px dotted
+			// // +rem(padding, 0 0 5px 0)
+			// display: inline-block
+			// position: relative
+			// top: -4px
+			// margin-left: -6px
 .btn
 	background-color: $maincolor
 	+rem(padding, 21px 10px)
@@ -1127,7 +1270,7 @@ h3, .h3
 		font-family: $Regular
 		display: inline-block
 		vertical-align: middle
-		+rem(letter-spacing, 0.8px)
+		+rem(letter-spacing, 0px)
 		border-bottom: 1px solid
 		padding-top: 2px
 		padding-bottom: 5px
@@ -1251,7 +1394,6 @@ h3, .h3
 			+r(1400)
 				max-width: 90%
 			+rem(margin-bottom, 38px)
-			font-family: $Regular
 			line-height: 1
 .groups-container-elements
 	+rem(padding-top, 15px)
@@ -1275,11 +1417,13 @@ h3, .h3
 		vertical-align: top
 		width: 100%
 		.element-trigger
+			backface-visibility: hidden
 			border-bottom: 1px solid #d0d0d0
 			+rem(padding-left, 15px)
 			+rem(padding-right, 25px)
 			+rem(padding-top, 18px)
 			+rem(padding-bottom, 20px)
+			display: block
 			cursor: pointer
 			position: relative
 			&::after
@@ -1293,11 +1437,19 @@ h3, .h3
 				right: 8px
 				top: 50%
 				transition: border-color 0.3s ease
+				backface-visibility: hidden
 			.element-name
 				font-family: $Regular
 				+rem(font-size, 20px)
 				color: $dark
 				transition: color 0.3s ease
+				&:not(:only-child)
+					float: left
+					width: 38.5%
+			.element-content
+				padding-top: 3px
+				p
+					color: #cdcdcd
 			&:hover
 				&::after
 					border-color: $maincolor
