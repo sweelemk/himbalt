@@ -1,0 +1,63 @@
+extends _layout
+
+block title
+	title Index
+block content
+	.root_wrapper.load-dom
+		i.overlay
+		.ui-menu
+			span.ui-menu__content
+				i.ui-menu-line.ui-menu-line-1
+				i.ui-menu-line.ui-menu-line-2
+				i.ui-menu-line.ui-menu-line-3
+		.root_frame
+			.root_frame-content
+				.pages.inner-page(id="my-scrollbar")
+					section.constant-section.inactive.js-constant
+						include includes/_constant-section
+						.breadcumbs.show
+							.breadcumbs-inner
+								a(href="/" class="js-link")
+									span Products
+					section.variable-section
+						- var Index = false
+						if(Index)
+							.logo
+						else
+							a(href="/" class="js-link logo")
+						.loader-container
+							.section-scroll-container
+								include includes/_header
+								.section-scroll.js-ajx(data-pages="true")
+									.intro-head
+										h1.h1
+											span Logistics
+									article.container-content
+										section.section-anchors
+											.anchor-container
+												ul
+													mixin anchors(name, link)
+														li.achors-item
+															a.anchor-trigger(href="#" + link)
+																span #{name}
+													+anchors("Base oils", "group-1")
+													+anchors("Petrochemicals", "group-2")
+													+anchors("Paraffin wax", "group-3")
+										section.section.js-section(data-inview-class="push-it")
+											.l
+												p.lead Himbalt company organizes the transportation and supply of petroleum products, oils and polyethylene around the world: from Europe to Asia, from Australia to America. 
+										section.section.js-section(data-inview-class="push-it")
+											.container-image
+												.image-element
+													img(src="img/image-content/img-2.jpg")
+												.text-elements
+													h2.h2 Base oils
+													p The logistics tasks include processes regulating the carriage of goods at destination. Transport logistics involves a number of operations, including packaging, insurance, freight forwarding, clearance at customs warehousing. This makes it possible to optimize the costs by selecting the optimum route and prompt registration of supporting documents. 
+													
+										
+										script(type="text/javascript").
+											$(goToAnchors)											
+											var modalsProject = new Modals("[data-modal]");
+		- var active = "Base oils"
+		include includes/_navigation
+		include includes/_groups-modal
