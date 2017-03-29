@@ -122,6 +122,7 @@ function Loading(){
 							$(_this.options.pages).removeClass("pages-out").addClass("pages-in");
 
 							_this.checkTransition();
+							$(".js-slider-one-slide").slick("setPosition");
 						}, 500);
 						scrolls.scrollUpdate(true);
 					});
@@ -271,7 +272,13 @@ Scroller.prototype = {
 };
 
 function initSlickSlider() {
-	 $(".js-slider-one-slide").slick({
+
+	$(".js-slider-one-slide").on("init", function(){
+		// $(this).slick("setPosition");
+
+	})
+
+	$(".js-slider-one-slide").slick({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		dots: false,
