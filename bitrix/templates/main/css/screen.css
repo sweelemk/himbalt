@@ -931,8 +931,10 @@ h2, .h2 {
     width: 100%;
     display: block; }
 
-.block-1 .column-60 {
-  padding-left: 2.9375rem; }
+.block-1 {
+  padding-top: 60px; }
+  .block-1 .column-60 {
+    padding-left: 2.9375rem; }
 
 .block-2 {
   margin-right: 2%;
