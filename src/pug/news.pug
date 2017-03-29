@@ -1,0 +1,57 @@
+extends _layout
+
+block title
+	title Index
+block content
+	.root_wrapper.load-dom
+		i.overlay
+		.ui-menu
+			span.ui-menu__content
+				i.ui-menu-line.ui-menu-line-1
+				i.ui-menu-line.ui-menu-line-2
+				i.ui-menu-line.ui-menu-line-3
+		.root_frame
+			.root_frame-content
+				.pages.inner-page(id="my-scrollbar")
+					section.constant-section.inactive.js-constant
+						include includes/_constant-section
+						.breadcumbs.show
+							.breadcumbs-inner
+								a(href="/" class="js-link")
+									span News
+					section.variable-section
+						- var Index = false
+						if(Index)
+							.logo
+						else
+							a(href="/" class="js-link logo")
+						.loader-container
+							.section-scroll-container
+								include includes/_header
+								.section-scroll.js-ajx(data-pages="true")
+									.intro-head
+										h1.h1 Company's 
+											span news
+									article.container-content
+										section.section
+											.news-container
+												.news-pagination-years
+													ul
+														- var activeNews = "All news"
+														mixin anchors(name, link)
+															li.pagination-years_item
+																a.pagination-years-trigger(href="#" + link class={active: name === activeNews})
+																	span #{name}
+														+anchors("All news", "")
+														+anchors("2017", "")
+														+anchors("2016", "")
+														+anchors("2015", "")
+												.news-list
+													a(href='#' class="news-item")
+														img(src='img/slider1.jpg' alt='')
+														div.border-top
+															p.date 01.01.2017
+															p.desc We started working with a new supplier of petrochemicals
+		- var active = "News"
+		include includes/_navigation
+		include includes/_groups-modal											
