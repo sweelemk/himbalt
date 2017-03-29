@@ -1,3 +1,12 @@
+function extend( a, b ) {
+	for( var key in b ) { 
+		if( b.hasOwnProperty( key ) ) {
+			a[key] = b[key];
+		}
+	}
+	return a;
+}
+
 var scrolls, groupscroll;
 
 window.onload = function(){
@@ -381,6 +390,71 @@ Modals.prototype = {
 		setTimeout(function(){
 			self.goalElement.classList.remove(self.options.showModal);
 		}, 300);
+	}
+};
+
+function ShowMore(el, options) {
+	this.el = el;
+
+	this.options = {
+		head: ".show_more-head",
+		body: ".show_more-body",
+		trigger: ".show_more-trigger",
+		showText: "",
+		hideText: ""
+	};
+
+	this.options = extend( {}, this.options );
+	extend( this.options, options );
+
+	this.init();
+}
+
+ShowMore.prototype = {
+	init: function(){
+		var self = this
+		$(this.el).each(function(){
+			self.head_element = $(this).find(self.options.head);
+			self.body_element = $(this).find(self.options.body);
+			self.trigger_element = $(this).find(self.options.trigger);
+		});
+
+		this.initHandler();
+	},
+	initHandler: function() {
+		var self = this;
+		this.trigger_element.on("click", function(){
+			if(!$(this).hasClass("open")) {
+				self.openContainer();
+			} else {
+				self.closeContainer();
+			}
+				
+		});
+	},
+	openContainer: function(){
+		var self = this;
+		this.trigger_element.addClass("open");
+		this.body_element.stop(true, true).slideDown({
+			duration: 350,
+			complete: function(){
+				groupscroll.scrollUpdate()
+				self.trigger_element.find("span").text(self.options.hideText);
+			}
+		});
+	},
+	closeContainer: function(){
+		var self = this;
+
+		var self = this;
+		this.trigger_element.removeClass("open");
+		this.body_element.stop(true, true).slideUp({
+			duration: 350,
+			complete: function(){
+				groupscroll.scrollUpdate()
+				self.trigger_element.find("span").text(self.options.showText);
+			}
+		})
 	}
 };
 
