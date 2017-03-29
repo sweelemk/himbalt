@@ -40,6 +40,11 @@ h2, .h2
 	+rem(font-size, 42px)
 	span 
 		color: $maincolor
+h3, .h3
+	font-family: $Medium
+	+rem(font-size, 30px)
+	span 
+		color: $maincolor
 .scrollbar-track-x
 		opacity: 0
 		visibility: hidden
@@ -673,6 +678,21 @@ h2, .h2
 		+rem(margin-bottom, 41px)
 	.icon-mountain
 		+rem(width, 62px)
+	.title
+		font-family: $Medium
+	.desc
+	svg
+		+rem(width, 140px)
+		// +rem(height, 150px)
+	.icon-tanker
+		+rem(width, 140px)
+		+rem(margin-top, 25px)
+		+rem(margin-bottom, 35px)
+	.icon-steel_drum
+		+rem(width, 46px)
+		+rem(margin-bottom, 35px)
+
+
 .more
 	+rem(font-size, 18px)
 	vertical-align: bottom;
@@ -957,7 +977,60 @@ h2, .h2
 	.left
 		position: absolute
 		left: 0
-		    
+
+.quote
+	+rem(padding-left, 200px)
+	+rem(padding-right, 40px)
+	+rem(margin-bottom, 118px)
+	+rem(font-size, 42px)
+	position: relative
+	&:before 
+		content: ''
+		+rem(width, 140px)
+		height: 2px
+		background-color: $maincolor
+		position: absolute
+		+rem(top, 27px)
+		+rem(left, 0px)
+
+.inner-page 
+	.container
+		+rem(padding-left, 110px)
+		.margin-bottom-h3 
+			+rem(margin-bottom, 85px)
+			padding-top: 3.5rem
+		.icon-text-wrapp
+			+rem(margin-bottom, 62px)
+			.title
+				+rem(padding-bottom, 10px)
+		.img-map 
+			width: 90%
+		.img-world
+			width: 70%
+
+.inner-page
+	.export
+		+rem(padding-left, 92px)
+		.h3
+			+rem(margin-bottom, 46px)
+			+rem(padding-right, 30px)
+			line-height: 1.35
+.card-top-line
+	+rem(margin-bottom, 46px)
+	.title
+		font-family: $Medium
+		+rem(padding-bottom, 10px)
+		+rem(padding-top, 15px)
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			width: 40px
+			height: 2px
+			background-color: $maincolor
+
 .groups-modals
 	position: absolute
 	z-index: 999
