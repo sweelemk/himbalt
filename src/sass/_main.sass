@@ -138,17 +138,21 @@ body
 	height: 100%
 	width: 38.43%
 	z-index: 3
-.logo
+.logo-container	
 	position: absolute
 	+rem(width, 160px)
-	+rem(height, 26px)
-	background-image: url("../img/icons/logo.jpg")
-	background-size: contain
-	background-repeat: no-repeat
-	+rem(top, 50px)
+	+rem(top, 0px)
 	+rem(left, 85px)
 	z-index: 4
 	transition: left 0.3s linear
+	.logo
+		+rem(margin-top, 50px)
+		+rem(width, 160px)
+		+rem(height, 26px)
+		background-image: url("../img/icons/logo.png")
+		background-size: contain
+		background-repeat: no-repeat
+		display: block
 .loader-container
 	position: relative
 	top: 0
@@ -320,24 +324,31 @@ body
 .breadcumbs
 	position: absolute
 	+rem(left, 40px)
-	top: 54.1%
+	top: 50%
 	height: 50px
 	width: 50px
-	transform: translate(-10rem, 0)
+	transform: translate(-10rem, -50%)
 	transition: transform 0.3s linear
 	&.show
-		transform: none
+		transform: translate(0, -50%)
 	.breadcumbs-inner
 		transform: rotate(-90deg)
-		a 
-			span
-				font-family: $Medium
-				+rem(font-size, 42px)
-				color: $white
-				transition: color 0.3s ease
-			&:hover
-				span 
-					color: $hover
+		transform-origin: 50%
+		height: 50px
+		width: 50px
+		.breadcrumbs-content
+			position: absolute
+			left: 50%
+			transform: translate(-50%, 0)
+			a 
+				span
+					font-family: $Medium
+					+rem(font-size, 42px)
+					color: $white
+					transition: color 0.3s ease
+				&:hover
+					span 
+						color: $hover
 .l
 	// +rem(max-width, 800px)
 	text-align: left
@@ -455,6 +466,7 @@ body
 	background-color: $dark
 	top: 50%
 	margin-top: -2px
+	backface-visibility: hidden
 	transition: background-color 0.3s ease
 	&.cross-1
 		transform: rotate(-45deg) scale(1.25)
@@ -784,6 +796,19 @@ body
 	padding: 0 15px
 	font-size: 2rem
 	display: inline-block
+	vertical-align: top
+	a
+		display: block
+		&:hover
+			img
+				// opacity: 0.5
+			.desc
+				color: $maincolor
+			.item-description:before
+				transform: translateX(50px)
+			.image-container
+				&::after
+					background-color: rgba(255, 255, 255, 0.5)
 	img 
 		width: 100%;
 		transition: opacity 0.3s ease-out
@@ -796,38 +821,38 @@ body
 		+rem(font-size, 20px)
 		color: #000
 		transition: color 0.3s ease-out
-
-	.border-top
-		+rem(padding-top, 43px)
-	.border-top:before
+	.item-description
+		+rem(padding-top, 41px)
+	.item-description:before
 		content: ' '
 		+rem(width, 140px)
 		height: 2px 
 		background-color: $maincolor
 		position: absolute;
-		transition: transform 0.3s ease-out
+		transition: transform 0.3s ease
 	.date
 		+rem(padding-top, 30px)
+		letter-spacing: 0.8px
 	.desc
 		+rem(padding-top, 14px)
-	&:hover
-		img
-			// opacity: 0.5
-		.desc
-			color: $maincolor
-		.border-top:before
-			transform: translateX(50px)
-
-
-
+	.image-container
+		overflow: hidden
+		position: relative
+		&::after
+			content: ""
+			position: absolute
+			background-color: rgba(255, 255, 255, 0)
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			transition: background-color 0.3s ease
+	
 .slider-img
 	+rem(padding-bottom, 40px)
 	margin: 0 -15px
 	.slick-arrow 
 		display: none !important
-	
-
-
 .btn-slider
 	.btn-wrapp
 		width: 45px
@@ -1103,7 +1128,7 @@ body
 	.desc
 		+rem(padding-right, 50px)
 
-.groups-modals
+.groups-modals, .news-modals
 	position: absolute
 	z-index: 999
 	width: 100%
@@ -1124,10 +1149,10 @@ body
 		left: 0
 	.cross-head
 		+rem(right, 34px)
-	.groups-modal-scroll
+	.groups-modal-scroll, .news-modal-scroll
 		height: 100%
 		z-index: 2
-	.groups-modal-content
+	.groups-modal-content, .news-modal-content
 		width: 50%
 		min-height: 100%
 		background-color: $white
@@ -1156,7 +1181,7 @@ body
 			// min-height: 100vh
 	&.open
 		.row-request,
-		.groups-modal-content
+		.groups-modal-content, .news-modal-content
 			transform: translate(-100%, 0)
 
 		&::after
@@ -1171,15 +1196,25 @@ body
 		background-color: $white
 		.btn
 			float: right
-.groups-content
+.groups-content, .news-content
 	.content-head
 		border-bottom: 3px solid $black
 		+rem(padding-bottom, 40px)
 		+rem(margin-bottom, 29px)
+		position: relative
+		backface-visibility: hidden
 		.content-title 
 			font-family: $Medium
 			+rem(font-size, 42px)
 			overflow: hidden
+			padding-right: 8%
+			line-height: 1.15
+		.content-date
+			font-family: $Book
+			font-size: 12px
+			letter-spacing: 0.8px
+			position: absolute
+			+rem(top, - 32px)
 	.content-body
 		.h3, h3
 			font-family: $Medium
@@ -1346,6 +1381,7 @@ body
 		padding-top: 2px
 		padding-bottom: 5px
 		transition: color 0.3s ease, border-color 0.3s ease
+		color: $maincolor
 	&:hover
 		.icon
 			svg
@@ -1354,7 +1390,7 @@ body
 			color: $black
 			border-color: transparent
 .inner-page
-	.logo
+	.logo-container
 		+rem(left, 56px)
 	.intro-head
 		+rem(padding-top, 192px)
@@ -1485,6 +1521,12 @@ body
 	.text-elements
 		overflow: hidden
 		+rem(padding-top, 33px)
+		p
+			&:not(:last-child)
+				+rem(margin-bottom, 30px)
+			&.lead
+				font-family: $Medium
+				+rem(font-size, 20px)
 		h2, .h2
 			max-width: 83%
 			+r(1400)
@@ -1553,6 +1595,7 @@ body
 					color: $maincolor
 .news-pagination-years
 	margin-left: 20.5%
+	+rem(margin-bottom, 45px)
 	ul
 		+rem(margin, 0 -13px)
 	.pagination-years_item
@@ -1576,6 +1619,75 @@ body
 				span
 					border-color: transparent
 .news-list
+	padding-left: 10%
+	+rem(margin, 0 -35px 17px)
+	font-size: 0
 	.news-item
-		padding: 0
+		+rem(padding, 0 35px)
 		width: 50%
+		+rem(margin-bottom, 65px)
+.news-page-pagination
+	border-top: 3px solid $black
+	margin-left: 10%
+	position: relative
+	+rem(padding-top, 27px)
+	+rem(padding-bottom, 28px)
+	.page-pagination_links
+		width: 100%
+		text-align: center
+		.pagination_links-item
+			display: inline-block
+			+rem(padding, 5px 12px)
+			span
+				font-family: $Medium
+				+rem(font-size, 20px)
+				color: $black
+				transition: color 0.3s ease
+			&.active, &:hover
+				span
+					color: $maincolor
+
+	.page-pagination_button
+		position: absolute
+		+rem(width, 18px)
+		+rem(top, 27px)
+		svg
+			stroke: rgba(0, 0, 0, .5)
+		&.pagination_button-prev
+			left: 0
+		&.pagination_button-next
+			right: 0
+	a
+		&.page-pagination_button
+			svg
+				stroke: $black
+				transition: stroke 0.3s ease
+			&:hover
+				svg
+					stroke: $maincolor
+.news-modals .content-container
+	// +rem(padding-right, 80px)
+	+rem(padding-bottom, 70px)
+	padding-right: 10%
+.news-content
+	.content-head
+		+rem(padding-bottom, 51px)
+		+rem(margin-bottom, 48px)
+	.container-image
+		+clr
+		+rem(margin-bottom, 30px)
+		.image-element
+			width: 45.5%
+			+rem(margin-right, 52px)
+			padding-top: 9px
+			+rem(margin-bottom, 12px)
+		.text-elements
+			padding-top: 0
+			line-height: 1.6
+			overflow: visible
+	.content-body
+		p
+			+rem(font-size, 20px)
+			line-height: 1.6
+			&:not(:last-child)
+				+rem(margin-bottom, 30px)

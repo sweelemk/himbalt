@@ -17,14 +17,17 @@ block content
 						include includes/_constant-section
 						.breadcumbs.show
 							.breadcumbs-inner
-								a(href="/" class="js-link")
-									span Products
+								.breadcrumbs-content
+									a(href="/" class="js-link")
+										span Products
 					section.variable-section
-						- var Index = false
-						if(Index)
-							.logo
-						else
-							a(href="/" class="js-link logo")
+						.logo-container
+							- var Index = false
+							if(Index)
+								.logo
+							else
+								a(href="/" class="js-link logo")
+
 						include includes/_header
 						.loader-container
 							.section-scroll-container
@@ -224,3 +227,4 @@ block content
 		- var active = "Base oils"
 		include includes/_navigation
 		include includes/_groups-modal
+		include includes/_news-modal

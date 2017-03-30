@@ -21,11 +21,12 @@ block content
 									a(href="/" class="js-link")
 										span Contacts
 					section.variable-section
-						- var Index = false
-						if(Index)
-							.logo
-						else
-							a(href="/" class="js-link logo")
+						.logo-container
+							- var Index = false
+							if(Index)
+								.logo
+							else
+								a(href="/" class="js-link logo")
 						include includes/_header
 						.loader-container
 							.section-scroll-container

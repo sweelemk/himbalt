@@ -7,7 +7,7 @@ function extend( a, b ) {
 	return a;
 }
 
-var scrolls, groupscroll;
+var scrolls, groupscroll, newsscroll;
 
 window.onload = function(){
 	var scrollsMain = document.getElementById('my-scrollbar');
@@ -15,6 +15,9 @@ window.onload = function(){
 
 	var groupscrollMain = document.getElementById('groups-scroll');
 	groupscroll = new Scroller(groupscrollMain, false);
+
+	var newsscrollMain = document.getElementById('news-scroll');
+	newsscroll = new Scroller(newsscrollMain, false);
 };
 
 function menu(){
@@ -100,6 +103,7 @@ function Loading(){
 				setTimeout(function(){
 					scrolls.scrollSet();
 				}, 300);
+				$(_this.options.breadcumbs).removeClass("show");
 
 			},
 			success: function(content){
@@ -110,24 +114,30 @@ function Loading(){
 				var bredcrumbs = $(content).find(".breadcumbs-inner").html();
 				var fragmentContent = fragment.parent().html();
 				var menu = $(content).find(".menu-elements").html();
-					
+				if(!fragment.data("pages")) {
+					$(_this.options.breadcumbs).removeClass("show");
+				}
 				setTimeout(function(){
 					$(".js-ajx").parent().html(fragmentContent).promise().done(function(){
 						console.log("Congratulations! AJAX success!");
-						if(fragment.data("pages")) {
-							$(_this.options.pages).addClass("inner-page");
-							$(_this.options.constantSection).addClass("inactive");
-							$(_this.options.breadcumbs).addClass("show");
-						} else {
-							$(_this.options.pages).removeClass("inner-page");
-							$(_this.options.constantSection).removeClass("inactive");
-							$(_this.options.breadcumbs).removeClass("show");
-						}
+						
 						$(_this.options.menu).html(menu);
 						$(_this.options.breadcumbs).find(".breadcumbs-inner").html(bredcrumbs);
 						_this.initHandler();
 						_this.options.isAnimation = false;
+						if(fragment.data("pages")) {
+							$(_this.options.pages).addClass("inner-page");
+							$(_this.options.constantSection).addClass("inactive");
+						} else {
+							$(_this.options.pages).removeClass("inner-page");
+							$(_this.options.constantSection).removeClass("inactive");
+						}
 						setTimeout(function(){
+							if(fragment.data("pages")) {
+								$(_this.options.breadcumbs).addClass("show");
+							} else {
+								$(_this.options.breadcumbs).removeClass("show");
+							}
 							$(_this.options.pages).removeClass("pages-out").addClass("pages-in");
 
 							_this.checkTransition();
@@ -195,7 +205,8 @@ function Scroller(el, bool){
 	this.param = {
 		constant: ".js-constant",
 		aninElements: ".js-section",
-		window: "window"
+		window: "window",
+		logo: ".logo-container"
 	}
 
 	this.Scrollbar = window.Scrollbar;
@@ -208,6 +219,7 @@ Scroller.prototype = {
 		var self = this;
 
 		this.fixedElement = document.querySelector(this.param.constant);
+		this.fixedElementLogo = document.querySelector(this.param.logo);
 		this.windowHeight = this.windowValue();
 
 		this.scrollbar = this.Scrollbar.init(this.el, {
@@ -239,6 +251,7 @@ Scroller.prototype = {
 	fixedPositionSidebar: function(state){
 		var t_pos = state.offset.y;
 		this.fixedElement.style.top = t_pos + "px";
+		this.fixedElementLogo.style.top = t_pos + "px";
 	},
 	scrollSet: function(){
 		this.scrollbar.setPosition(0,0);
@@ -369,11 +382,17 @@ Modals.prototype = {
 	},
 	generateEventOnCloseModals: function(){
 		var self = this;
-		this.close = document.querySelector(this.options.close);
-		this.close.addEventListener("click", function(){
-			self.closeModal();
-			this.removeEventListener("click", arguments.callee);
+		this.close = document.querySelectorAll(this.options.close);
+		this.close.forEach(function(element){
+			element.addEventListener("click", function(){
+				self.closeModal();
+				element.removeEventListener("click", arguments.callee);
+			});
 		});
+		// this.close.addEventListener("click", function(){
+		// 	self.closeModal();
+		// 	this.removeEventListener("click", arguments.callee);
+		// });
 	},
 	openModal: function(goal_modal){
 		this.body.classList.add(this.options.openClass);
