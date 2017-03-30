@@ -17,8 +17,9 @@ block content
 						include includes/_constant-section
 						.breadcumbs.show
 							.breadcumbs-inner
-								a(href="/" class="js-link")
-									span Logistics
+								.breadcrumbs-content
+									a(href="/" class="js-link")
+										span Logistics
 					section.variable-section
 						.logo-container
 							- var Index = false
@@ -319,7 +320,7 @@ block content
 										script(type="text/javascript").
 											$(goToAnchors)
 											var modalsProject = new Modals("[data-modal]");
-		- var active = "Base oils"
+		- var active = "Logistics"
 		include includes/_navigation
 		include includes/_groups-modal
 		include includes/_news-modal

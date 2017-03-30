@@ -554,32 +554,43 @@ body {
 .breadcumbs {
   position: absolute;
   left: 2.5rem;
-  top: 54.1%;
+  top: 50%;
   height: 50px;
   width: 50px;
-  -webkit-transform: translate(-10rem, 0);
-  -ms-transform: translate(-10rem, 0);
-  transform: translate(-10rem, 0);
+  -webkit-transform: translate(-10rem, -50%);
+  -ms-transform: translate(-10rem, -50%);
+  transform: translate(-10rem, -50%);
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
   transition: transform 0.3s linear, -webkit-transform 0.3s linear; }
   .breadcumbs.show {
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none; }
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%); }
   .breadcumbs .breadcumbs-inner {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg); }
-    .breadcumbs .breadcumbs-inner a span {
-      font-family: "FiraSansMedium";
-      font-size: 2.625rem;
-      color: #fff;
-      -webkit-transition: color 0.3s ease;
-      transition: color 0.3s ease; }
-    .breadcumbs .breadcumbs-inner a:hover span {
-      color: #e3a7aa; }
+    transform: rotate(-90deg);
+    -webkit-transform-origin: 50%;
+    -ms-transform-origin: 50%;
+    transform-origin: 50%;
+    height: 50px;
+    width: 50px; }
+    .breadcumbs .breadcumbs-inner .breadcrumbs-content {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
+      transform: translate(-50%, 0); }
+      .breadcumbs .breadcumbs-inner .breadcrumbs-content a span {
+        font-family: "FiraSansMedium";
+        font-size: 2.625rem;
+        color: #fff;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease; }
+      .breadcumbs .breadcumbs-inner .breadcrumbs-content a:hover span {
+        color: #e3a7aa; }
 
 .l {
   text-align: left;
@@ -1654,7 +1665,8 @@ body {
     padding-top: 2px;
     padding-bottom: 5px;
     -webkit-transition: color 0.3s ease, border-color 0.3s ease;
-    transition: color 0.3s ease, border-color 0.3s ease; }
+    transition: color 0.3s ease, border-color 0.3s ease;
+    color: #ac252a; }
   .request-access:hover .icon svg {
     fill: #000; }
   .request-access:hover span {
