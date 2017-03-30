@@ -1374,6 +1374,55 @@ body {
     padding-right: 1.875rem;
     line-height: 1.35; }
 
+.contact-info .link-map {
+  text-transform: uppercase;
+  font-size: 12px;
+  border-bottom: 1px solid #ac252a;
+  padding: 5px 0;
+  color: #ac252a;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  display: inline-block; }
+  .contact-info .link-map:hover {
+    color: #000;
+    border-color: transparent; }
+
+.contact-info .tel {
+  margin-bottom: 1.3125rem; }
+
+.contact-info .adres {
+  margin-bottom: 1.8125rem;
+  font-size: 1.5rem; }
+
+.contact-info .email {
+  margin-bottom: 4.375rem;
+  font-size: 12px;
+  text-transform: uppercase; }
+  .contact-info .email span {
+    padding: 0 17px; }
+  .contact-info .email svg {
+    width: .875rem;
+    height: .9375rem;
+    position: relative;
+    top: 3px; }
+
+.contact-info .bottom {
+  vertical-align: bottom;
+  padding-left: 4.6875rem; }
+
+.contact-info .contact-data {
+  padding-left: 3.625rem;
+  padding-top: 0.3125rem; }
+
+.map-wrapp img {
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
 .card-top-line {
   margin-bottom: 2.875rem; }
   .card-top-line .title {
@@ -1759,6 +1808,31 @@ body {
 
 .inner-page .next-page {
   padding: 3.125rem 0 4.875rem; }
+
+.inner-page .departament {
+  padding-left: 3rem; }
+  .inner-page .departament .column-30 {
+    position: relative;
+    padding-left: 3.75rem; }
+  .inner-page .departament .title {
+    font-size: 12px;
+    text-transform: uppercase;
+    position: relative; }
+    .inner-page .departament .title:before {
+      content: '';
+      background-color: #ac252a;
+      height: 2px;
+      width: 2.1875rem;
+      position: absolute;
+      top: 0;
+      left: -60px;
+      left: -3.75rem;
+      bottom: 0;
+      margin: auto; }
+  .inner-page .departament .tel {
+    font-size: 1.25rem; }
+  .inner-page .departament .email {
+    font-size: 1.25rem; }
 
 .section-anchors {
   padding-left: 6.75rem;
