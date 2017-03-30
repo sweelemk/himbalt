@@ -1056,14 +1056,60 @@ body
 			width: 90%
 		.img-world
 			width: 70%
-
-.inner-page
 	.export
 		+rem(padding-left, 92px)
 		.h3
 			+rem(margin-bottom, 46px)
 			+rem(padding-right, 30px)
 			line-height: 1.35
+
+.contact-info
+	.link-map
+		text-transform: uppercase
+		font-size: 12px
+		border-bottom: 1px solid $maincolor
+		padding: 5px 0
+		color: $maincolor
+		transition: all 0.3s ease-out
+		display: inline-block
+		&:hover
+			color: #000
+			border-color: transparent
+	.tel
+		+rem(margin-bottom, 21px)
+	.adres
+		+rem(margin-bottom, 29px)
+		+rem(font-size, 24px)
+	.email
+		+rem(margin-bottom, 70px)
+		font-size: 12px
+		text-transform: uppercase
+		span
+			padding: 0 17px
+		svg
+			width: .875rem;
+			height: .9375rem;
+			position: relative;
+			top: 3px;
+	.bottom
+		vertical-align: bottom
+		+rem(padding-left, 75px)
+	.contact-data
+		+rem(padding-left, 58px)
+		+rem(padding-top, 5px)
+
+.map-wrapp
+	img	
+		width: 100%
+		overflow: hidden
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		margin auto
+
+
 .card-top-line
 	+rem(margin-bottom, 46px)
 	.title
@@ -1419,6 +1465,30 @@ body
 		max-height: none
 	.next-page
 		+rem(padding, 50px 0 78px)
+	.departament
+		padding-left: 3rem
+		.column-30
+			position: relative
+			+rem(padding-left, 60px)
+		.title
+			font-size: 12px
+			text-transform: uppercase
+			position: relative
+			&:before
+				content: ''
+				background-color: $maincolor
+				height: 2px
+				+rem(width, 35px)
+				position: absolute
+				top: 0
+				left: -60px
+				+rem(left, -60px)
+				bottom: 0
+				margin: auto
+		.tel
+			+rem(font-size, 20px)
+		.email
+			+rem(font-size, 20px)
 
 .section-anchors
 	+rem(padding-left, 108px)
