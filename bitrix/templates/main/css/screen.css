@@ -1307,11 +1307,18 @@ body {
         width: 0.875rem;
         height: 0.9375rem;
         position: relative;
-        top: 3px; }
+        top: 3px;
+        fill: #000;
+        -webkit-transition: fill 0.3s ease;
+        transition: fill 0.3s ease; }
   .contacts a {
     color: #000;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out; }
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease; }
+    .contacts a:hover {
+      color: #ac252a; }
+      .contacts a:hover svg {
+        fill: #ac252a; }
 
 .footer .block-padding {
   padding-left: 0;
