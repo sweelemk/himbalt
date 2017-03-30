@@ -324,24 +324,31 @@ body
 .breadcumbs
 	position: absolute
 	+rem(left, 40px)
-	top: 54.1%
+	top: 50%
 	height: 50px
 	width: 50px
-	transform: translate(-10rem, 0)
+	transform: translate(-10rem, -50%)
 	transition: transform 0.3s linear
 	&.show
-		transform: none
+		transform: translate(0, -50%)
 	.breadcumbs-inner
 		transform: rotate(-90deg)
-		a 
-			span
-				font-family: $Medium
-				+rem(font-size, 42px)
-				color: $white
-				transition: color 0.3s ease
-			&:hover
-				span 
-					color: $hover
+		transform-origin: 50%
+		height: 50px
+		width: 50px
+		.breadcrumbs-content
+			position: absolute
+			left: 50%
+			transform: translate(-50%, 0)
+			a 
+				span
+					font-family: $Medium
+					+rem(font-size, 42px)
+					color: $white
+					transition: color 0.3s ease
+				&:hover
+					span 
+						color: $hover
 .l
 	// +rem(max-width, 800px)
 	text-align: left
@@ -1328,6 +1335,7 @@ body
 		padding-top: 2px
 		padding-bottom: 5px
 		transition: color 0.3s ease, border-color 0.3s ease
+		color: $maincolor
 	&:hover
 		.icon
 			svg

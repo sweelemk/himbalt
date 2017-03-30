@@ -103,6 +103,7 @@ function Loading(){
 				setTimeout(function(){
 					scrolls.scrollSet();
 				}, 300);
+				$(_this.options.breadcumbs).removeClass("show");
 
 			},
 			success: function(content){
@@ -113,24 +114,30 @@ function Loading(){
 				var bredcrumbs = $(content).find(".breadcumbs-inner").html();
 				var fragmentContent = fragment.parent().html();
 				var menu = $(content).find(".menu-elements").html();
-					
+				if(!fragment.data("pages")) {
+					$(_this.options.breadcumbs).removeClass("show");
+				}
 				setTimeout(function(){
 					$(".js-ajx").parent().html(fragmentContent).promise().done(function(){
 						console.log("Congratulations! AJAX success!");
-						if(fragment.data("pages")) {
-							$(_this.options.pages).addClass("inner-page");
-							$(_this.options.constantSection).addClass("inactive");
-							$(_this.options.breadcumbs).addClass("show");
-						} else {
-							$(_this.options.pages).removeClass("inner-page");
-							$(_this.options.constantSection).removeClass("inactive");
-							$(_this.options.breadcumbs).removeClass("show");
-						}
+						
 						$(_this.options.menu).html(menu);
 						$(_this.options.breadcumbs).find(".breadcumbs-inner").html(bredcrumbs);
 						_this.initHandler();
 						_this.options.isAnimation = false;
+						if(fragment.data("pages")) {
+							$(_this.options.pages).addClass("inner-page");
+							$(_this.options.constantSection).addClass("inactive");
+						} else {
+							$(_this.options.pages).removeClass("inner-page");
+							$(_this.options.constantSection).removeClass("inactive");
+						}
 						setTimeout(function(){
+							if(fragment.data("pages")) {
+								$(_this.options.breadcumbs).addClass("show");
+							} else {
+								$(_this.options.breadcumbs).removeClass("show");
+							}
 							$(_this.options.pages).removeClass("pages-out").addClass("pages-in");
 
 							_this.checkTransition();
