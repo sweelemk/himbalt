@@ -20,14 +20,15 @@ block content
 								a(href="/" class="js-link")
 									span Products
 					section.variable-section
-						- var Index = false
-						if(Index)
-							.logo
-						else
-							a(href="/" class="js-link logo")
+						.logo-container
+							- var Index = false
+							if(Index)
+								.logo
+							else
+								a(href="/" class="js-link logo")
+						include includes/_header
 						.loader-container
 							.section-scroll-container
-								include includes/_header
 								.section-scroll.js-ajx(data-pages="true")
 									.intro-head
 										h1.h1
@@ -224,3 +225,4 @@ block content
 		- var active = "Base oils"
 		include includes/_navigation
 		include includes/_groups-modal
+		include includes/_news-modal
