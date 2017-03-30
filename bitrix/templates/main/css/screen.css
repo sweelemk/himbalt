@@ -1000,7 +1000,6 @@ body {
   .icon-text-wrapp .title {
     font-family: "FiraSansMedium"; }
   .icon-text-wrapp .icon-svg-wrapp {
-    height: 6.25rem;
     margin-bottom: 2.1875rem; }
     .icon-text-wrapp .icon-svg-wrapp svg {
       width: auto; }
@@ -1362,6 +1361,8 @@ body {
     margin-bottom: 3.875rem; }
     .inner-page .container .icon-text-wrapp .title {
       padding-bottom: 0.625rem; }
+    .inner-page .container .icon-text-wrapp img {
+      width: 38%; }
   .inner-page .container .img-map {
     width: 90%; }
   .inner-page .container .img-world {
