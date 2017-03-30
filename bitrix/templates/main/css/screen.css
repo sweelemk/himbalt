@@ -388,8 +388,9 @@ body {
 
 .load-dom .variable-section {
   width: 61.95%; }
-  .load-dom .variable-section .loader-container {
-    width: 61.95vw; }
+
+.load-dom .loader-container {
+  width: 61.95vw; }
 
 .load-dom .inner-page .variable-section {
   width: 80.9%; }
@@ -648,7 +649,7 @@ body {
 
 .contacts-header {
   position: absolute;
-  right: 14.9375rem;
+  right: 24%;
   top: 3.875rem;
   z-index: 9; }
 
@@ -745,6 +746,8 @@ body {
     position: absolute;
     bottom: -1.1875rem;
     right: -2.5625rem; }
+  .container-svg .svg-icon-atom {
+    width: 49%; }
 
 .menu-elements {
   position: relative;
@@ -979,15 +982,21 @@ body {
     width: 3.875rem; }
   .icon-text-wrapp .title {
     font-family: "FiraSansMedium"; }
-  .icon-text-wrapp svg {
-    width: 8.75rem; }
-  .icon-text-wrapp .icon-tanker {
-    width: 8.75rem;
-    margin-top: 1.5625rem;
+  .icon-text-wrapp .icon-svg-wrapp {
+    height: 6.25rem;
     margin-bottom: 2.1875rem; }
-  .icon-text-wrapp .icon-steel_drum {
-    width: 2.875rem;
-    margin-bottom: 2.1875rem; }
+    .icon-text-wrapp .icon-svg-wrapp svg {
+      width: auto; }
+    .icon-text-wrapp .icon-svg-wrapp .icon-container {
+      width: 7.1875rem; }
+    .icon-text-wrapp .icon-svg-wrapp .icon-tanker {
+      width: 8.75rem; }
+    .icon-text-wrapp .icon-svg-wrapp .icon-steel {
+      width: 2.875rem; }
+    .icon-text-wrapp .icon-svg-wrapp .icon-tank_car {
+      width: 5.625rem; }
+    .icon-text-wrapp .icon-svg-wrapp .icon-road_track {
+      width: 8.125rem; }
 
 .more {
   font-size: 1.125rem;
@@ -1843,13 +1852,31 @@ body {
 
 @media only screen and (max-width: 1400px) {
 
+  .contacts-header {
+    right: 15%; }
+
   .container-image .text-elements h2, .container-image .text-elements .h2 {
     max-width: 90%; } }
 
 @media only screen and (max-width: 1279px) {
 
   html {
-    font-size: 12px; } }
+    font-size: 12px; }
+
+  .ui-menu {
+    top: 5px;
+    right: 5px; }
+
+  .contacts-header {
+    top: 3.5rem; } }
+
+@media only screen and (max-width: 1150px) {
+
+  .load-dom .variable-section {
+    width: 67.95%; }
+
+  .load-dom .loader-container {
+    width: 67.95vw; } }
 
 @media only screen and (max-width: 1024px) {
 

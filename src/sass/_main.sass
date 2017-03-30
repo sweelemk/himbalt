@@ -74,6 +74,9 @@ body
 	top: 20px
 	padding: 30px
 	cursor: pointer
+	+r(1279)
+		top: 5px
+		right: 5px
 	&:hover
 		.ui-menu-line
 			background-color: $darkHover
@@ -158,8 +161,12 @@ body
 .load-dom
 	.variable-section
 		width: 61.95%
-		.loader-container
-			width: 61.95vw
+		+r(1150)
+			width: 67.95%
+	.loader-container
+		width: 61.95vw
+		+r(1150)
+			width: 67.95vw
 	.inner-page
 		.variable-section
 			width: 80.9%
@@ -381,9 +388,15 @@ body
 		transform: scaleY(.4) translateY(12px)
 .contacts-header
 	position: absolute
-	+rem(right, 239px)
+	// +rem(right, 239px)
+	right: 24%
 	+rem(top, 62px)
 	z-index: 9
+	+r(1279)
+		+rem(top, 56px)
+	+r(1400)
+		right: 15%
+
 .contacts-list
 	font-size: 0
 	.contacts-item
@@ -467,6 +480,8 @@ body
 		position: absolute
 		+rem(bottom, -19px)
 		+rem(right, -41px)
+	.svg-icon-atom
+		width: 49%
 .menu-elements
 	position: relative
 	display: inline-block
@@ -671,6 +686,7 @@ body
 	p 
 		+rem(font-size, 20px)
 		line-height: 1.55
+
 	.icon-star
 		+rem(width, 60px)
 	.icon-wave
@@ -680,17 +696,22 @@ body
 		+rem(width, 62px)
 	.title
 		font-family: $Medium
-	svg
-		+rem(width, 140px)
-		// +rem(height, 150px)
-	.icon-tanker
-		+rem(width, 140px)
-		+rem(margin-top, 25px)
-		+rem(margin-bottom, 35px)
-	.icon-steel_drum
-		+rem(width, 46px)
-		+rem(margin-bottom, 35px)
 
+	.icon-svg-wrapp
+		+rem(height, 100px)
+		+rem(margin-bottom, 35px)
+		svg
+			width: auto
+		.icon-container
+			+rem(width, 115px)
+		.icon-tanker
+			+rem(width, 140px)
+		.icon-steel
+			+rem(width, 46px)
+		.icon-tank_car
+			+rem(width, 90px)
+		.icon-road_track
+			+rem(width, 130px)
 
 .more
 	+rem(font-size, 18px)
