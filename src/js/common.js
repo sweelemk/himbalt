@@ -1,4 +1,4 @@
-"use strict"
+// "use strict"
 function extend( a, b ) {
 	for( var key in b ) { 
 		if( b.hasOwnProperty( key ) ) {
@@ -393,8 +393,8 @@ Modals.prototype = {
 			});
 		});
 		this.closeOverlay.forEach(function(element){
-			getEventListeners(element);
-			// console.log(t);
+			// getEventListeners(element);
+			console.log();
 			element.addEventListener("click", function(e){
 				if(e.target.classList.contains("scroll-content")){
 					self.closeModal();
