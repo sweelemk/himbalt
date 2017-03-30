@@ -1,3 +1,4 @@
+"use strict"
 function extend( a, b ) {
 	for( var key in b ) { 
 		if( b.hasOwnProperty( key ) ) {
@@ -355,7 +356,8 @@ function Modals(el) {
 		showModal: "show-modal",
 		bodyElement: "body",
 		modalGoal: "[data-modals]",
-		close: ".cross-modal"
+		close: ".cross-modal",
+		closeOverlay: "[data-modals] .scroll-content"
 	}
 
 	this.init();
@@ -383,16 +385,22 @@ Modals.prototype = {
 	generateEventOnCloseModals: function(){
 		var self = this;
 		this.close = document.querySelectorAll(this.options.close);
+		this.closeOverlay = document.querySelectorAll(this.options.closeOverlay);
 		this.close.forEach(function(element){
 			element.addEventListener("click", function(){
 				self.closeModal();
 				element.removeEventListener("click", arguments.callee);
 			});
 		});
-		// this.close.addEventListener("click", function(){
-		// 	self.closeModal();
-		// 	this.removeEventListener("click", arguments.callee);
-		// });
+		this.closeOverlay.forEach(function(element){
+			
+			element.addEventListener("click", function(e){
+				if(e.target.classList.contains("scroll-content")){
+					self.closeModal();
+					element.removeEventListener("click", arguments.callee);
+				}					
+			});
+		});
 	},
 	openModal: function(goal_modal){
 		this.body.classList.add(this.options.openClass);
