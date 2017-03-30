@@ -997,13 +997,15 @@ body
 				+rem(height, 15px)
 				position: relative
 				top: 3px
+				fill: $black
+				transition: fill 0.3s ease;
 	a
 		color: #000
-		transition: all 0.3s ease-out;
-		// &:hover 
-		// 	color: $maincolor
-		// 	svg 
-		// 		fill: #000
+		transition: color 0.3s ease;
+		&:hover 
+			color: $maincolor
+			svg 
+				fill: $maincolor
 
 .footer
 	.block-padding
