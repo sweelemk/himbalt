@@ -391,7 +391,7 @@ body {
   will-change: width; }
 
 .load-dom .variable-section {
-  width: 61.95%; }
+  width: 61.55%; }
 
 .load-dom .loader-container {
   width: 61.95vw; }
@@ -1306,11 +1306,18 @@ body {
         width: 0.875rem;
         height: 0.9375rem;
         position: relative;
-        top: 3px; }
+        top: 3px;
+        fill: #000;
+        -webkit-transition: fill 0.3s ease;
+        transition: fill 0.3s ease; }
   .contacts a {
     color: #000;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out; }
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease; }
+    .contacts a:hover {
+      color: #ac252a; }
+      .contacts a:hover svg {
+        fill: #ac252a; }
 
 .footer .block-padding {
   padding-left: 0;
@@ -2047,18 +2054,38 @@ body {
   line-height: 1.6; }
   .news-content .content-body p:not(:last-child) {
     margin-bottom: 1.875rem; }
-  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+.developers {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 52px;
+  right: 46px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); }
+  .developers .developers-container {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg); }
+    .developers .developers-container a {
+      white-space: nowrap;
+      font-family: "FiraSansBook";
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #000;
+      letter-spacing: 0.6px; }
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }
-  @media only screen and (max-width: 1400px) {
+    @media only screen and (max-width: 1400px) {
 
   .contacts-header {
     right: 15%; }
 
   .container-image .text-elements h2, .container-image .text-elements .h2 {
     max-width: 90%; } }
-  @media only screen and (max-width: 1279px) {
+    @media only screen and (max-width: 1279px) {
 
   html {
     font-size: 12px; }
@@ -2069,14 +2096,14 @@ body {
 
   .contacts-header {
     top: 3.5rem; } }
-  @media only screen and (max-width: 1150px) {
+    @media only screen and (max-width: 1150px) {
 
   .load-dom .variable-section {
-    width: 67.95%; }
+    width: 67.55%; }
 
   .load-dom .loader-container {
     width: 67.95vw; } }
-  @media only screen and (max-width: 1024px) {
+    @media only screen and (max-width: 1024px) {
 
   .block-1 .column-60 {
     width: 100%;
