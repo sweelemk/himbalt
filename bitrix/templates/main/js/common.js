@@ -393,7 +393,8 @@ Modals.prototype = {
 			});
 		});
 		this.closeOverlay.forEach(function(element){
-			
+			getEventListeners(element);
+			// console.log(t);
 			element.addEventListener("click", function(e){
 				if(e.target.classList.contains("scroll-content")){
 					self.closeModal();
