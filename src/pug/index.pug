@@ -20,14 +20,15 @@ block content
 								a(href="/" class="js-link")
 									span main
 					section.variable-section
-						- var Index = true
-						if(Index)
-							.logo
-						else
-							a(href="/" class="js-link logo")
+						.logo-container
+							- var Index = true
+							if(Index)
+								.logo
+							else
+								a(href="/" class="js-link logo")
+						include includes/_header
 						.loader-container
 							.section-scroll-container
-								include includes/_header
 								.section-scroll.js-ajx(data-pages="false")
 									.container-svg
 										.svg-icon-number
@@ -108,23 +109,29 @@ block content
 													div.column-60
 														div.slider-img.js-slider-one-slide
 															div.slider-content-wrapp
-																a(href='#' class="news-item")
-																	img(src='img/slider1.jpg' alt='')
-																	div.border-top
-																		p.date 01.01.2017
-																		p.desc We started working with a new supplier of petrochemicals
+																.news-item
+																	a(href='#')
+																		.image-container
+																			img(src='img/slider1.jpg' alt='')
+																		div.item-description
+																			.date 07.02.2017
+																			.desc Base olis
 															div.slider-content-wrapp
-																a(href='#' class="news-item")
-																	img(src='img/slider1.jpg' alt='')
-																	div.border-top
-																		p.date 01.01.2017
-																		p.desc We started working with a new supplier of petrochemicals
+																.news-item
+																	a(href='#')
+																		.image-container
+																			img(src='img/slider1.jpg' alt='')
+																		div.item-description
+																			.date 07.02.2017
+																			.desc Base olis
 															div.slider-content-wrapp
-																a(href='#' class="news-item")
-																	img(src='img/slider1.jpg' alt='')
-																	div.border-top
-																		p.date 01.01.2017
-																		p.desc We started working with a new supplier of petrochemicals
+																.news-item
+																	a(href='#')
+																		.image-container
+																			img(src='img/slider1.jpg' alt='')
+																		div.item-description
+																			.date 07.02.2017
+																			.desc Base olis
 																
 										section.section.block-4.full-link.js-section(data-inview-class="push-it")
 											div.bg-gray
@@ -194,3 +201,4 @@ block content
 		- var active = "Home"
 		include includes/_navigation
 		include includes/_groups-modal
+		include includes/_news-modal
