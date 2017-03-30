@@ -164,9 +164,9 @@ body
 	will-change: width
 .load-dom
 	.variable-section
-		width: 61.95%
+		width: 61.55%
 		+r(1150)
-			width: 67.95%
+			width: 67.55%
 	.loader-container
 		width: 61.95vw
 		+r(1150)
@@ -1621,3 +1621,19 @@ body
 			line-height: 1.6
 			&:not(:last-child)
 				+rem(margin-bottom, 30px)
+.developers
+	width: 20px
+	height: 20px
+	position: absolute
+	bottom: 52px
+	right: 46px
+	transform: translateZ(0)
+	.developers-container
+		transform: rotate(-90deg)
+		a 
+			white-space: nowrap
+			font-family: $Book
+			font-size: 12px
+			text-transform: uppercase
+			color: $black
+			letter-spacing: 0.6px
