@@ -52,6 +52,9 @@ body
 		+rem(font-size, 30px)
 		span 
 			color: $maincolor
+[data-scrollbar] 
+	.scrollbar-thumb
+		background-color: $maincolor
 .root__wrapper
 	position: absolute
 	width: 100%
@@ -376,6 +379,10 @@ body
 					// opacity: 1
 					color: $white
 					visibility: visible
+					
+			a
+				&:hover
+					color: $hover
 
 .l.breadcumbs
 	// +rem(max-width, 800px)
@@ -515,6 +522,7 @@ body
 	left: 0
 	height: 100vh
 	width: 100%
+	z-index: -1
 	.svg-icon-number
 		width: 88%
 		position: absolute
@@ -527,6 +535,14 @@ body
 		position: absolute
 		+rem(bottom, -101px)
 		+rem(right, -18px)
+		+rem(max-width, 595px)
+	.svg-icon-404
+		position: absolute
+		top: 55%
+		transform: translate(0, -50%)
+		right: 0%
+		left: 55px
+
 .menu-elements
 	position: relative
 	display: inline-block
@@ -1388,14 +1404,31 @@ body
 			// top: -4px
 			// margin-left: -6px
 .btn
-	background-color: $maincolor
+	background: linear-gradient(270deg, #ac252a, #560b0e);
+	background-size: 400% 400%
 	+rem(padding, 21px 10px)
 	+rem(min-width, 201px)
 	text-align: center
 	border-radius: 3px
-	transition: background-color 0.3s ease
+	animation: AnimationGradient 2s ease-out infinite
+	position: relative
+	overflow: hidden
+	&::after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		background-color: transparent
+		width: 100%
+		height: 100%
+		transition: background-color 0.3s ease
+		z-index: 0
 	&:hover
-		background-color: $darkmain
+		&:after
+			background-color: $darkmain
+		animation-play-state: paused
+		.icon
+			transform: translate(5px, 0)
 	span 
 		font-family: $Book
 		color: $white
@@ -1405,9 +1438,14 @@ body
 		vertical-align: middle
 		+rem(margin-right, 10px)
 		+rem(letter-spacing, 1.2px)
+		position: relative
+		z-index: 1
 	.icon
 		display: inline-block
 		vertical-align: middle
+		transition: transform 0.3s ease
+		position: relative
+		z-index: 1
 		&.icon-arrow
 			+rem(width, 16px)
 			+rem(height, 12px)
@@ -1769,3 +1807,18 @@ body
 			text-transform: uppercase
 			color: $black
 			letter-spacing: 0.6px
+
+@keyframes AnimationGradient
+    0%
+    	background-position: 0% 50%
+    50%
+    	background-position: 100% 50%
+    100%
+    	background-position: 0% 50%
+.inner-page
+	.page-not-found
+		height: 100vh
+		+rem(padding-top, 135px)
+		+vertical
+		text-align: left
+		margin-bottom: 0

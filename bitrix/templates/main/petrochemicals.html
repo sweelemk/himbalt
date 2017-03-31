@@ -69,9 +69,10 @@
                             var viv = new Vivus("icon-rock-oil", {
                             	type: "sync",
                             	duration: 150,
-                            	delay: 300,
                             	onReady: function(viv){
-                            		viv.play()
+                            		setTimeout(function(){
+                            			viv.play()
+                            		},500);
                             	}
                             })
                           </script>
