@@ -336,20 +336,48 @@ body
 		transform-origin: 50%
 		height: 50px
 		width: 50px
-		.breadcrumbs-content
-			position: absolute
-			left: 50%
-			transform: translate(-50%, 0)
-			a 
-				span
-					font-family: $Medium
-					+rem(font-size, 42px)
+	.breadcrumbs-content
+		position: absolute
+		left: 50%
+		transform: translate(-50%, 0)
+		transition: transform 0.3s ease
+	.breadcrumbs-item
+		// backface-visibility: hidden
+		a 
+			display: block
+			text-align: center
+			transition: color 0.3s ease, visibility 0.3s ease
+			// will-change: opacity
+			color: $white
+			span
+				font-family: $Medium
+				+rem(font-size, 42px)
+				// transition: color 0.3s ease
+			&:hover
+				// span 
+				color: $hover
+		&:last-child
+			a
+				// opacity: 0
+				color: $maincolor
+				// visibility: hidden
+				
+.open-side
+	.breadcrumbs-content
+		transform: translate(-50%, -3.125rem)
+		.breadcrumbs-item
+			&:first-child
+				a
+					// opacity: 0
+					color: $maincolor
+					visibility: hidden
+			&:last-child
+				a
+					// opacity: 1
 					color: $white
-					transition: color 0.3s ease
-				&:hover
-					span 
-						color: $hover
-.l
+					visibility: visible
+
+.l.breadcumbs
 	// +rem(max-width, 800px)
 	text-align: left
 	display: inline-block
@@ -494,6 +522,11 @@ body
 		+rem(right, -41px)
 	.svg-icon-atom
 		width: 49%
+	.svg-icon-oil
+		width: 46%
+		position: absolute
+		+rem(bottom, -101px)
+		+rem(right, -18px)
 .menu-elements
 	position: relative
 	display: inline-block
@@ -1067,6 +1100,8 @@ body
 			+rem(margin-bottom, 46px)
 			+rem(padding-right, 30px)
 			line-height: 1.35
+	.contacts-header
+		right: 17.1%
 
 .contact-info
 	.link-map

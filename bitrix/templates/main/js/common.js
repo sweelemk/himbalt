@@ -187,13 +187,13 @@ function actionContent() {
 	constant.on("mouseenter", function(){
 		if($(".pages").hasClass("inner-page")) {
 			container.addClass("transition");
-			$(this).removeClass("inactive");
+			$(this).removeClass("inactive").addClass("open-side");
 		}
 	});
 	constant.on("mouseleave", function(){
 		if(container.hasClass("transition")) {
 			container.removeClass("transition");
-			$(this).addClass("inactive");
+			$(this).addClass("inactive").removeClass("open-side");
 		}
 	});
 };

@@ -577,22 +577,42 @@ body {
     transform-origin: 50%;
     height: 50px;
     width: 50px; }
-    .breadcumbs .breadcumbs-inner .breadcrumbs-content {
-      position: absolute;
-      left: 50%;
-      -webkit-transform: translate(-50%, 0);
-      -ms-transform: translate(-50%, 0);
-      transform: translate(-50%, 0); }
-      .breadcumbs .breadcumbs-inner .breadcrumbs-content a span {
-        font-family: "FiraSansMedium";
-        font-size: 2.625rem;
-        color: #fff;
-        -webkit-transition: color 0.3s ease;
-        transition: color 0.3s ease; }
-      .breadcumbs .breadcumbs-inner .breadcrumbs-content a:hover span {
-        color: #e3a7aa; }
+  .breadcumbs .breadcrumbs-content {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+  .breadcumbs .breadcrumbs-item a {
+    display: block;
+    text-align: center;
+    -webkit-transition: color 0.3s ease, visibility 0.3s ease;
+    transition: color 0.3s ease, visibility 0.3s ease;
+    color: #fff; }
+    .breadcumbs .breadcrumbs-item a span {
+      font-family: "FiraSansMedium";
+      font-size: 2.625rem; }
+    .breadcumbs .breadcrumbs-item a:hover {
+      color: #e3a7aa; }
+  .breadcumbs .breadcrumbs-item:last-child a {
+    color: #ac252a; }
 
-.l {
+.open-side .breadcrumbs-content {
+  -webkit-transform: translate(-50%, -3.125rem);
+  -ms-transform: translate(-50%, -3.125rem);
+  transform: translate(-50%, -3.125rem); }
+  .open-side .breadcrumbs-content .breadcrumbs-item:first-child a {
+    color: #ac252a;
+    visibility: hidden; }
+  .open-side .breadcrumbs-content .breadcrumbs-item:last-child a {
+    color: #fff;
+    visibility: visible; }
+
+.l.breadcumbs {
   text-align: left;
   display: inline-block;
   width: 100%; }
@@ -765,6 +785,11 @@ body {
     right: -2.5625rem; }
   .container-svg .svg-icon-atom {
     width: 49%; }
+  .container-svg .svg-icon-oil {
+    width: 46%;
+    position: absolute;
+    bottom: -6.3125rem;
+    right: -1.125rem; }
 
 .menu-elements {
   position: relative;
@@ -1381,6 +1406,9 @@ body {
     margin-bottom: 2.875rem;
     padding-right: 1.875rem;
     line-height: 1.35; }
+
+.inner-page .contacts-header {
+  right: 17.1%; }
 
 .contact-info .link-map {
   text-transform: uppercase;

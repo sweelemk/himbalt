@@ -18,8 +18,12 @@ block content
 						.breadcumbs.show
 							.breadcumbs-inner
 								.breadcrumbs-content
-									a(href="/" class="js-link")
-										span Products
+									.breadcrumbs-item
+										a(href="/" class="js-link")
+											span Products
+									.breadcrumbs-item
+										a(href="/" class="js-link")
+											span Home
 					section.variable-section
 						.logo-container
 							- var Index = false
@@ -38,6 +42,7 @@ block content
 												var viv = new Vivus("icon-rock-oil", {
 													type: "sync",
 													duration: 150,
+													delay: 300,
 													onReady: function(viv){
 														viv.play()
 													}
