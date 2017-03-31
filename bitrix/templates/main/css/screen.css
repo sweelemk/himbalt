@@ -1422,14 +1422,38 @@ body {
   padding-left: 3.625rem;
   padding-top: 0.3125rem; }
 
-.map-wrapp img {
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; }
+.maps-wrapper {
+  *zoom: 1;
+  position: relative;
+  padding-bottom: 0.6875rem;
+  margin-bottom: 3.125rem; }
+  .maps-wrapper:after {
+    content: " ";
+    display: table;
+    clear: both; }
+  .maps-wrapper .map-wrapp {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+    .maps-wrapper .map-wrapp img {
+      max-width: 100%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+    .maps-wrapper .map-wrapp .img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-position: 50%; }
+
+.inner-page .section.contact-info {
+  padding-top: 1.125rem; }
+  .inner-page .section.contact-info .email {
+    margin-bottom: 4.125rem; }
 
 .card-top-line {
   margin-bottom: 2.875rem; }
@@ -1818,14 +1842,17 @@ body {
   padding: 3.125rem 0 4.875rem; }
 
 .inner-page .departament {
-  padding-left: 3rem; }
+  padding-left: 2.375rem;
+  margin-bottom: -1.6875rem; }
   .inner-page .departament .column-30 {
     position: relative;
     padding-left: 3.75rem; }
   .inner-page .departament .title {
     font-size: 12px;
     text-transform: uppercase;
-    position: relative; }
+    position: relative;
+    letter-spacing: 0.6px;
+    margin-bottom: 0.625rem; }
     .inner-page .departament .title:before {
       content: '';
       background-color: #ac252a;
@@ -1838,7 +1865,8 @@ body {
       bottom: 0;
       margin: auto; }
   .inner-page .departament .tel {
-    font-size: 1.25rem; }
+    font-size: 1.25rem;
+    margin-bottom: 0.3125rem; }
   .inner-page .departament .email {
     font-size: 1.25rem; }
 
