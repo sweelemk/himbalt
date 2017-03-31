@@ -1102,18 +1102,36 @@ body
 	.contact-data
 		+rem(padding-left, 58px)
 		+rem(padding-top, 5px)
-
-.map-wrapp
-	img	
-		width: 100%
-		overflow: hidden
+.maps-wrapper
+	+clr
+	position: relative
+	+rem(padding-bottom, 11px)
+	+rem(margin-bottom, 50px)
+	.map-wrapp
 		position: absolute
-		top: 0
-		bottom: 0
-		left: 0
-		right: 0
-		margin auto
-
+		width: 100%
+		height: 100%
+		img	
+			max-width: 100%
+			overflow: hidden
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			margin auto
+		.img
+			position: absolute
+			width: 100%
+			height: 100%
+			background-size: contain
+			background-position: 50%
+.inner-page
+	.section
+		&.contact-info
+			+rem(padding-top, 18px)
+			.email
+				+rem(margin-bottom, 66px)
 
 .card-top-line
 	+rem(margin-bottom, 46px)
@@ -1471,7 +1489,8 @@ body
 	.next-page
 		+rem(padding, 50px 0 78px)
 	.departament
-		padding-left: 3rem
+		+rem(padding-left, 38px)
+		+rem(margin-bottom, -27px)
 		.column-30
 			position: relative
 			+rem(padding-left, 60px)
@@ -1479,6 +1498,8 @@ body
 			font-size: 12px
 			text-transform: uppercase
 			position: relative
+			letter-spacing: 0.6px
+			+rem(margin-bottom, 10px)
 			&:before
 				content: ''
 				background-color: $maincolor
@@ -1492,6 +1513,7 @@ body
 				margin: auto
 		.tel
 			+rem(font-size, 20px)
+			+rem(margin-bottom, 5px)
 		.email
 			+rem(font-size, 20px)
 
