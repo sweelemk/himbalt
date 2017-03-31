@@ -38,7 +38,9 @@ block content
 													type: "sync",
 													duration: 100,
 													onReady: function(viv){
-														viv.play()
+														setTimeout(function(){
+															viv.play()
+														},500);
 													}
 												})
 									//- main container

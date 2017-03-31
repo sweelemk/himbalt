@@ -259,6 +259,9 @@ body {
     .root h3 span, .root .h3 span {
       color: #ac252a; }
 
+[data-scrollbar] .scrollbar-thumb {
+  background-color: #ac252a; }
+
 .root__wrapper {
   position: absolute;
   width: 100%;
@@ -611,6 +614,8 @@ body {
   .open-side .breadcrumbs-content .breadcrumbs-item:last-child a {
     color: #fff;
     visibility: visible; }
+  .open-side .breadcrumbs-content .breadcrumbs-item a:hover {
+    color: #e3a7aa; }
 
 .l.breadcumbs {
   text-align: left;
@@ -777,7 +782,8 @@ body {
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+  z-index: -1; }
   .container-svg .svg-icon-number {
     width: 88%;
     position: absolute;
@@ -789,7 +795,16 @@ body {
     width: 46%;
     position: absolute;
     bottom: -6.3125rem;
-    right: -1.125rem; }
+    right: -1.125rem;
+    max-width: 37.1875rem; }
+  .container-svg .svg-icon-404 {
+    position: absolute;
+    top: 55%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    right: 0%;
+    left: 55px; }
 
 .menu-elements {
   position: relative;
@@ -1720,15 +1735,38 @@ body {
     border-bottom: 1px dotted; }
 
 .btn {
-  background-color: #ac252a;
+  background: -webkit-gradient(linear, right top, left top, from(#ac252a), to(#560b0e));
+  background: -webkit-linear-gradient(right, #ac252a, #560b0e);
+  background: linear-gradient(270deg, #ac252a, #560b0e);
+  background-size: 400% 400%;
   padding: 1.3125rem 0.625rem;
   min-width: 12.5625rem;
   text-align: center;
   border-radius: 3px;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease; }
+  -webkit-animation: AnimationGradient 2s ease-out infinite;
+  animation: AnimationGradient 2s ease-out infinite;
+  position: relative;
+  overflow: hidden; }
+  .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    z-index: 0; }
   .btn:hover {
-    background-color: #941d21; }
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused; }
+    .btn:hover:after {
+      background-color: #941d21; }
+    .btn:hover .icon {
+      -webkit-transform: translate(5px, 0);
+      -ms-transform: translate(5px, 0);
+      transform: translate(5px, 0); }
   .btn span {
     font-family: "FiraSansBook";
     color: #fff;
@@ -1737,10 +1775,18 @@ body {
     display: inline-block;
     vertical-align: middle;
     margin-right: 0.625rem;
-    letter-spacing: 0.075rem; }
+    letter-spacing: 0.075rem;
+    position: relative;
+    z-index: 1; }
   .btn .icon {
     display: inline-block;
-    vertical-align: middle; }
+    vertical-align: middle;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    position: relative;
+    z-index: 1; }
     .btn .icon.icon-arrow {
       width: 1rem;
       height: 0.75rem;
@@ -2130,18 +2176,48 @@ body {
       text-transform: uppercase;
       color: #000;
       letter-spacing: 0.6px; }
-    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+
+@-webkit-keyframes AnimationGradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+@keyframes AnimationGradient {
+  0% {
+    background-position: 0% 50%; }
+  50% {
+    background-position: 100% 50%; }
+  100% {
+    background-position: 0% 50%; } }
+
+.inner-page .page-not-found {
+  height: 100vh;
+  padding-top: 8.4375rem;
+  text-align: center;
+  font-size: 0;
+  text-align: left;
+  margin-bottom: 0; }
+  .inner-page .page-not-found:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }
-    @media only screen and (max-width: 1400px) {
+  @media only screen and (max-width: 1400px) {
 
   .contacts-header {
     right: 15%; }
 
   .container-image .text-elements h2, .container-image .text-elements .h2 {
     max-width: 90%; } }
-    @media only screen and (max-width: 1279px) {
+  @media only screen and (max-width: 1279px) {
 
   html {
     font-size: 12px; }
@@ -2152,14 +2228,14 @@ body {
 
   .contacts-header {
     top: 3.5rem; } }
-    @media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1150px) {
 
   .load-dom .variable-section {
     width: 67.55%; }
 
   .load-dom .loader-container {
     width: 67.95vw; } }
-    @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
 
   .block-1 .column-60 {
     width: 100%;
