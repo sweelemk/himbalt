@@ -23,7 +23,7 @@
                 <div class="lang">
                   <div class="lang-inner"><a class="active" href="/"><span>en</span></a><a href="/"><span>ru</span></a></div>
                 </div>
-                <div class="account"><a class="account-enter" href="#"><span>Personal account</span></a></div>
+                <div class="account"><a class="account-enter" href="#" data-modal="modal" data-option="singin"><span>Personal account</span></a></div>
                 <nav class="navigation-site">
                   <ul class="navigation-list">
                                         <li class="navigation-item"><a class="js-link" href="basic-oil.html"><span>Base oils</span></a></li>
@@ -353,6 +353,74 @@
                       </div>
                       <p>Himbalt company organizes the transportation and supply of petrole&shy;um products, oils and polyethylene around the world: from Europe to Asia, from Australia to America. Himbalt company organizes the trans&shy;portation and supply of petroleum products, oils and polyethylene</p>
                       <p>Himbalt company organizes the transportation and supply of petrole&shy;um products, oils and polyethylene around the world: from Europe to Asia, from Australia to America. Himbalt company organizes the trans&shy;portation and supply of petroleum products, oils and polyethylene</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-modals" data-modals="modal">
+          <div class="cross-head cross-modal">
+            <div class="cross-container"><span class="cross cross-1"></span><span class="cross cross-2"></span></div>
+          </div>
+          <div class="form-modal-scroll" id="forms-scroll">
+            <div class="form-modal-content">
+              <div class="content-container">
+                <div class="content-scrolls">
+                  <div class="modal-items" id="singin">
+                    <div class="form-head">
+                      <div class="form-title">Sign in</div>
+                    </div>
+                    <div class="form-body">
+                      <form class="js-validation">
+                        <div class="field-row">
+                          <div class="field-item">
+                            <input type="text" data-validation="required" data-validation-error-msg="You have entered an invalid name">
+                            <label>name*</label>
+                          </div>
+                        </div>
+                        <div class="field-row">
+                          <div class="field-item">
+                            <input class="password" type="text" data-validation="required" data-validation-error-msg="You have entered an invalid password">
+                            <label>password*</label><a class="forgort-pass" href="#" data-modal="modal" data-option="forgot-pass">Forgot password?</a>
+                          </div>
+                        </div>
+                        <div class="field-row">
+                          <button class="btn" type="submit"><span>Login</span><i class="icon icon-arrow"><svg width="16" height="12.3" viewBox="0 0 16 12.3" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="m15.70755,5.63399l-5.18881,-5.18881c-0.31781,-0.31781 -0.83021,-0.31781 -1.14802,0c-0.31781,0.31781 -0.31781,0.83021 0,1.14802l3.80729,3.8008l-12.30396,0c-0.44753,0 -0.81075,0.36322 -0.81075,0.81075c0,0.44753 0.36322,0.81075 0.81075,0.81075l12.30396,0l-3.80729,3.80729c-0.31781,0.31781 -0.31781,0.83021 0,1.14802c0.15566,0.15566 0.36322,0.23998 0.57077,0.23998s0.4151,-0.07783 0.57077,-0.23998l5.18881,-5.18881c0.3243,-0.31781 0.3243,-0.8367 0.00649,-1.14802z"/></svg></i></button><a class="register" href="#" data-modal="modal" data-option="register"> <i class="icon"></i><span>Register Now</span></a>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-items" id="register">
+                    <div class="form-head">
+                      <div class="form-title">Registration form</div>
+                      <p>Sign up on our website to get more information about our products.</p>
+                    </div>
+                    <div class="form-body">
+                      <form class="js-validation">
+                        <div class="field-row">
+                          <div class="field-item">
+                            <input type="text" data-validation="required" data-validation-error-msg="You have entered an invalid name">
+                            <label>name*</label>
+                          </div>
+                        </div>
+                        <div class="field-row">
+                          <div class="field-item">
+                            <input type="text" data-validation="email" data-validation-error-msg="You have entered an invalid e-mail">
+                            <label>e-mail*</label>
+                          </div>
+                        </div>
+                        <div class="field-row">
+                          <div class="field-item">
+                            <input class="password" type="text" data-validation="required" data-validation-error-msg="You have entered an invalid phone">
+                            <label>phone*</label>
+                          </div>
+                        </div>
+                        <div class="field-row">
+                          <button class="btn" type="submit"><span>Sing in</span><i class="icon icon-arrow"><svg width="16" height="12.3" viewBox="0 0 16 12.3" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="m15.70755,5.63399l-5.18881,-5.18881c-0.31781,-0.31781 -0.83021,-0.31781 -1.14802,0c-0.31781,0.31781 -0.31781,0.83021 0,1.14802l3.80729,3.8008l-12.30396,0c-0.44753,0 -0.81075,0.36322 -0.81075,0.81075c0,0.44753 0.36322,0.81075 0.81075,0.81075l12.30396,0l-3.80729,3.80729c-0.31781,0.31781 -0.31781,0.83021 0,1.14802c0.15566,0.15566 0.36322,0.23998 0.57077,0.23998s0.4151,-0.07783 0.57077,-0.23998l5.18881,-5.18881c0.3243,-0.31781 0.3243,-0.8367 0.00649,-1.14802z"/></svg></i></button><a class="register" href="#" data-modal="modal" data-option="singin"> <i class="icon"></i><span>Login</span></a>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>

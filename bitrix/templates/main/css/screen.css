@@ -1516,14 +1516,14 @@ body {
   .card-top-line .desc {
     padding-right: 3.125rem; }
 
-.groups-modals, .news-modals {
+.groups-modals, .news-modals, .form-modals {
   position: absolute;
   z-index: 999;
   width: 100%;
   left: 100%;
   height: 100%;
   top: 0; }
-  .groups-modals::after, .news-modals::after {
+  .groups-modals::after, .news-modals::after, .form-modals::after {
     content: "";
     width: 50%;
     background-color: #fff;
@@ -1536,14 +1536,14 @@ body {
     transition: transform 0.3s linear;
     transition: transform 0.3s linear, -webkit-transform 0.3s linear;
     z-index: 0; }
-  .groups-modals.show-modal, .news-modals.show-modal {
+  .groups-modals.show-modal, .news-modals.show-modal, .form-modals.show-modal {
     left: 0; }
-  .groups-modals .cross-head, .news-modals .cross-head {
+  .groups-modals .cross-head, .news-modals .cross-head, .form-modals .cross-head {
     right: 2.125rem; }
-  .groups-modals .groups-modal-scroll, .groups-modals .news-modal-scroll, .news-modals .groups-modal-scroll, .news-modals .news-modal-scroll {
+  .groups-modals .groups-modal-scroll, .groups-modals .news-modal-scroll, .groups-modals .form-modal-scroll, .news-modals .groups-modal-scroll, .news-modals .news-modal-scroll, .news-modals .form-modal-scroll, .form-modals .groups-modal-scroll, .form-modals .news-modal-scroll, .form-modals .form-modal-scroll {
     height: 100%;
     z-index: 2; }
-  .groups-modals .groups-modal-content, .groups-modals .news-modal-content, .news-modals .groups-modal-content, .news-modals .news-modal-content {
+  .groups-modals .groups-modal-content, .groups-modals .news-modal-content, .groups-modals .form-modal-content, .news-modals .groups-modal-content, .news-modals .news-modal-content, .news-modals .form-modal-content, .form-modals .groups-modal-content, .form-modals .news-modal-content, .form-modals .form-modal-content {
     width: 50%;
     min-height: 100%;
     background-color: #fff;
@@ -1558,7 +1558,7 @@ body {
     transform-style: flat;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
-  .groups-modals .row-request, .news-modals .row-request {
+  .groups-modals .row-request, .news-modals .row-request, .form-modals .row-request {
     position: absolute;
     bottom: 0;
     left: 100%;
@@ -1570,33 +1570,34 @@ body {
     transition: transform 0.3s linear;
     transition: transform 0.3s linear, -webkit-transform 0.3s linear;
     z-index: 2; }
-  .groups-modals .content-container, .news-modals .content-container {
+  .groups-modals .content-container, .news-modals .content-container, .form-modals .content-container {
     min-height: 100vh;
     padding-bottom: 6.5625rem;
     padding-top: 13.1875rem;
     padding-left: 5rem;
     padding-right: 13%; }
   .groups-modals.open .row-request,
-  .groups-modals.open .groups-modal-content, .groups-modals.open .news-modal-content, .news-modals.open .row-request,
-  .news-modals.open .groups-modal-content, .news-modals.open .news-modal-content {
+  .groups-modals.open .groups-modal-content, .groups-modals.open .news-modal-content, .groups-modals.open .form-modal-content, .news-modals.open .row-request,
+  .news-modals.open .groups-modal-content, .news-modals.open .news-modal-content, .news-modals.open .form-modal-content, .form-modals.open .row-request,
+  .form-modals.open .groups-modal-content, .form-modals.open .news-modal-content, .form-modals.open .form-modal-content {
     -webkit-transform: translate(-100%, 0);
     -ms-transform: translate(-100%, 0);
     transform: translate(-100%, 0); }
-  .groups-modals.open::after, .news-modals.open::after {
+  .groups-modals.open::after, .news-modals.open::after, .form-modals.open::after {
     -webkit-transform: translate(-100%, 0);
     -ms-transform: translate(-100%, 0);
     transform: translate(-100%, 0); }
-  .groups-modals.show-modal .groups-modals, .news-modals.show-modal .groups-modals {
+  .groups-modals.show-modal .groups-modals, .news-modals.show-modal .groups-modals, .form-modals.show-modal .groups-modals {
     left: 0; }
-  .groups-modals .request-container, .news-modals .request-container {
+  .groups-modals .request-container, .news-modals .request-container, .form-modals .request-container {
     *zoom: 1;
     padding: 1.1875rem 2.1875rem;
     background-color: #fff; }
-    .groups-modals .request-container:after, .news-modals .request-container:after {
+    .groups-modals .request-container:after, .news-modals .request-container:after, .form-modals .request-container:after {
       content: " ";
       display: table;
       clear: both; }
-    .groups-modals .request-container .btn, .news-modals .request-container .btn {
+    .groups-modals .request-container .btn, .news-modals .request-container .btn, .form-modals .request-container .btn {
       float: right; }
 
 .groups-content .content-head, .news-content .content-head {
@@ -1705,6 +1706,160 @@ body {
       pointer-events: none; }
       .groups-content .navigation .navigation-link.inactive .icon svg, .news-content .navigation .navigation-link.inactive .icon svg {
         stroke: rgba(0, 0, 0, 0.5); }
+
+.modal-items {
+  width: 100%;
+  height: 100%;
+  padding-left: 22%;
+  padding-right: 16.5%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: none; }
+  .modal-items.open {
+    display: block; }
+  .modal-items.out_form {
+    -webkit-animation: out_form 0.3s ease both;
+    animation: out_form 0.3s ease both; }
+  .modal-items.in_form {
+    -webkit-animation: in_form 0.3s ease both;
+    animation: in_form 0.3s ease both; }
+  .modal-items .form-head {
+    margin-bottom: 3.25rem; }
+    .modal-items .form-head .form-title {
+      font-family: "FiraSansMedium";
+      font-size: 2.625rem;
+      color: #1c1c1c; }
+      .modal-items .form-head .form-title:not(:only-child) {
+        margin-bottom: 1.4375rem; }
+    .modal-items .form-head p {
+      font-family: "FiraSansBook";
+      font-size: 1.25rem;
+      color: #1c1c1c;
+      line-height: 1.6; }
+  .modal-items .field-row {
+    width: 100%;
+    margin-bottom: 2.5rem; }
+    .modal-items .field-row .field-item {
+      position: relative; }
+      .modal-items .field-row .field-item:only-child {
+        width: 100%; }
+    .modal-items .field-row input {
+      height: 3.6875rem;
+      border-bottom: 1px solid #a2a2a2;
+      width: 100%;
+      background-color: #fafafa;
+      font-family: "FiraSansRegular";
+      font-size: 1.25rem;
+      color: #1c1c1c;
+      padding: 0 1.25rem;
+      -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease; }
+      .modal-items .field-row input.error {
+        background-color: #fef3f3;
+        border-color: #ac252a; }
+      .modal-items .field-row input.password {
+        padding-right: 9.0625rem; }
+      .modal-items .field-row input:focus + label, .modal-items .field-row input.not-empty + label {
+        -webkit-transform: translate(0, -45px);
+        -ms-transform: translate(0, -45px);
+        transform: translate(0, -45px); }
+    .modal-items .field-row .help-block {
+      position: absolute;
+      top: 100%;
+      font-family: "FiraSansBook";
+      font-size: 0.875rem;
+      margin-top: 0.3125rem;
+      color: #ac252a; }
+    .modal-items .field-row label {
+      font-family: "FiraSansBook";
+      font-size: 0.75rem;
+      color: #aaaaaa;
+      text-transform: uppercase;
+      position: absolute;
+      left: 1.4375rem;
+      top: 1.5625rem;
+      letter-spacing: 0.3px;
+      -webkit-transition: -webkit-transform 0.3s ease;
+      transition: -webkit-transform 0.3s ease;
+      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+    .modal-items .field-row .forgort-pass {
+      font-family: "FiraSansRegular";
+      font-size: 0.875rem;
+      color: #777777;
+      position: absolute;
+      right: 1.4375rem;
+      top: 1.3125rem; }
+    .modal-items .field-row .btn {
+      margin-top: 1.4375rem;
+      min-width: 10.625rem;
+      background: none;
+      background-color: #ac252a;
+      -webkit-animation: none;
+      animation: none;
+      -webkit-transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease; }
+      .modal-items .field-row .btn:hover {
+        background-color: #991217; }
+      .modal-items .field-row .btn::after {
+        content: none; }
+    .modal-items .field-row .register {
+      float: right;
+      margin-top: 1.4375rem;
+      padding: 1.125rem 0.25rem; }
+      .modal-items .field-row .register span {
+        display: inline-block;
+        vertical-align: middle;
+        font-family: "FiraSansRegular";
+        font-size: 1rem;
+        color: #ac252a;
+        border-bottom: 1px solid;
+        padding-bottom: 3px;
+        -webkit-transition: border-color 0.3s ease, color 0.3s ease;
+        transition: border-color 0.3s ease, color 0.3s ease; }
+      .modal-items .field-row .register:hover span {
+        color: #000;
+        border-color: transparent; }
+
+@-webkit-keyframes out_form {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(10%, 0);
+    transform: translate(10%, 0); } }
+
+@keyframes out_form {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(10%, 0);
+    transform: translate(10%, 0); } }
+
+@-webkit-keyframes in_form {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(10%, 0);
+    transform: translate(10%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
+@keyframes in_form {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(10%, 0);
+    transform: translate(10%, 0); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
 
 .container-show_more .show_more-body {
   display: none; }

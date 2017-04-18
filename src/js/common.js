@@ -8,7 +8,8 @@ function extend( a, b ) {
 	return a;
 }
 
-var scrolls, groupscroll, newsscroll;
+var scrolls, groupscroll, newsscroll, formscroll;
+var modalsProject;
 
 window.onload = function(){
 	var scrollsMain = document.getElementById('my-scrollbar');
@@ -19,6 +20,9 @@ window.onload = function(){
 
 	var newsscrollMain = document.getElementById('news-scroll');
 	newsscroll = new Scroller(newsscrollMain, false);
+
+	var formscrollMain = document.getElementById('forms-scroll');
+	formscroll = new Scroller(formscrollMain, false);
 };
 
 function menu(){
@@ -145,6 +149,7 @@ function Loading(){
 							$(".js-slider-one-slide").slick("setPosition");
 						}, 500);
 						scrolls.scrollUpdate(true);
+						modalsProject.updateModal();
 					});
 				},600);
 			}
@@ -370,13 +375,24 @@ Modals.prototype = {
 		this.elements = document.querySelectorAll(this.el);
 
 		this.eventHandler();
+		this.initValidation();
+		this.checkInputValue();
 	},
 	eventHandler: function() {
 		var self = this;
 		this.elements.forEach(function(element){
 			element.addEventListener("click", function(event){
 				var value = this.getAttribute("data-modal");
-				self.openModal(value);
+				if(value == "modal") {
+					var options = this.getAttribute("data-option");
+					if($(".modal-items").hasClass("open")) {
+						self.changeForm(options);
+					} else {
+						self.openModal(value, options);	
+					}					
+				} else {
+					self.openModal(value);	
+				}				
 				event.preventDefault();
 			});	
 		});
@@ -403,9 +419,17 @@ Modals.prototype = {
 			});
 		});
 	},
-	openModal: function(goal_modal){
+	openModal: function(goal_modal, options_modal){
 		this.body.classList.add(this.options.openClass);
 		this.goalElement = document.querySelector("[data-modals=" + goal_modal + "]");
+		
+		
+		if(options_modal) {
+			console.log(options_modal)
+			this.optionsElement = document.getElementById(options_modal);
+			this.optionsElement.classList.add("open");
+			formscroll.scrollUpdate();
+		}
 		this.goalElement.classList.add(this.options.openClassElements);
 		this.goalElement.classList.add(this.options.showModal);
 
@@ -417,7 +441,61 @@ Modals.prototype = {
 		this.goalElement.classList.remove(this.options.openClassElements);		
 		setTimeout(function(){
 			self.goalElement.classList.remove(self.options.showModal);
+			$(".modal-items").removeClass("open in_form out_form");
 		}, 300);
+	},
+	initValidation: function(){
+		var form_validate = $('.js-validation');
+		console.log(form_validate)
+		if (form_validate.length) {
+			form_validate.each(function () {
+				var form_this = $(this);
+				$.validate({
+					form : form_this,
+					borderColorOnError : true,
+					scrollToTopOnError : false,
+					validateOnBlur : true,
+					onValidate: function($form) {
+					},
+					onError: function($form) {
+					},
+					onSuccess: function($form){
+						return false;
+					}
+				});
+			});
+		};
+	},
+	checkInputValue: function(){
+		var inputs = document.getElementsByTagName('input');
+
+		for (var i = 0; i < inputs.length; i++) {
+			var input = inputs[i];
+			input.addEventListener('input', function() {
+				this.value.length > 0 ? this.classList.add("not-empty") : this.classList.remove("not-empty");
+			});
+		}
+	},
+	updateModal: function(){
+		this.init();
+	},
+	changeForm: function(next_modal){
+		$("#" + next_modal).parent().find(".open").addClass("out_form");
+		this.animationend($("#" + next_modal).parent().find(".open"), $("#" + next_modal));
+	},
+	animationend: function(current, next){
+		var self = this;
+		current.on("animationend", function(){
+			var _ = $(this);
+			if(_.hasClass("open")) {
+				next.addClass("open in_form").siblings().removeClass("open out_form");
+				setTimeout(function(){
+					next.removeClass("in_form");
+				}, 300);
+				formscroll.scrollUpdate();
+			}
+			_.off("animationend");
+		});
 	}
 };
 
@@ -491,6 +569,6 @@ $(document).ready(function(){
 	// init menu
 	menu();
 	actionContent();
-
+	modalsProject = new Modals("[data-modal]");
 	
 });
