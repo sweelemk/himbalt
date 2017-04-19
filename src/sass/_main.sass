@@ -1406,7 +1406,7 @@ body
 			position: relative
 			&:only-child
 				width: 100%
-		input
+		input, textarea
 			+rem(height, 59px)
 			border-bottom: 1px solid #a2a2a2
 			width: 100%
@@ -1424,6 +1424,26 @@ body
 			&:focus, &.not-empty
 				& + label
 					transform: translate(0, -45px)
+		textarea
+			height: auto
+			+rem(max-height, 160px)
+			+rem(min-height, 59px)
+			overflow-x: hidden
+			resize: none
+			outline: none
+			border: none
+			border-bottom: 1px solid #a2a2a2
+			+rem(padding, 15px 20px)
+			line-height: 1.3
+			+scrollbar
+				width: 5px
+			+scrollbar-track
+				width: 5px
+				background-color: hsla(0,0%,87%,.75)
+			+scrollbar-thumb
+				background-color: $maincolor
+				border-radius: 3px
+				width: 3px
 		.help-block
 			position: absolute
 			top: 100%

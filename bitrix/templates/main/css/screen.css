@@ -1743,7 +1743,7 @@ body {
       position: relative; }
       .modal-items .field-row .field-item:only-child {
         width: 100%; }
-    .modal-items .field-row input {
+    .modal-items .field-row input, .modal-items .field-row textarea {
       height: 3.6875rem;
       border-bottom: 1px solid #a2a2a2;
       width: 100%;
@@ -1754,15 +1754,35 @@ body {
       padding: 0 1.25rem;
       -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
       transition: background-color 0.3s ease, border-color 0.3s ease; }
-      .modal-items .field-row input.error {
+      .modal-items .field-row input.error, .modal-items .field-row textarea.error {
         background-color: #fef3f3;
         border-color: #ac252a; }
-      .modal-items .field-row input.password {
+      .modal-items .field-row input.password, .modal-items .field-row textarea.password {
         padding-right: 9.0625rem; }
-      .modal-items .field-row input:focus + label, .modal-items .field-row input.not-empty + label {
+      .modal-items .field-row input:focus + label, .modal-items .field-row input.not-empty + label, .modal-items .field-row textarea:focus + label, .modal-items .field-row textarea.not-empty + label {
         -webkit-transform: translate(0, -45px);
         -ms-transform: translate(0, -45px);
         transform: translate(0, -45px); }
+    .modal-items .field-row textarea {
+      height: auto;
+      max-height: 10rem;
+      min-height: 3.6875rem;
+      overflow-x: hidden;
+      resize: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #a2a2a2;
+      padding: 0.9375rem 1.25rem;
+      line-height: 1.3; }
+      .modal-items .field-row textarea::-webkit-scrollbar {
+        width: 5px; }
+      .modal-items .field-row textarea::-webkit-scrollbar-track {
+        width: 5px;
+        background-color: rgba(222, 222, 222, 0.75); }
+      .modal-items .field-row textarea::-webkit-scrollbar-thumb {
+        background-color: #ac252a;
+        border-radius: 3px;
+        width: 3px; }
     .modal-items .field-row .help-block {
       position: absolute;
       top: 100%;

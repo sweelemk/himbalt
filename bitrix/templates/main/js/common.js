@@ -373,10 +373,13 @@ Modals.prototype = {
 
 		this.body = document.querySelector(this.options.bodyElement);
 		this.elements = document.querySelectorAll(this.el);
+		this.modals = document.querySelectorAll("[data-modals]");
 
 		this.eventHandler();
 		this.initValidation();
-		this.checkInputValue();
+		this.checkInputValue("input");
+		this.checkInputValue("textarea");
+		this.autoSizeTextarea();
 	},
 	eventHandler: function() {
 		var self = this;
@@ -388,7 +391,11 @@ Modals.prototype = {
 					if($(".modal-items").hasClass("open")) {
 						self.changeForm(options);
 					} else {
-						self.openModal(value, options);	
+						if(this.getAttribute("data-inner")) {
+							self.changeFormType(options);
+						} else {
+							self.openModal(value, options);
+						}						
 					}					
 				} else {
 					self.openModal(value);	
@@ -409,8 +416,6 @@ Modals.prototype = {
 			});
 		});
 		this.closeOverlay.forEach(function(element){
-			// getEventListeners(element);
-			console.log();
 			element.addEventListener("click", function(e){
 				if(e.target.classList.contains("scroll-content")){
 					self.closeModal();
@@ -425,7 +430,6 @@ Modals.prototype = {
 		
 		
 		if(options_modal) {
-			console.log(options_modal)
 			this.optionsElement = document.getElementById(options_modal);
 			this.optionsElement.classList.add("open");
 			formscroll.scrollUpdate();
@@ -438,15 +442,21 @@ Modals.prototype = {
 	closeModal: function(){
 		var self = this;
 		this.body.classList.remove(this.options.openClass);
-		this.goalElement.classList.remove(this.options.openClassElements);		
+		this.modals.forEach(function(el){
+			console.log(el)
+			el.classList.remove(self.options.openClassElements);
+		});
 		setTimeout(function(){
-			self.goalElement.classList.remove(self.options.showModal);
+			self.modals.forEach(function(el){
+				var that = self;
+				el.classList.remove(that.options.showModal);
+			});				
 			$(".modal-items").removeClass("open in_form out_form");
 		}, 300);
 	},
 	initValidation: function(){
+		var self = this;
 		var form_validate = $('.js-validation');
-		console.log(form_validate)
 		if (form_validate.length) {
 			form_validate.each(function () {
 				var form_this = $(this);
@@ -456,18 +466,22 @@ Modals.prototype = {
 					scrollToTopOnError : false,
 					validateOnBlur : true,
 					onValidate: function($form) {
+						
 					},
 					onError: function($form) {
 					},
 					onSuccess: function($form){
+						if($($form).attr("id") === "registration") {
+							self.changeForm($($form).find("[type='submit']").data("option"));
+						}
 						return false;
 					}
 				});
 			});
 		};
 	},
-	checkInputValue: function(){
-		var inputs = document.getElementsByTagName('input');
+	checkInputValue: function(tags){
+		var inputs = document.getElementsByTagName(tags);
 
 		for (var i = 0; i < inputs.length; i++) {
 			var input = inputs[i];
@@ -476,12 +490,23 @@ Modals.prototype = {
 			});
 		}
 	},
+	autoSizeTextarea: function(){
+		$('textarea.js-auto-size').textareaAutoSize();
+	},
 	updateModal: function(){
 		this.init();
 	},
 	changeForm: function(next_modal){
 		$("#" + next_modal).parent().find(".open").addClass("out_form");
 		this.animationend($("#" + next_modal).parent().find(".open"), $("#" + next_modal));
+	},
+	changeFormType: function(next_modal_type){
+		var self = this;
+		$("#" + next_modal_type).addClass("open").parents("[data-modals]").addClass("open " + this.options.showModal);
+		$("#" + next_modal_type).parents("[data-modals]").siblings().removeClass("open");
+		setTimeout(function(){
+			$("#" + next_modal_type).parents("[data-modals]").siblings().removeClass(self.options.showModal);
+		},300);
 	},
 	animationend: function(current, next){
 		var self = this;
