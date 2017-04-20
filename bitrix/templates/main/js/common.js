@@ -8,7 +8,8 @@ function extend( a, b ) {
 	return a;
 }
 
-var scrolls, groupscroll, newsscroll;
+var scrolls, groupscroll, newsscroll, formscroll;
+var modalsProject;
 
 window.onload = function(){
 	var scrollsMain = document.getElementById('my-scrollbar');
@@ -19,6 +20,9 @@ window.onload = function(){
 
 	var newsscrollMain = document.getElementById('news-scroll');
 	newsscroll = new Scroller(newsscrollMain, false);
+
+	var formscrollMain = document.getElementById('forms-scroll');
+	formscroll = new Scroller(formscrollMain, false);
 };
 
 function menu(){
@@ -145,6 +149,7 @@ function Loading(){
 							$(".js-slider-one-slide").slick("setPosition");
 						}, 500);
 						scrolls.scrollUpdate(true);
+						modalsProject.updateModal();
 					});
 				},600);
 			}
@@ -368,15 +373,33 @@ Modals.prototype = {
 
 		this.body = document.querySelector(this.options.bodyElement);
 		this.elements = document.querySelectorAll(this.el);
+		this.modals = document.querySelectorAll("[data-modals]");
 
 		this.eventHandler();
+		this.initValidation();
+		this.checkInputValue("input");
+		this.checkInputValue("textarea");
+		this.autoSizeTextarea();
 	},
 	eventHandler: function() {
 		var self = this;
 		this.elements.forEach(function(element){
 			element.addEventListener("click", function(event){
 				var value = this.getAttribute("data-modal");
-				self.openModal(value);
+				if(value == "modal") {
+					var options = this.getAttribute("data-option");
+					if($(".modal-items").hasClass("open")) {
+						self.changeForm(options);
+					} else {
+						if(this.getAttribute("data-inner")) {
+							self.changeFormType(options);
+						} else {
+							self.openModal(value, options);
+						}						
+					}					
+				} else {
+					self.openModal(value);	
+				}				
 				event.preventDefault();
 			});	
 		});
@@ -393,8 +416,6 @@ Modals.prototype = {
 			});
 		});
 		this.closeOverlay.forEach(function(element){
-			// getEventListeners(element);
-			console.log();
 			element.addEventListener("click", function(e){
 				if(e.target.classList.contains("scroll-content")){
 					self.closeModal();
@@ -403,9 +424,16 @@ Modals.prototype = {
 			});
 		});
 	},
-	openModal: function(goal_modal){
+	openModal: function(goal_modal, options_modal){
 		this.body.classList.add(this.options.openClass);
 		this.goalElement = document.querySelector("[data-modals=" + goal_modal + "]");
+		
+		
+		if(options_modal) {
+			this.optionsElement = document.getElementById(options_modal);
+			this.optionsElement.classList.add("open");
+			formscroll.scrollUpdate();
+		}
 		this.goalElement.classList.add(this.options.openClassElements);
 		this.goalElement.classList.add(this.options.showModal);
 
@@ -414,10 +442,85 @@ Modals.prototype = {
 	closeModal: function(){
 		var self = this;
 		this.body.classList.remove(this.options.openClass);
-		this.goalElement.classList.remove(this.options.openClassElements);		
+		this.modals.forEach(function(el){
+			console.log(el)
+			el.classList.remove(self.options.openClassElements);
+		});
 		setTimeout(function(){
-			self.goalElement.classList.remove(self.options.showModal);
+			self.modals.forEach(function(el){
+				var that = self;
+				el.classList.remove(that.options.showModal);
+			});				
+			$(".modal-items").removeClass("open in_form out_form");
 		}, 300);
+	},
+	initValidation: function(){
+		var self = this;
+		var form_validate = $('.js-validation');
+		if (form_validate.length) {
+			form_validate.each(function () {
+				var form_this = $(this);
+				$.validate({
+					form : form_this,
+					borderColorOnError : true,
+					scrollToTopOnError : false,
+					validateOnBlur : true,
+					onValidate: function($form) {
+						
+					},
+					onError: function($form) {
+					},
+					onSuccess: function($form){
+						if($($form).attr("id") === "registration") {
+							self.changeForm($($form).find("[type='submit']").data("option"));
+						}
+						return false;
+					}
+				});
+			});
+		};
+	},
+	checkInputValue: function(tags){
+		var inputs = document.getElementsByTagName(tags);
+
+		for (var i = 0; i < inputs.length; i++) {
+			var input = inputs[i];
+			input.addEventListener('input', function() {
+				this.value.length > 0 ? this.classList.add("not-empty") : this.classList.remove("not-empty");
+			});
+		}
+	},
+	autoSizeTextarea: function(){
+		$('textarea.js-auto-size').textareaAutoSize();
+	},
+	updateModal: function(){
+		this.init();
+	},
+	changeForm: function(next_modal){
+		$("#" + next_modal).parent().find(".open").addClass("out_form");
+		this.animationend($("#" + next_modal).parent().find(".open"), $("#" + next_modal));
+	},
+	changeFormType: function(next_modal_type){
+		var self = this;
+		$("#" + next_modal_type).addClass("open").parents("[data-modals]").addClass("open " + this.options.showModal);
+		$("#" + next_modal_type).parents("[data-modals]").siblings().removeClass("open");
+		setTimeout(function(){
+			$("#" + next_modal_type).parents("[data-modals]").siblings().removeClass(self.options.showModal);
+		},300);
+	},
+	animationend: function(current, next){
+		var self = this;
+		current.on("animationend", function(){
+			var _ = $(this);
+			if(_.hasClass("open")) {
+				next.addClass("open in_form").siblings().removeClass("open out_form");
+				setTimeout(function(){
+					next.removeClass("in_form");
+				}, 300);
+				formscroll.scrollUpdate();
+			}
+			_.off("animationend");
+		});
 	}
 };
 
@@ -491,6 +594,6 @@ $(document).ready(function(){
 	// init menu
 	menu();
 	actionContent();
-
+	modalsProject = new Modals("[data-modal]");
 	
 });
