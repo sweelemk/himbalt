@@ -59,7 +59,7 @@ block content
 											.l
 												.tab-body.js-container_load
 													.personal_information
-														form.js-validation
+														form.js-validation-personal
 															.field-row
 																.field-item
 																	input(type="text" data-validation="required" data-validation-error-msg="You have entered an invalid name" value="Alex")
@@ -72,14 +72,14 @@ block content
 																	input(type="text" data-validation="email" data-validation-error-msg="You have entered an invalid password" value="alex@gmail.com")
 																	label e-mail*
 																.field-item
-																	input(type="text" data-validation="email" data-validation-error-msg="You have entered an invalid password" value="+375 29 361 55 87")
+																	input(type="text" data-validation="required" data-validation-error-msg="You have entered an invalid password" value="+375 29 361 55 87")
 																	label phone*
 															.field-row
 																.field-item
-																	input(type="password" data-validation="email" data-validation-error-msg="You have entered an invalid password" value="alex@gmail.com")
+																	input(type="password" data-validation="required" data-validation-error-msg="You have entered an invalid password" value="alex@gmail.com")
 																	label password*
 																.field-item
-																	input(type="password" data-validation="email" data-validation-error-msg="You have entered an invalid password" value="+375 29 361 55 87")
+																	input(type="password" data-validation="required" data-validation-error-msg="You have entered an invalid password" value="+375 29 361 55 87")
 																	label confirm password*
 															.field-row
 																button.btn(type="submit")

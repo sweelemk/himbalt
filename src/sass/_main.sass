@@ -1080,11 +1080,13 @@ body
 		left: 0
 
 .quote
-	+rem(padding-left, 200px)
+	// +rem(padding-left, 200px)
+	padding-left: 26%
 	+rem(padding-right, 40px)
 	+rem(margin-bottom, 118px)
 	+rem(font-size, 42px)
 	position: relative
+	line-height: 1.25
 	&:before 
 		content: ''
 		+rem(width, 140px)
@@ -1112,7 +1114,7 @@ body
 		.img-world
 			width: 70%
 	.export
-		+rem(padding-left, 92px)
+		// +rem(padding-left, 92px)
 		.h3
 			+rem(margin-bottom, 46px)
 			+rem(padding-right, 30px)
@@ -1759,10 +1761,11 @@ body
 			&:hover
 				color: $black
 .container-image
+	+rem(margin-left, -110px)
 	.image-element
-		+rem(max-width, 338px)
+		width: 33.33%
 		float: left
-		margin-right: 6.4%
+		margin-right: 7.6%
 		+r(1150)
 			// +rem(max-width, 280px)
 		img
@@ -2032,3 +2035,219 @@ body
 	transition: opacity 0.3s ease
 	&.hide
 		opacity: 0
+.scheme-oil_sales
+	margin-right: -20%
+	+rem(margin-left, -108px)
+	position: relative
+	&::after
+		position: absolute
+		content: ""
+		bottom: 0
+		width: 100%
+		height: 2px
+		background: linear-gradient(to right, transparent 50%, #FFFFFF 50%), linear-gradient(to right, #eeeeee, #eeeeee);
+		background-size: 16px 2px, 100% 2px;
+	.scheme-oil_sales-inner
+		margin-right: 15.2%
+		+rem(padding-left, 108px)
+	.scheme-oil_sales-container
+		padding-bottom: 48%
+		position: relative
+	.scheme_text-container
+		position: absolute
+		+rem(top, 55px)
+		left: 0
+		+rem(max-width, 250px)
+		.text-title
+			font-family: $Medium
+			+rem(font-size, 60px)
+			color: $maincolor
+			position: relative
+			+rem(margin-bottom, 5px)
+			&::after
+				content: "+"
+				position: absolute
+				+rem(top, -40px)
+				left: 0
+		.text-content
+			p
+				+rem(font-size, 24px)
+				line-height: 1.25
+	.scheme_item-container
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		display: flex
+		.scheme_item
+			width: 26%
+			position: relative
+			.line
+				position: absolute
+				bottom: 0
+				right: 0
+				height: 100%
+				transition: height 0.3s ease
+				&::after
+					content: ""
+					+rem(width, 7px)
+					+rem(height, 7px)
+					border-radius: 100%
+					border: 1px solid $maincolor
+					position: absolute
+					top: 0
+					+rem(right, -3px)
+					z-index: 2
+					background-color: $white
+				&::before
+					content: ""
+					position: absolute
+					bottom: 0
+					right: 0
+					border-right: 1px solid $maincolor
+					height: 100%
+			&:first-child
+				.line
+					height: 35%
+			&:nth-child(2)
+				.line
+					height: 68%
+		.scheme_info
+			position: absolute
+			+rem(bottom, 15px)
+			left: 100%
+			display: block
+			width: 100%
+			+rem(padding-left, 21px)
+			p 
+				+rem(font-size, 16px)
+			.year
+				color: #cdcdcd
+				+rem(font-size, 16px)
+.company-mission
+	+rem(padding-top, 179px)
+	+rem(padding-left, 5px)
+	+rem(padding-bottom, 145px)
+	.column-30
+		padding-left: 10%
+		position: relative
+	.column-60
+		padding-right: 11%
+	.freedom
+		position: absolute
+		+rem(width, 459px)
+		+rem(height, 459px)
+		+rem(top, -145px)
+		+rem(left, -7px)
+.section_map
+	// background-color: #eee
+	+rem(padding, 100px 0 68px 108px)
+	+rem(min-height, 840px)
+	padding-right: 16%
+	position: relative
+	.map-container
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-size: 100%
+		background-position: 50%
+		background-repeat: no-repeat
+		z-index: 1
+	.map-content
+		position: relative
+		z-index: 2
+		+rem(padding-top, 53px)
+		+rem(margin-left, -10px)
+	.map-title
+		h2, .h2
+			+rem(margin-bottom, 35px)
+	.text-container
+		.text-title
+			font-family: $Medium
+			+rem(font-size, 60px)
+			color: $maincolor
+			position: relative
+		.text-content
+			+rem(max-width, 250px)
+			p
+				+rem(font-size, 24px)
+				line-height: 1.25
+	.country-list
+		margin-left: 26%
+		+rem(margin-top, 25px)
+		margin-right: -6.4%
+		display: flex
+		align-items: flex-start
+		justify-content: stretch
+		&:hover
+			.country
+				li
+					color: #8f8e8e
+		.country
+			width: 25%
+			li
+				line-height: 2
+				cursor: pointer
+				transition: color 0.3s ease
+				&:hover
+					color: $black
+	.country_item
+		position: absolute
+		top: 50%
+		left: 50%
+		+rem(width, 5px)
+		+rem(height, 5px)
+		border-radius: 100%
+		background-color: $maincolor
+		opacity: 0
+		transition: opacity 0.3s ease
+		&.open
+			opacity: 1
+.title
+	.text-container
+		.text-title
+			font-family: $Medium
+			+rem(font-size, 60px)
+			color: $maincolor
+			position: relative
+		.text-content
+			+rem(max-width, 250px)
+			p
+				+rem(font-size, 24px)
+				line-height: 1.25
+.partners
+	+rem(padding-top, 125px)
+	.title
+		margin-left: 25%
+		.text-content
+			+rem(margin-top, -5px)
+			+rem(max-width, 350px)
+			p
+				font-family: $Medium
+				+rem(font-size, 42px)
+	.partners_list
+		display: flex
+		align-items: center
+		justify-content: stretch
+		flex-wrap: wrap
+		+rem(margin, 0 -55px)
+		+rem(padding-top, 57px)
+		.partners_item
+			width: 25%
+			+rem(padding, 0 55px)
+			+rem(margin-bottom, 55px)
+			+r(1279)
+				width: 33.33%
+			img
+				max-width: 100%
+				filter: grayscale(1)
+				transition: filter 0.3s ease
+				&:hover
+					filter: grayscale(0)
+.container-content
+	transition: background-color 0.3s ease-in-out;
+	&.bg-color
+		background-color: #f4f4f4

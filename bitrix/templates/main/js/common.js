@@ -207,6 +207,7 @@ function Scroller(el, bool){
 
 	this.el = el;
 	this.bool = bool;
+	this.timer;
 
 	this.param = {
 		constant: ".js-constant",
@@ -227,6 +228,7 @@ Scroller.prototype = {
 		this.fixedElement = document.querySelector(this.param.constant);
 		this.fixedElementLogo = document.querySelector(this.param.logo);
 		this.windowHeight = this.windowValue();
+		this.content = document.querySelector(".container-content");
 
 		this.scrollbar = this.Scrollbar.init(this.el, {
 			speed: 1.5,
@@ -243,12 +245,34 @@ Scroller.prototype = {
 			}
 			self.fixedPositionSidebar(status);
 			self.updateOnScroll();
+			if($(".section_map").length){
+				self.mapDetected();
+			}
 		});
 
 		this.updateElements();
 
 		window.onresize = function(){
 			self.windowHeight = self.windowValue();
+			clearTimeout(self.timer);
+			self.timer = setTimeout(function () {
+				self.scrollUpdate();
+			},300);
+		}
+	},
+	mapDetected: function(){
+		this.mapPosTop = document.querySelector(".section_map").getBoundingClientRect().top;
+		this.mapPosBottom = document.querySelector(".section_map").getBoundingClientRect().bottom;
+		this.height = this.windowValue() / 2;
+
+		console.log(this.height)
+
+		if(this.mapPosTop < this.height  && this.mapPosBottom > this.height) {
+			this.content.classList.add("bg-color");
+		} else if(this.mapPosTop < this.height && this.mapPosBottom < this.height) {
+			this.content.classList.remove("bg-color");
+		} else if(this.mapPosTop > this.height && this.mapPosBottom > this.height) {
+			this.content.classList.remove("bg-color");
 		}
 	},
 	windowValue: function(){
@@ -296,7 +320,7 @@ Scroller.prototype = {
 	setScrollClass: function(element){
 		var getAttr = element.getAttribute("data-inview-class");
 		element.classList.add(getAttr);
-	}
+	},
 };
 
 function initSlickSlider() {
@@ -376,7 +400,7 @@ Modals.prototype = {
 		this.modals = document.querySelectorAll("[data-modals]");
 
 		this.eventHandler();
-		this.initValidation();
+		this.initValidation(".js-validation");
 		this.checkInputValue("input");
 		this.checkInputValue("textarea");
 		this.autoSizeTextarea();
@@ -454,9 +478,9 @@ Modals.prototype = {
 			$(".modal-items").removeClass("open in_form out_form");
 		}, 300);
 	},
-	initValidation: function(){
+	initValidation: function(name_form){
 		var self = this;
-		var form_validate = $('.js-validation');
+		var form_validate = $(name_form);
 		if (form_validate.length) {
 			form_validate.each(function () {
 				var form_this = $(this);
@@ -596,8 +620,12 @@ function tabsload(){
 		
 
 	item.on("click", function(e){
+		
 		var _ = $(this),
 			value = _.attr("href");
+		if(_.parent().hasClass("active")) {
+			return false;
+		}
 
 		_.parent().addClass("active").siblings().removeClass("active");
 		
@@ -615,6 +643,7 @@ function tabsload(){
 						var inputItem = $(".js-container_load").find("input");
 						if(inputItem.length) {
 							changeInput(inputItem);
+							modalsProject.initValidation(".js-validation-personal")
 						}
 					});
 				}, 400);
@@ -624,7 +653,23 @@ function tabsload(){
 		e.preventDefault();
 	});
 };
-function changeInput(input) {		
+
+function country(){
+	var item = $(".country-item"),
+		map = $(".map-container");
+
+	item.on("click", function(){
+		var _ = $(this),
+			ID = _.data("id");
+
+		map.find("[data-id=" + ID + "]").addClass("open");
+	});
+	item.on("mouseleave", function(){
+		map.children().removeClass("open");
+	})
+};
+
+function changeInput(input) {
 	input.each(function(){
 		var _ = $(this);
 		if(_.val().length > 0) {
