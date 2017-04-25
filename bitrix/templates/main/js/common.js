@@ -485,6 +485,7 @@ Modals.prototype = {
 
 		for (var i = 0; i < inputs.length; i++) {
 			var input = inputs[i];
+			input.value.length > 0 ? input.classList.add("not-empty") : input.classList.remove("not-empty");
 			input.addEventListener('input', function() {
 				this.value.length > 0 ? this.classList.add("not-empty") : this.classList.remove("not-empty");
 			});
@@ -589,11 +590,56 @@ ShowMore.prototype = {
 	}
 };
 
+function tabsload(){
+	var container = $(".tab-container"),
+		item = container.find(".anchor-trigger");
+		
 
+	item.on("click", function(e){
+		var _ = $(this),
+			value = _.attr("href");
+
+		_.parent().addClass("active").siblings().removeClass("active");
+		
+		$.ajax({
+			url: value,
+			dataType: "html",
+			beforeSend: function(){
+				$(".js-container_load").addClass("hide");
+			},
+			success: function(content) {
+				setTimeout(function(){
+					var cont = $(content).find(".js-container_load");
+					$(".js-container_load").html(cont).promise().done(function(){
+						$(this).removeClass("hide");
+						var inputItem = $(".js-container_load").find("input");
+						if(inputItem.length) {
+							changeInput(inputItem);
+						}
+					});
+				}, 400);
+			}
+		})
+		return false;
+		e.preventDefault();
+	});
+};
+function changeInput(input) {		
+	input.each(function(){
+		var _ = $(this);
+		if(_.val().length > 0) {
+			_.addClass("not-empty");
+		}
+		_.on("input", function(){
+			var _val = $(this).val();
+
+			_val.length > 0 ? $(this).addClass("not-empty") : $(this).removeClass("not-empty");
+		});
+	});
+}
 $(document).ready(function(){
 	// init menu
 	menu();
 	actionContent();
 	modalsProject = new Modals("[data-modal]");
-	
 });

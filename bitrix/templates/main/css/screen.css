@@ -589,7 +589,8 @@ body {
     -webkit-transition: -webkit-transform 0.3s ease;
     transition: -webkit-transform 0.3s ease;
     transition: transform 0.3s ease;
-    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    min-width: 21.875rem; }
   .breadcumbs .breadcrumbs-item a {
     display: block;
     text-align: center;
@@ -1736,110 +1737,122 @@ body {
       font-size: 1.25rem;
       color: #1c1c1c;
       line-height: 1.6; }
-  .modal-items .field-row {
-    width: 100%;
-    margin-bottom: 2.5rem; }
-    .modal-items .field-row .field-item {
-      position: relative; }
-      .modal-items .field-row .field-item:only-child {
-        width: 100%; }
-    .modal-items .field-row input, .modal-items .field-row textarea {
-      height: 3.6875rem;
-      border-bottom: 1px solid #a2a2a2;
+
+.field-row {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  font-size: 0; }
+  .field-row .field-item {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 0.9375rem; }
+    .field-row .field-item:only-child {
+      display: block;
       width: 100%;
-      background-color: #fafafa;
-      font-family: "FiraSansRegular";
-      font-size: 1.25rem;
-      color: #1c1c1c;
-      padding: 0 1.25rem;
-      -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
-      transition: background-color 0.3s ease, border-color 0.3s ease; }
-      .modal-items .field-row input.error, .modal-items .field-row textarea.error {
-        background-color: #fef3f3;
-        border-color: #ac252a; }
-      .modal-items .field-row input.password, .modal-items .field-row textarea.password {
-        padding-right: 9.0625rem; }
-      .modal-items .field-row input:focus + label, .modal-items .field-row input.not-empty + label, .modal-items .field-row textarea:focus + label, .modal-items .field-row textarea.not-empty + label {
-        -webkit-transform: translate(0, -45px);
-        -ms-transform: translate(0, -45px);
-        transform: translate(0, -45px); }
-    .modal-items .field-row textarea {
-      height: auto;
-      max-height: 10rem;
-      min-height: 3.6875rem;
-      overflow-x: hidden;
-      resize: none;
-      outline: none;
-      border: none;
-      border-bottom: 1px solid #a2a2a2;
-      padding: 0.9375rem 1.25rem;
-      line-height: 1.3; }
-      .modal-items .field-row textarea::-webkit-scrollbar {
-        width: 5px; }
-      .modal-items .field-row textarea::-webkit-scrollbar-track {
-        width: 5px;
-        background-color: rgba(222, 222, 222, 0.75); }
-      .modal-items .field-row textarea::-webkit-scrollbar-thumb {
-        background-color: #ac252a;
-        border-radius: 3px;
-        width: 3px; }
-    .modal-items .field-row .help-block {
-      position: absolute;
-      top: 100%;
-      font-family: "FiraSansBook";
-      font-size: 0.875rem;
-      margin-top: 0.3125rem;
-      color: #ac252a; }
-    .modal-items .field-row label {
-      font-family: "FiraSansBook";
-      font-size: 0.75rem;
-      color: #aaaaaa;
-      text-transform: uppercase;
-      position: absolute;
-      left: 1.4375rem;
-      top: 1.5625rem;
-      letter-spacing: 0.3px;
-      -webkit-transition: -webkit-transform 0.3s ease;
-      transition: -webkit-transform 0.3s ease;
-      transition: transform 0.3s ease;
-      transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
-    .modal-items .field-row .forgort-pass {
-      font-family: "FiraSansRegular";
-      font-size: 0.875rem;
-      color: #777777;
-      position: absolute;
-      right: 1.4375rem;
-      top: 1.3125rem; }
-    .modal-items .field-row .btn {
-      margin-top: 1.4375rem;
-      min-width: 10.625rem;
-      background: none;
+      padding: 0; }
+    .field-row .field-item:first-child {
+      padding-right: 0.5625rem; }
+    .field-row .field-item:last-child {
+      padding-left: 0.5625rem; }
+  .field-row input, .field-row textarea {
+    height: 3.6875rem;
+    border-bottom: 1px solid #a2a2a2;
+    width: 100%;
+    background-color: #fafafa;
+    font-family: "FiraSansRegular";
+    font-size: 1.25rem;
+    color: #1c1c1c;
+    padding: 0 1.25rem;
+    -webkit-transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease; }
+    .field-row input.error, .field-row textarea.error {
+      background-color: #fef3f3;
+      border-color: #ac252a; }
+    .field-row input.password, .field-row textarea.password {
+      padding-right: 9.0625rem; }
+    .field-row input:focus + label, .field-row input.not-empty + label, .field-row textarea:focus + label, .field-row textarea.not-empty + label {
+      -webkit-transform: translate(0, -45px);
+      -ms-transform: translate(0, -45px);
+      transform: translate(0, -45px); }
+  .field-row textarea {
+    height: auto;
+    max-height: 10rem;
+    min-height: 3.6875rem;
+    overflow-x: hidden;
+    resize: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #a2a2a2;
+    padding: 0.9375rem 1.25rem;
+    line-height: 1.3; }
+    .field-row textarea::-webkit-scrollbar {
+      width: 5px; }
+    .field-row textarea::-webkit-scrollbar-track {
+      width: 5px;
+      background-color: rgba(222, 222, 222, 0.75); }
+    .field-row textarea::-webkit-scrollbar-thumb {
       background-color: #ac252a;
-      -webkit-animation: none;
-      animation: none;
-      -webkit-transition: background-color 0.3s ease;
-      transition: background-color 0.3s ease; }
-      .modal-items .field-row .btn:hover {
-        background-color: #991217; }
-      .modal-items .field-row .btn::after {
-        content: none; }
-    .modal-items .field-row .register {
-      float: right;
-      margin-top: 1.4375rem;
-      padding: 1.125rem 0.25rem; }
-      .modal-items .field-row .register span {
-        display: inline-block;
-        vertical-align: middle;
-        font-family: "FiraSansRegular";
-        font-size: 1rem;
-        color: #ac252a;
-        border-bottom: 1px solid;
-        padding-bottom: 3px;
-        -webkit-transition: border-color 0.3s ease, color 0.3s ease;
-        transition: border-color 0.3s ease, color 0.3s ease; }
-      .modal-items .field-row .register:hover span {
-        color: #000;
-        border-color: transparent; }
+      border-radius: 3px;
+      width: 3px; }
+  .field-row .help-block {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-family: "FiraSansBook";
+    font-size: 0.875rem;
+    margin-top: 0.3125rem;
+    color: #ac252a; }
+  .field-row label {
+    font-family: "FiraSansBook";
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    position: absolute;
+    left: 1.4375rem;
+    top: 1.5625rem;
+    letter-spacing: 0.3px;
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.3s ease;
+    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, -webkit-transform 0.3s ease; }
+  .field-row .forgort-pass {
+    font-family: "FiraSansRegular";
+    font-size: 0.875rem;
+    color: #777777;
+    position: absolute;
+    right: 1.4375rem;
+    top: 1.3125rem; }
+  .field-row .btn {
+    margin-top: 1.4375rem;
+    min-width: 10.625rem;
+    background: none;
+    background-color: #ac252a;
+    -webkit-animation: none;
+    animation: none;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; }
+    .field-row .btn:hover {
+      background-color: #991217; }
+    .field-row .btn::after {
+      content: none; }
+  .field-row .register {
+    float: right;
+    margin-top: 1.4375rem;
+    padding: 1.125rem 0.25rem; }
+    .field-row .register span {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: "FiraSansRegular";
+      font-size: 1rem;
+      color: #ac252a;
+      border-bottom: 1px solid;
+      padding-bottom: 3px;
+      -webkit-transition: border-color 0.3s ease, color 0.3s ease;
+      transition: border-color 0.3s ease, color 0.3s ease; }
+    .field-row .register:hover span {
+      color: #000;
+      border-color: transparent; }
 
 @-webkit-keyframes out_form {
   0% {
@@ -2381,6 +2394,86 @@ body {
     vertical-align: middle;
     width: 0;
     height: 100%; }
+
+.tab-navigation .anchor-container .achors-item .anchor-trigger span {
+  border-bottom: 1px dotted;
+  padding-bottom: 0.3125rem; }
+
+.tab-navigation .anchor-container .achors-item.active .anchor-trigger span {
+  color: #000;
+  border-color: transparent; }
+
+.documents-container {
+  margin-top: 5rem; }
+  .documents-container .documents-item:not(:last-child) {
+    margin-bottom: 5.4375rem; }
+  .documents-container .documents-item .documents-head {
+    width: 39%;
+    float: left; }
+  .documents-container .documents-item .documents-body {
+    overflow: hidden; }
+  .documents-container .doc-list_container {
+    padding-top: 0.625rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: stretch;
+    -webkit-justify-content: stretch;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .documents-container .doc-element {
+    width: 50%;
+    padding-right: 10%;
+    margin-bottom: 3rem; }
+    .documents-container .doc-element a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: stretch;
+      -webkit-justify-content: stretch;
+      -ms-flex-pack: stretch;
+      justify-content: stretch; }
+      .documents-container .doc-element a:hover .icon svg {
+        fill: #ac252a; }
+      .documents-container .doc-element a:hover span {
+        color: #ac252a; }
+    .documents-container .doc-element .icon {
+      width: 2.0625rem;
+      height: 2.5rem; }
+      .documents-container .doc-element .icon svg {
+        fill: #000;
+        -webkit-transition: fill 0.3s ease;
+        transition: fill 0.3s ease; }
+    .documents-container .doc-element span {
+      padding-left: 0.9375rem;
+      font-family: "FiraSansMedium";
+      font-size: 1rem;
+      color: #000;
+      -webkit-transition: color 0.3s ease;
+      transition: color 0.3s ease; }
+
+.personal_information {
+  padding-top: 2.6875rem;
+  padding-right: 8%; }
+
+.tab-body {
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease; }
+  .tab-body.hide {
+    opacity: 0; }
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
