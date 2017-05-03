@@ -109,6 +109,7 @@ function Loading(){
 					scrolls.scrollSet();
 				}, 300);
 				$(_this.options.breadcumbs).removeClass("show");
+				modalsProject.removeEventHandler();
 
 			},
 			success: function(content){
@@ -405,29 +406,52 @@ Modals.prototype = {
 		this.checkInputValue("textarea");
 		this.autoSizeTextarea();
 	},
+	handler: function(event){
+		alert();
+	},
 	eventHandler: function() {
 		var self = this;
-		this.elements.forEach(function(element){
-			element.addEventListener("click", function(event){
-				var value = this.getAttribute("data-modal");
-				if(value == "modal") {
-					var options = this.getAttribute("data-option");
-					if($(".modal-items").hasClass("open")) {
-						self.changeForm(options);
-					} else {
-						if(this.getAttribute("data-inner")) {
-							self.changeFormType(options);
-						} else {
-							self.openModal(value, options);
-						}						
-					}					
+		// this.elements.forEach(function(element){
+		// 	element.addEventListener("click", function(event){
+		// 		var value = this.getAttribute("data-modal");
+		// 		if(value == "modal") {
+		// 			var options = this.getAttribute("data-option");
+		// 			if($(".modal-items").hasClass("open")) {
+		// 				self.changeForm(options);
+		// 			} else {
+		// 				if(this.getAttribute("data-inner")) {
+		// 					self.changeFormType(options);
+		// 				} else {
+		// 					self.openModal(value, options);
+		// 				}
+		// 			}
+		// 		} else {
+		// 			self.openModal(value);	
+		// 		}				
+		// 		event.preventDefault();
+		// 	});
+		// });
+		$(this.elements).on("click", function(event){
+			var value = this.getAttribute("data-modal");
+			if(value == "modal") {
+				var options = this.getAttribute("data-option");
+				if($(".modal-items").hasClass("open")) {
+					self.changeForm(options);
 				} else {
-					self.openModal(value);	
-				}				
-				event.preventDefault();
-			});	
+					if(this.getAttribute("data-inner")) {
+						self.changeFormType(options);
+					} else {
+						self.openModal(value, options);
+					}
+				}
+			} else {
+				self.openModal(value);	
+			}				
+			event.preventDefault();
 		});
-				
+	},
+	removeEventHandler: function(){
+		$(this.elements).off("click");
 	},
 	generateEventOnCloseModals: function(){
 		var self = this;
