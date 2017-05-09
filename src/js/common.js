@@ -229,7 +229,6 @@ Scroller.prototype = {
 		this.fixedElement = document.querySelector(this.param.constant);
 		this.fixedElementLogo = document.querySelector(this.param.logo);
 		this.windowHeight = this.windowValue();
-		this.content = document.querySelector(".container-content");
 
 		this.scrollbar = this.Scrollbar.init(this.el, {
 			speed: 1.5,
@@ -264,12 +263,12 @@ Scroller.prototype = {
 	mapDetected: function(){
 		this.mapPosTop = document.querySelector(".section_map").getBoundingClientRect().top;
 		this.mapPosBottom = document.querySelector(".section_map").getBoundingClientRect().bottom;
-		this.height = this.windowValue() / 2;
-
-		console.log(this.height)
+		this.height = this.windowValue() / 2;		
+		this.content = document.querySelector(".container-content");
 
 		if(this.mapPosTop < this.height  && this.mapPosBottom > this.height) {
 			this.content.classList.add("bg-color");
+			console.log(this.content)
 		} else if(this.mapPosTop < this.height && this.mapPosBottom < this.height) {
 			this.content.classList.remove("bg-color");
 		} else if(this.mapPosTop > this.height && this.mapPosBottom > this.height) {
@@ -313,7 +312,7 @@ Scroller.prototype = {
 
 		this.section_el.forEach(function(node, i){
 			var getElementTop = node.getBoundingClientRect().top;
-			if(getElementTop <= self.windowHeight) {
+			if(getElementTop <= self.windowHeight/2) {
 				self.setScrollClass(node);
 			}
 		});
