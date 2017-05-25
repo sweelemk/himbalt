@@ -2773,7 +2773,9 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
   -webkit-transform: translate(0, 20%);
   -ms-transform: translate(0, 20%);
-  transform: translate(0, 20%); }
+  transform: translate(0, 20%);
+  position: relative;
+  z-index: 5; }
 
 .push-it .container, .push-it .l, .push-it.groups-container_item {
   opacity: 1;
