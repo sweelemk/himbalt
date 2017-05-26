@@ -312,7 +312,7 @@ Scroller.prototype = {
 
 		this.section_el.forEach(function(node, i){
 			var getElementTop = node.getBoundingClientRect().top;
-			if(getElementTop <= self.windowHeight/2) {
+			if(getElementTop <= self.windowHeight/1.15) {
 				self.setScrollClass(node);
 			}
 		});
