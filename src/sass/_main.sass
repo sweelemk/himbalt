@@ -1318,7 +1318,6 @@ body
 	.table
 		display: table
 		width: 100%
-		// table-layout: fixed
 		.table-head
 			display: table-header-group
 			.table-head-row
@@ -1335,6 +1334,9 @@ body
 						font-family: $Regular
 						+rem(font-size, 16px)
 						color: #cdcdcd
+					&:first-child
+						+rem(padding-right, 25px)
+						+rem(width, 150px)
 		.table-body
 			display: table-row-group
 			.table-body-row
@@ -1347,6 +1349,8 @@ body
 						line-height: 1.4
 						color: $black
 					&:first-child
+						+rem(padding-right, 25px)
+						+rem(width, 150px)
 						span
 							color: #858585
 	.navigation
@@ -2306,3 +2310,69 @@ body
 	.container, .l, &.groups-container_item
 		opacity: 1
 		transform: none
+.table-container
+	table
+		table-layout: fixed
+		thead
+			tr
+				th
+					color: #cdcdcd
+					font-family: $Regular
+					+rem(font-size, 18px)
+					+rem(padding, 25px 0)
+					border-bottom: 1px solid #d0d0d0
+					&:first-child
+						+rem(width, 250px)
+		tbody
+			tr
+				td
+					+rem(font-size, 18px)
+					+rem(padding, 30px 35px 30px 0)
+					border-bottom: 1px solid #d0d0d0
+					+rm(1150)
+						&:first-child
+							color: #858585
+		+r(1150)
+			thead
+				position: absolute
+				clip: rect(1px, 1px, 1px, 1px)
+				position: absolute
+				padding: 0
+				bottom: 0
+				height: 1px
+				width: 1px
+				overflow: hidden
+				tr
+					th
+						display: block
+			tbody
+				display: block
+				tr
+					&:not(:last-child)
+						border: none
+					+rem(margin-bottom, 45px)
+					td
+						display: block
+						// text-align: right
+						+rem(padding, 20px 10px 20px 170px)
+						position: relative
+						// &:not(:last-child)
+						border-bottom: 1px solid #d0d0d0
+						&::before
+							content: attr(data-title)
+							text-align: left
+							float: left
+							+rem(width, 160px)
+							position: absolute
+							+rem(left, 10px)
+							color: #858585
+					th
+						+rem(padding, 20px 10px)
+						border-bottom: 2px solid #d0d0d0
+						.title
+							+rem(font-size, 16px)
+							text-align: left
+			tr 
+				display: block
+			th
+				display: block

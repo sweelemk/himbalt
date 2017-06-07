@@ -1665,6 +1665,9 @@ body {
           font-family: "FiraSansRegular";
           font-size: 1rem;
           color: #cdcdcd; }
+        .groups-content .table .table-head .table-head-row .table-head-item:first-child, .news-content .table .table-head .table-head-row .table-head-item:first-child {
+          padding-right: 1.5625rem;
+          width: 9.375rem; }
   .groups-content .table .table-body, .news-content .table .table-body {
     display: table-row-group; }
     .groups-content .table .table-body .table-body-row, .news-content .table .table-body .table-body-row {
@@ -1676,8 +1679,11 @@ body {
         .groups-content .table .table-body .table-body-row .table-body-item span, .news-content .table .table-body .table-body-row .table-body-item span {
           line-height: 1.4;
           color: #000; }
-        .groups-content .table .table-body .table-body-row .table-body-item:first-child span, .news-content .table .table-body .table-body-row .table-body-item:first-child span {
-          color: #858585; }
+        .groups-content .table .table-body .table-body-row .table-body-item:first-child, .news-content .table .table-body .table-body-row .table-body-item:first-child {
+          padding-right: 1.5625rem;
+          width: 9.375rem; }
+          .groups-content .table .table-body .table-body-row .table-body-item:first-child span, .news-content .table .table-body .table-body-row .table-body-item:first-child span {
+            color: #858585; }
 
 .groups-content .navigation, .news-content .navigation {
   float: right;
@@ -2783,27 +2789,38 @@ body {
   -ms-transform: none;
   transform: none; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+.table-container table {
+  table-layout: fixed; }
+  .table-container table thead tr th {
+    color: #cdcdcd;
+    font-family: "FiraSansRegular";
+    font-size: 1.125rem;
+    padding: 1.5625rem 0;
+    border-bottom: 1px solid #d0d0d0; }
+    .table-container table thead tr th:first-child {
+      width: 15.625rem; }
+  .table-container table tbody tr td {
+    font-size: 1.125rem;
+    padding: 1.875rem 2.1875rem 1.875rem 0;
+    border-bottom: 1px solid #d0d0d0; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }
-
-@media only screen and (max-width: 1400px) {
+  @media only screen and (max-width: 1400px) {
 
   .contacts-header {
     right: 15%; }
 
   .container-image .text-elements h2, .container-image .text-elements .h2 {
     max-width: 90%; } }
-
-@media only screen and (max-width: 1280px) {
+  @media only screen and (max-width: 1280px) {
 
   .variable-section.transition {
     -webkit-transform: translate(15%, 0);
     -ms-transform: translate(15%, 0);
     transform: translate(15%, 0); } }
-
-@media only screen and (max-width: 1279px) {
+  @media only screen and (max-width: 1279px) {
 
   html {
     font-size: 12px; }
@@ -2817,16 +2834,69 @@ body {
 
   .partners .partners_list .partners_item {
     width: 33.33%; } }
-
-@media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1150px) {
 
   .load-dom .variable-section {
     width: 67.55%; }
 
   .load-dom .loader-container {
-    width: 67.95vw; } }
+    width: 67.95vw; }
 
-@media only screen and (max-width: 1024px) {
+  .table-container table thead {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    padding: 0;
+    bottom: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden; }
+
+  .table-container table thead tr th {
+    display: block; }
+
+  .table-container table tbody {
+    display: block; }
+
+  .table-container table tbody tr {
+    margin-bottom: 2.8125rem; }
+
+  .table-container table tbody tr:not(:last-child) {
+    border: none; }
+
+  .table-container table tbody tr td {
+    display: block;
+    padding: 1.25rem 0.625rem 1.25rem 10.625rem;
+    position: relative;
+    border-bottom: 1px solid #d0d0d0; }
+
+  .table-container table tbody tr td::before {
+    content: attr(data-title);
+    text-align: left;
+    float: left;
+    width: 10rem;
+    position: absolute;
+    left: 0.625rem;
+    color: #858585; }
+
+  .table-container table tbody tr th {
+    padding: 1.25rem 0.625rem;
+    border-bottom: 2px solid #d0d0d0; }
+
+  .table-container table tbody tr th .title {
+    font-size: 1rem;
+    text-align: left; }
+
+  .table-container table tr {
+    display: block; }
+
+  .table-container table th {
+    display: block; } }
+  @media only screen and (min-width: 1150px) {
+
+  .table-container table tbody tr td:first-child {
+    color: #858585; } }
+  @media only screen and (max-width: 1024px) {
 
   .block-1 .column-60 {
     width: 100%;
@@ -2850,8 +2920,7 @@ body {
   .block-3 .column-60 {
     width: 100%;
     padding: 0; } }
-
-@media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 992px) {
 
   .cap {
     display: block; } }
