@@ -365,7 +365,7 @@ function goToAnchors(){
 
 	anchorTrigger.on("click", function(e){
 		var data = $(this).attr("href");
-
+		console.log($(data))
 		var positionOfTop = $(data).offset().top - 25;
 		var positionScroll = scrolls.scrollPosition();
 

@@ -1041,7 +1041,26 @@ body {
   .icon-text-wrapp .title {
     font-family: "FiraSansMedium"; }
   .icon-text-wrapp .icon-svg-wrapp {
-    margin-bottom: 2.1875rem; }
+    height: 6.25rem;
+    margin-bottom: 2.1875rem;
+    text-align: center;
+    font-size: 0;
+    text-align: left; }
+    .icon-text-wrapp .icon-svg-wrapp:before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%; }
+    .icon-text-wrapp .icon-svg-wrapp svg {
+      display: inline-block;
+      vertical-align: bottom;
+      height: auto; }
+    .icon-text-wrapp .icon-svg-wrapp img {
+      display: inline-block;
+      vertical-align: bottom;
+      margin-bottom: 0;
+      max-height: 100%; }
     .icon-text-wrapp .icon-svg-wrapp svg {
       width: auto; }
     .icon-text-wrapp .icon-svg-wrapp .icon-container {
