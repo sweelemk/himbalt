@@ -2831,29 +2831,34 @@ body {
 .map-content {
   width: 100%;
   height: 21.875rem;
-  margin-bottom: 6.25rem; }
+  margin-bottom: 3.125rem; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+.container-map {
+  *zoom: 1; }
+  .container-map:after {
+    content: " ";
+    display: table;
+    clear: both; }
+  .container-map .btn {
+    float: right; }
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 
   * {
     -webkit-text-size-adjust: none; } }
-
-@media only screen and (max-width: 1400px) {
+  @media only screen and (max-width: 1400px) {
 
   .contacts-header {
     right: 15%; }
 
   .container-image .text-elements h2, .container-image .text-elements .h2 {
     max-width: 90%; } }
-
-@media only screen and (max-width: 1280px) {
+  @media only screen and (max-width: 1280px) {
 
   .variable-section.transition {
     -webkit-transform: translate(15%, 0);
     -ms-transform: translate(15%, 0);
     transform: translate(15%, 0); } }
-
-@media only screen and (max-width: 1279px) {
+  @media only screen and (max-width: 1279px) {
 
   html {
     font-size: 12px; }
@@ -2867,8 +2872,7 @@ body {
 
   .partners .partners_list .partners_item {
     width: 33.33%; } }
-
-@media only screen and (max-width: 1150px) {
+  @media only screen and (max-width: 1150px) {
 
   .load-dom .variable-section {
     width: 67.55%; }
@@ -2926,13 +2930,11 @@ body {
 
   .table-container table th {
     display: block; } }
-
-@media only screen and (min-width: 1150px) {
+  @media only screen and (min-width: 1150px) {
 
   .table-container table tbody tr td:first-child {
     color: #858585; } }
-
-@media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
 
   .block-1 .column-60 {
     width: 100%;
@@ -2956,8 +2958,7 @@ body {
   .block-3 .column-60 {
     width: 100%;
     padding: 0; } }
-
-@media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 992px) {
 
   .cap {
     display: block; } }
