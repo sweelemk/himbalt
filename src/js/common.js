@@ -705,6 +705,116 @@ function changeInput(input) {
 		});
 	});
 }
+
+function initMap(){
+	$(window).bind(initialize());
+}
+
+function initialize(){
+	var spin = {
+		single: "../img/icons/pin.png",
+		multiple: "../img/icons/pin-2.png"
+	}
+
+	var coordArr = [];
+	var _icon = null;
+
+	var coord = $("#map").data("coord").split(";");
+
+	coord.forEach(function(item){
+		coordArr.push(item.split(","));
+	});
+
+	coordArr.forEach(function(item,i,arr){
+		if(item.length <=1 || !item[0] || !item[1]){
+			arr.splice(i, i + 1);
+		}
+	});
+
+	var coordLength = coordArr.length;
+
+	if(coordLength > 1 ){
+		_icon = spin.multiple;
+	} else {
+		_icon = spin.single;
+	}
+
+	var styleJSON = [{"featureType": "administrative","elementType": "labels.text.fill","stylers": [{"color": "#444444"}]},{"featureType": "landscape","elementType": "all","stylers": [{"color": "#f2f2f2"}]},{"featureType": "poi","elementType": "all","stylers": [{"visibility": "off"}]},{"featureType": "road","elementType": "all","stylers": [{"saturation": -100},{"lightness": 45}]},{"featureType": "road.highway","elementType": "all","stylers": [{"visibility": "simplified"}]},{"featureType": "road.arterial", "elementType": "labels.icon","stylers": [{"visibility": "off"}]},{"featureType": "transit","elementType": "all","stylers": [{"visibility": "off"}]},{"featureType": "water","elementType": "all","stylers": [{"color": "#f7fafb"},{"visibility": "on"}]}];
+	
+	var mapOptions = {
+		zoom: 14,
+		disableDefaultUI: true,
+		scrollwheel: false,
+		panControl: false,
+		zoomControl: true,
+		zoomControlOptions: {
+			style: google.maps.ZoomControlStyle.SMALL,
+			position: google.maps.ControlPosition.RIGHT_CENTER
+		},
+		scaleControl: true,
+		// center: new google.maps.LatLng(53.913332, 27.567922)
+	}
+
+	map = new google.maps.Map(document.getElementById('map'),mapOptions);
+	var mapType = new google.maps.StyledMapType(styleJSON, { name:"Grayscale" });
+	map.mapTypes.set('tehgrayz', mapType);
+	map.setMapTypeId('tehgrayz');
+
+	coordArr.forEach(function(item, i){
+		var marker = new google.maps.Marker({
+	    	    position: {
+	    	    	lat: parseFloat(item[0]),
+	    	    	lng: parseFloat(item[1])
+	    	    },
+	    	    map: map,
+	    	    visible: true,
+	    	    zIndex: (i + 1),
+				icon: _icon
+	    	});
+	});
+
+	if(coordLength > 1) {
+
+		var bounds = new google.maps.LatLngBounds();
+
+		
+		for(var i = 0;  i < coordLength; i++){
+			var latlng = new google.maps.LatLng(coordArr[i][0], coordArr[i][1]);
+			bounds.extend(latlng);
+		}
+
+		map.fitBounds(bounds);
+	} else {
+		map.setCenter(new google.maps.LatLng(coordArr[0][0], coordArr[0][1]));
+	}
+	var timer;
+	google.maps.event.addDomListener(window, "resize", function() {
+		var center = map.getCenter();
+		google.maps.event.trigger(map, "resize");
+		map.setCenter(center);
+		if(coordLength > 1) {
+			map.fitBounds(bounds);
+		}
+		clearTimeout(timer);
+		timer = setTimeout(function(){			
+			
+		},100);			
+	});
+}
+
+function googleMaps(){
+	var script_tag = document.createElement("script");
+	if(typeof(google) != "object") {
+		script_tag.setAttribute("type", "text/javascript");
+		script_tag.setAttribute("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcDrkEbKdrAWUT7ZorYyn-NwTj9YD6DN4&language=en&callback=initMap");
+		document.getElementById("map").appendChild(script_tag);
+	} else {
+		$(initialize);
+	}
+};
+
+
+
 $(document).ready(function(){
 	// init menu
 	menu();
