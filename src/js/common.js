@@ -88,6 +88,9 @@ function Loading(){
 			url: link,
 			dataType: "html",
 			beforeSend: function(){
+				if(document.body.classList.contains("modals_show")){
+					modalsProject.closeModal();
+				}
 				$(_this.options.trigger).off("click vclick");
 				
 				if(typeof viv !== "undefined"){
