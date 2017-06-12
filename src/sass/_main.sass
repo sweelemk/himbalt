@@ -1419,6 +1419,38 @@ body
 			+rem(font-size, 20px)
 			color: #1c1c1c
 			line-height: 1.6
+	&.modal-items_success
+		padding-right: 32%
+.form-body
+	.cross-modal
+		+rem(padding-left, 22px)
+		cursor: pointer
+		position: relative
+		i
+			position: absolute
+			+rem(width, 9px)
+			+rem(height, 9px)
+			left: 0
+			+rem(top, 6px)
+			svg
+				position: absolute
+				top: 0
+				left: 0
+				fill: $maincolor
+				transition: fill 0.3s ease
+		span
+			+rem(font-size, 16px)
+			color: $maincolor
+			border-bottom: 1px solid
+			+rem(padding-bottom, 3px)
+			transition: color 0.3s ease, border-color 0.3s ease
+		&:hover
+			i
+				svg
+					fill: $dark
+			span
+				border-color: transparent
+				color: $dark
 .field-row
 	width: 100%
 	+rem(margin-bottom, 40px)
@@ -1432,10 +1464,10 @@ body
 		display: inline-block
 		width: 50%
 		+rem(margin-bottom, 15px)
-		&:first-child
-			+rem(padding-right, 9px)
-		&:last-child
-			+rem(padding-left, 9px)
+		// &:first-child
+		// 	+rem(padding-right, 9px)
+		// &:last-child
+		// 	+rem(padding-left, 9px)
 	input, textarea
 		+rem(height, 59px)
 		border-bottom: 1px solid #a2a2a2
@@ -1502,14 +1534,8 @@ body
 	.btn
 		+rem(margin-top, 23px)
 		+rem(min-width, 170px)
-		background: none
-		background-color: $maincolor
-		animation: none
-		transition: background-color 0.3s ease
-		&:hover
-			background-color: $maindark
-		&::after
-			content: none
+		// background: none
+		// background-color: $maincolor
 	.register
 		float: right
 		+rem(margin-top, 23px)
@@ -1527,6 +1553,15 @@ body
 			span
 				color: $black
 				border-color: transparent
+.personal_information
+	.field-row
+		.field-item
+			&:first-child
+				+rem(padding-right, 9px)
+			&:last-child
+				+rem(padding-left, 9px)
+				.help-block
+					+rem(left, 9px)
 @keyframes out_form
 	0%
 		opacity: 1
