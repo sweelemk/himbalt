@@ -112,9 +112,11 @@ block content
 														div.column-60
 															p To provide quality services in the field of direct supply of base oils, petrochemicals, plastics and paraffin wax, continuously evolve by following the latest technological trends, improve service quality and expand the list of services in accordance with the actual needs of the market.
 										section.section_map.js-section(data-inview-class="push-it")
-											.map-container(style="background-image: url(img/image-content/world_map.png)")
-												- for(var i = 0; i < 43; i++)
-													.country_item(data-id=i+1)
+											.map-container
+												.map-container-inner
+													#map.map-main(data-coord="55.5146432,28.5606439;")
+														script(type="text/javascript").
+															$(googleMaps);
 											.map-content
 												.l
 													.map-title
@@ -125,52 +127,52 @@ block content
 																p We deliver our products&nbsp;in 43 countries
 														.country-list
 															ul.country
-																mixin list(index, name)
-																	li.country-item(data-id=index) #{name}
-																+list("1", "Albania")
-																+list("2", "Algeria")
-																+list("3", "Argentina")
-																+list("4", "Australia")
-																+list("5", "Azerbajan")
-																+list("6", "Belarus")
-																+list("7", "Bulgaria")
-																+list("8", "Chile")
-																+list("9", "China")
-																+list("10", "Egypt")
-																+list("11", "Georgia")
+																mixin list(index, name, lat, lon)
+																	li.country-item(data-id=index, data-lat=lat, data-lon=lon) #{name}
+																+list("1", "Albania",'41.329172','19.820226')
+																+list("2", "Algeria",'28.355475','3.115388')
+																+list("3", "Argentina",'-35.253066','-65.168238')
+																+list("4", "Australia",'-35.253066','-65.168238')
+																+list("5", "Azerbajan",'-35.253066','-65.168238')
+																+list("6", "Belarus",'-35.253066','-65.168238')
+																+list("7", "Bulgaria",'-35.253066','-65.168238')
+																+list("8", "Chile",'28.355475','3.115388')
+																+list("9", "China",'28.355475','3.115388')
+																+list("10", "Egypt",'28.355475','3.115388')
+																+list("11", "Georgia",'28.355475','3.115388')
 															ul.country
-																+list("12", "Greece")
-																+list("13", "Hungary")
-																+list("14", "India")
-																+list("15", "Israel")
-																+list("16", "Italy")
-																+list("17", "Latvia")
-																+list("18", "Lithuania")
-																+list("19", "Malaysia")
-																+list("20", "Moldova")
-																+list("21", "Morocco")
-																+list("22", "Netherlands")
+																+list("12", "Greece",'41.329172','19.820226')
+																+list("13", "Hungary",'41.329172','19.820226')
+																+list("14", "India",'41.329172','19.820226')
+																+list("15", "Israel",'41.329172','19.820226')
+																+list("16", "Italy",'41.329172','19.820226')
+																+list("17", "Latvia",'41.329172','19.820226')
+																+list("18", "Lithuania",'41.329172','19.820226')
+																+list("19", "Malaysia",'41.329172','19.820226')
+																+list("20", "Moldova",'28.355475','3.115388')
+																+list("21", "Morocco",'28.355475','3.115388')
+																+list("22", "Netherlands",'28.355475','3.115388')
 															ul.country
-																+list("23", "Nigeria")
-																+list("24", "Poland")
-																+list("25", "Puerto Rico")
-																+list("26", "Romania")
-																+list("27", "Russia")
-																+list("28", "Serbia")
-																+list("29", "Singapore")
-																+list("30", "Slovakia")
-																+list("31", "South African Republic")
-																+list("32", "Spain")
+																+list("23", "Nigeria",'28.355475','3.115388')
+																+list("24", "Poland",'28.355475','3.115388')
+																+list("25", "Puerto Rico",'28.355475','3.115388')
+																+list("26", "Romania",'41.329172','19.820226')
+																+list("27", "Russia",'41.329172','19.820226')
+																+list("28", "Serbia",'41.329172','19.820226')
+																+list("29", "Singapore",'41.329172','19.820226')
+																+list("30", "Slovakia",'-35.253066','-65.168238')
+																+list("31", "South African Republic",'-35.253066','-65.168238')
+																+list("32", "Spain",'-35.253066','-65.168238')
 															ul.country
-																+list("33", "Taiwan")
-																+list("34", "Tanzania")
-																+list("35", "Tunisia")
-																+list("36", "Turkey")
-																+list("37", "Turkmenistan")
-																+list("38", "UAE")
-																+list("39", "Ukraine")
-																+list("40", "United Kingdom")
-																+list("41", "USA")
+																+list("33", "Taiwan",'-35.253066','-65.168238')
+																+list("34", "Tanzania",'-35.253066','-65.168238')
+																+list("35", "Tunisia",'-35.253066','-65.168238')
+																+list("36", "Turkey",'28.355475','3.115388')
+																+list("37", "Turkmenistan",'28.355475','3.115388')
+																+list("38", "UAE",'28.355475','3.115388')
+																+list("39", "Ukraine",'28.355475','3.115388')
+																+list("40", "United Kingdom",'28.355475','3.115388')
+																+list("41", "USA",'41.329172','19.820226')
 																+list("42", "Uzbekistan")
 																+list("43", "Vietnam")
 										section.section.js-section(data-inview-class="push-it")
@@ -261,7 +263,6 @@ block content
 															a(href='#') Personal Account
 										script(type="text/javascript").
 											$(goToAnchors);
-											$(country);
 		- var active = "About us"
 		include includes/_navigation
 		include includes/_groups-modal

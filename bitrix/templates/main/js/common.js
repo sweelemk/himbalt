@@ -271,7 +271,6 @@ Scroller.prototype = {
 
 		if(this.mapPosTop < this.height  && this.mapPosBottom > this.height) {
 			this.content.classList.add("bg-color");
-			console.log(this.content)
 		} else if(this.mapPosTop < this.height && this.mapPosBottom < this.height) {
 			this.content.classList.remove("bg-color");
 		} else if(this.mapPosTop > this.height && this.mapPosBottom > this.height) {
@@ -368,7 +367,6 @@ function goToAnchors(){
 
 	anchorTrigger.on("click", function(e){
 		var data = $(this).attr("href");
-		console.log($(data))
 		var positionOfTop = $(data).offset().top - 25;
 		var positionScroll = scrolls.scrollPosition();
 
@@ -493,7 +491,6 @@ Modals.prototype = {
 		var self = this;
 		this.body.classList.remove(this.options.openClass);
 		this.modals.forEach(function(el){
-			console.log(el)
 			el.classList.remove(self.options.openClassElements);
 		});
 		setTimeout(function(){
@@ -680,20 +677,20 @@ function tabsload(){
 	});
 };
 
-function country(){
-	var item = $(".country-item"),
-		map = $(".map-container");
+// function country(){
+// 	var item = $(".country-item"),
+// 		map = $(".map-container");
 
-	item.on("click", function(){
-		var _ = $(this),
-			ID = _.data("id");
+// 	item.on("click", function(){
+// 		var _ = $(this),
+// 			ID = _.data("id");
 
-		map.find("[data-id=" + ID + "]").addClass("open");
-	});
-	item.on("mouseleave", function(){
-		map.children().removeClass("open");
-	})
-};
+// 		map.find("[data-id=" + ID + "]").addClass("open");
+// 	});
+// 	item.on("mouseleave", function(){
+// 		map.children().removeClass("open");
+// 	})
+// };
 
 function changeInput(input) {
 	input.each(function(){
@@ -721,8 +718,11 @@ function initialize(){
 
 	var coordArr = [];
 	var _icon = null;
-
-	var coord = $("#map").data("coord").split(";");
+	var marker;
+	if($("#map").data("coord")){
+		var coord = $("#map").data("coord").split(";");	
+	}
+	
 
 	coord.forEach(function(item){
 		coordArr.push(item.split(","));
@@ -764,16 +764,17 @@ function initialize(){
 	map.setMapTypeId('tehgrayz');
 
 	coordArr.forEach(function(item, i){
-		var marker = new google.maps.Marker({
-	    	    position: {
-	    	    	lat: parseFloat(item[0]),
-	    	    	lng: parseFloat(item[1])
-	    	    },
-	    	    map: map,
-	    	    visible: true,
-	    	    zIndex: (i + 1),
+		marker = new google.maps.Marker({
+				position: {
+					lat: parseFloat(item[0]),
+					lng: parseFloat(item[1])
+				},
+				map: map,
+				visible: true,
+				zIndex: (i + 1),
+				optimized: false,
 				icon: _icon
-	    	});
+			});
 	});
 
 	if(coordLength > 1) {
@@ -803,6 +804,337 @@ function initialize(){
 			
 		},100);			
 	});
+
+	if($('#map').hasClass('map-main')){
+		var style2 = [
+			{
+				"featureType": "administrative",
+				"elementType": "labels.text.fill",
+				"stylers": [
+					{
+						"color": "#444444"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.country",
+				"elementType": "geometry",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.country",
+				"elementType": "geometry.stroke",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.country",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.country",
+				"elementType": "labels.text",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.province",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.province",
+				"elementType": "labels.text",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "administrative.locality",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "landscape",
+				"elementType": "all",
+				"stylers": [
+					{
+						"color": "#ffffff"
+					}
+				]
+			},
+			{
+				"featureType": "landscape",
+				"elementType": "geometry.fill",
+				"stylers": [
+					{
+						"hue": "#ff0000"
+					}
+				]
+			},
+			{
+				"featureType": "landscape",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "landscape",
+				"elementType": "labels.text",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "landscape.man_made",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "landscape.natural",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "landscape.natural.landcover",
+				"elementType": "labels.text",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "poi",
+				"elementType": "all",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "road",
+				"elementType": "all",
+				"stylers": [
+					{
+						"saturation": -100
+					},
+					{
+						"lightness": 45
+					}
+				]
+			},
+			{
+				"featureType": "road.highway",
+				"elementType": "all",
+				"stylers": [
+					{
+						"visibility": "simplified"
+					}
+				]
+			},
+			{
+				"featureType": "road.arterial",
+				"elementType": "labels.icon",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "transit",
+				"elementType": "all",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			},
+			{
+				"featureType": "water",
+				"elementType": "all",
+				"stylers": [
+					{
+						"color": "#f4f4f4"
+					},
+					{
+						"visibility": "on"
+					}
+				]
+			},
+			{
+				"featureType": "water",
+				"elementType": "geometry.fill",
+				"stylers": [
+					{
+						"saturation": "-100"
+					},
+					{
+						"hue": "#ff0000"
+					}
+				]
+			},
+			{
+				"featureType": "water",
+				"elementType": "labels",
+				"stylers": [
+					{
+						"visibility": "off"
+					}
+				]
+			}
+		];
+		map.set('zoom', 4);
+		map.set('minZoom', 4);
+		map.set('zoomControl',false);
+		map.set('scaleControl',false);
+		map.set('disableDoubleClickZoom',true);
+		// marker.setMap(null);
+		var mapType2 = new google.maps.StyledMapType(style2, { name:"Grayscale2" });
+		map.mapTypes.set('tehgrayz', mapType2);
+		var listItem = $('.map-container-inner').closest('.section_map').find('.country-item');
+		var panPath = [];   // An array of points the current panning action will use
+		var panQueue = [];  // An array of subsequent panTo actions to take
+		var STEPS = 10;     // The number of steps that each panTo action will undergo
+		var last;
+
+		var myoverlay = new google.maps.OverlayView();
+			myoverlay.draw = function () {
+				this.getPanes().markerLayer.id='markerLayer';
+			};
+		myoverlay.setMap(map);
+		var markerPin;
+		setTimeout(function(){
+
+		},100)
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+			markerPin = $('#markerLayer');
+			console.log(markerPin )
+			markerPin.css('opacity', '0')
+		});
+		
+		function panTo(newLat, newLng) {
+		  if (panPath.length > 0) {
+			// We are already panning...queue this up for next move
+			panQueue.push([newLat, newLng]);
+		  } else {
+			// Lets compute the points we'll use
+			panPath.push("LAZY SYNCRONIZED LOCK");  // make length non-zero - 'release' this before calling setTimeout
+			var curLat = map.getCenter().lat();
+			var curLng = map.getCenter().lng();
+			var dLat = (newLat - curLat)/STEPS;
+			var dLng = (newLng - curLng)/STEPS;
+
+			for (var i=0; i < STEPS; i++) {
+			  panPath.push([curLat + dLat * i, curLng + dLng * i]);
+			}
+			panPath.push([newLat, newLng]);
+			panPath.shift();      // LAZY SYNCRONIZED LOCK
+			setTimeout(doPan, 10);
+		  }
+		}
+
+		function doPan() {
+		  var next = panPath.shift();
+		  if (next != null) {
+			// Continue our current pan action
+			map.panTo( new google.maps.LatLng(next[0], next[1]));
+			setTimeout(doPan, 10 );
+		  } else {
+			// We are finished with this pan - check if there are any queue'd up locations to pan to 
+			var queued = panQueue.shift();
+			if (queued != null) {
+			  panTo(queued[0], queued[1]);
+			}
+		  }
+		}
+
+		function changeMarkerPosition(marker,lat,lon) {
+
+			var latlng = new google.maps.LatLng(lat, lon);
+			panTo(lat,lon);
+			
+			
+			function AnimMarker(lat,lon, callback){
+				
+				markerPin.animate({
+					opacity: 0,
+					// transform: 'translateY(-30px)'
+				}, {
+					duration: 200,
+					complete: function () {
+						panTo(lat,lon);
+						marker.setPosition(latlng);					
+						markerPin.css({'margin-top': '-50px'});
+						setTimeout(function(){
+							markerPin.animate({
+								opacity: 1,
+								marginTop: '0px'
+							},300);
+						},200)
+
+					}
+				});
+				 
+			}
+			AnimMarker(lat,lon)
+		}
+		listItem.each(function(){
+			var _ = $(this),
+				lat = parseFloat(_.data('lat')),
+				lon = parseFloat(_.data('lon'));
+			if(!isNaN(lat) && !isNaN(lon)){
+				_.on('click',function(){
+					if(last != _ && !_.hasClass('active')){
+						last = _;
+						changeMarkerPosition(marker, lat, lon);
+						listItem.removeClass('active');
+						_.addClass('active');
+					}
+				});
+			}
+		});
+	}
 }
 
 function googleMaps(){
