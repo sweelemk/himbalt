@@ -1029,37 +1029,37 @@ function initialize(){
 		map.set('zoomControl',false);
 		map.set('scaleControl',false);
 		map.set('disableDoubleClickZoom',true);
-		// marker.setMap(null);
+
+
 		var mapType2 = new google.maps.StyledMapType(style2, { name:"Grayscale2" });
 		map.mapTypes.set('tehgrayz', mapType2);
+
 		var listItem = $('.map-container-inner').closest('.section_map').find('.country-item');
-		var panPath = [];   // An array of points the current panning action will use
-		var panQueue = [];  // An array of subsequent panTo actions to take
-		var STEPS = 10;     // The number of steps that each panTo action will undergo
+		var panPath = [];   // путь
+		var panQueue = [];  // очередь
+		var STEPS = 10;     // шаг
 		var last;
+		var markerPin;
 
 		var myoverlay = new google.maps.OverlayView();
 			myoverlay.draw = function () {
 				this.getPanes().markerLayer.id='markerLayer';
 			};
 		myoverlay.setMap(map);
-		var markerPin;
-		setTimeout(function(){
 
-		},100)
+		
+
 		google.maps.event.addListenerOnce(map, 'idle', function(){
 			markerPin = $('#markerLayer');
-			console.log(markerPin )
 			markerPin.css('opacity', '0')
 		});
 		
 		function panTo(newLat, newLng) {
 		  if (panPath.length > 0) {
-			// We are already panning...queue this up for next move
 			panQueue.push([newLat, newLng]);
 		  } else {
 			// Lets compute the points we'll use
-			panPath.push("LAZY SYNCRONIZED LOCK");  // make length non-zero - 'release' this before calling setTimeout
+			panPath.push("LAZY SYNCRONIZED LOCK");
 			var curLat = map.getCenter().lat();
 			var curLng = map.getCenter().lng();
 			var dLat = (newLat - curLat)/STEPS;
@@ -1069,7 +1069,7 @@ function initialize(){
 			  panPath.push([curLat + dLat * i, curLng + dLng * i]);
 			}
 			panPath.push([newLat, newLng]);
-			panPath.shift();      // LAZY SYNCRONIZED LOCK
+			panPath.shift();
 			setTimeout(doPan, 10);
 		  }
 		}
@@ -1077,11 +1077,9 @@ function initialize(){
 		function doPan() {
 		  var next = panPath.shift();
 		  if (next != null) {
-			// Continue our current pan action
 			map.panTo( new google.maps.LatLng(next[0], next[1]));
 			setTimeout(doPan, 10 );
 		  } else {
-			// We are finished with this pan - check if there are any queue'd up locations to pan to 
 			var queued = panQueue.shift();
 			if (queued != null) {
 			  panTo(queued[0], queued[1]);
@@ -1091,15 +1089,11 @@ function initialize(){
 
 		function changeMarkerPosition(marker,lat,lon) {
 
-			var latlng = new google.maps.LatLng(lat, lon);
-			panTo(lat,lon);
+			var latlng = new google.maps.LatLng(lat, lon);	
 			
-			
-			function AnimMarker(lat,lon, callback){
-				
+			function AnimMarker(lat,lon){
 				markerPin.animate({
 					opacity: 0,
-					// transform: 'translateY(-30px)'
 				}, {
 					duration: 200,
 					complete: function () {
@@ -1115,7 +1109,6 @@ function initialize(){
 
 					}
 				});
-				 
 			}
 			AnimMarker(lat,lon)
 		}
