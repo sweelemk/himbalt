@@ -23,6 +23,7 @@ window.onload = function(){
 
 	var formscrollMain = document.getElementById('forms-scroll');
 	formscroll = new Scroller(formscrollMain, false);
+	// scrollToElOnload();
 };
 
 function menu(){
@@ -39,6 +40,20 @@ function menu(){
 		body.removeClass("navigation_show");
 	});
 };
+// function openOnLoad(){
+// 	var scrollItem = window.location.hash;
+// 	setTimeout(function() {
+// 		window.scrollTo(0, 0);
+// 	}, 1);
+// 	if($(scrollItem).length){
+
+// 		setTimeout(function() {
+// 			var destination = $(scrollItem).position().top;
+// 			$("html,body:not(:animated), .out:not(:animated)").animate({scrollTop: destination - 50}, 500);
+// 		}, 100);
+
+// 	}
+// }openOnLoad();
 
 function Loading(){
 	var _this = this;
@@ -56,7 +71,7 @@ function Loading(){
 
 	_this.initHandler = function(){
 		$(_this.options.trigger).on("click vclick", function(event){
-
+			event.preventDefault();
 			if($(this).hasClass("active")) {
 				return false;
 			}
@@ -67,23 +82,43 @@ function Loading(){
 
 			_this.options.isAnimation = true;
 
-			_this.link = $(this).attr("href");
+			_this.linkhref = $(this).attr("href");
+			_this.link;
+			_this.linkHash;
+			// на продакшене заменить / на #
+			if(_this.linkhref.indexOf("#") != -1){
+				_this.link = _this.linkhref.substring(0,_this.linkhref.lastIndexOf('/'));
+				_this.linkHash = _this.linkhref.substring(_this.linkhref.lastIndexOf('#'),_this.linkhref.length);
 
+			}else{
+				_this.link = _this.linkhref;
+			}
+			
+			
 			if($(_this.options.body).hasClass(_this.options.openMenuClass)){
 				$(_this.options.body).removeClass(_this.options.openMenuClass);
 				setTimeout(function(){
-					_this.action(_this.link, true);
+					if(_this.linkHash != 'undefined'){
+						_this.action(_this.link, true,_this.linkHash);
+					}else{
+						_this.action(_this.link, true);
+					}
+					
 				},300);
 			} else {
-				_this.action(_this.link, true);
+				if(_this.linkHash != 'undefined'){
+					_this.action(_this.link, true,_this.linkHash);
+				}else{
+					_this.action(_this.link, true,'');
+				}
 			}
 
-			event.preventDefault();
+			
 			return false;
 		});
 	};
 
-	_this.action = function(link, to_popstate) {
+	_this.action = function(link, to_popstate,hash) {
 		$.ajax({
 			url: link,
 			dataType: "html",
@@ -117,7 +152,7 @@ function Loading(){
 			},
 			success: function(content){
 				if(to_popstate !== false) {
-					_this.history(link)
+					_this.history(link);
 				}
 				var fragment = $(content).find(".js-ajx");
 				var bredcrumbs = $(content).find(".breadcumbs-inner").html();
@@ -126,6 +161,8 @@ function Loading(){
 				if(!fragment.data("pages")) {
 					$(_this.options.breadcumbs).removeClass("show");
 				}
+
+
 				setTimeout(function(){
 					$(".js-ajx").parent().html(fragmentContent).promise().done(function(){
 						console.log("Congratulations! AJAX success!");
@@ -154,6 +191,7 @@ function Loading(){
 						}, 500);
 						scrolls.scrollUpdate(true);
 						modalsProject.updateModal();
+						if(hash != '') scrollToElOnload(hash);
 					});
 				},600);
 			}
@@ -301,6 +339,7 @@ Scroller.prototype = {
 		
 		if(param) {
 			self.updateElements();
+			scrollToElOnload();
 		}
 	},
 	updateElements: function(){
@@ -326,11 +365,6 @@ Scroller.prototype = {
 };
 
 function initSlickSlider() {
-
-	$(".js-slider-one-slide").on("init", function(){
-		// $(this).slick("setPosition");
-
-	})
 
 	$(".js-slider-one-slide").slick({
 		slidesToShow: 1,
@@ -360,7 +394,19 @@ function initSlickSlider() {
 	else $(".js-slider-next").removeClass("disable")
 
 }
+function scrollToElOnload(el){
+	setTimeout(function(){
+		var scrollItem = el;
+		if($(scrollItem).length){
+			
+			var positionOfTop = $(scrollItem).offset().top -25;
+			var positionScroll = scrolls.scrollPosition();
+			scrolls.scrollToPosition(positionOfTop + positionScroll);
+			
+		}
+	},1000)
 
+};
 
 function goToAnchors(){
 	var anchorTrigger = $(".anchor-trigger");
@@ -369,9 +415,7 @@ function goToAnchors(){
 		var data = $(this).attr("href");
 		var positionOfTop = $(data).offset().top - 25;
 		var positionScroll = scrolls.scrollPosition();
-
 		scrolls.scrollToPosition(positionOfTop + positionScroll);
-
 		e.preventDefault();
 	});
 };

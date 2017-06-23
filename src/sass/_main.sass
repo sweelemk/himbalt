@@ -1286,7 +1286,54 @@ body
 		background-color: $white
 		.btn
 			float: right
+
+.content-container
+	// &:not(.hide-left)
+	
+	&.hide-left
+		.content-title,.content-body
+			transform: translateX(-5%)
+			opacity: 0
+			transition: opacity .2s, transform .2s
+		.content-head
+			border-bottom-color: transparent
+	&.hide-right
+		.content-title,.content-body
+			transform: translateX(5%)
+			opacity: 0
+			transition: opacity .2s, transform .2s
+		.content-head
+			border-bottom-color: transparent	
+	.content-head
+		transition: border-bottom-color .2s
+	&.show-right
+		.content-title,.content-body
+			animation: slil .3s ease-in-out forwards
+	&.show-left
+		.content-title,.content-body
+			animation: slils .3s ease-in-out forwards
+			// transition: opacity .5s, transform .5s
+	// &.show-right
+		
+	// 		transform: translateX(-%)
+	// 		opacity: 0
+	// 		animation: slil .5s .2s forwards
+@keyframes slil
+	0%
+		transform: translateX(5%)
+		opacity: 0
+	100% 
+		transform: translateX(0)
+		opacity: 1
+@keyframes slils
+	0%
+		transform: translateX(-5%)
+		opacity: 0
+	100% 
+		transform: translateX(0)
+		opacity: 1
 .groups-content, .news-content
+
 	.content-head
 		border-bottom: 3px solid $black
 		+rem(padding-bottom, 40px)
@@ -1524,6 +1571,7 @@ body
 		+rem(top, 25px)
 		letter-spacing: 0.3px
 		transition: transform 0.3s ease
+		pointer-events: none
 	.forgort-pass
 		font-family: $Regular
 		+rem(font-size, 14px)
@@ -2473,3 +2521,21 @@ body
 	// transition: opacity .35s, margin-top .35s
 	transition-timing-function: ease-in-out
 	will-change: transform
+
+#registration
+	&>span:first-child
+		+rem(font-size,16px)
+	.account-enter
+		+rem(font-size,16px)
+		color: $maincolor
+		+tr(color .3s)
+		&:hover
+			color: $darkHover
+.form-error.reg
+	font-family: $Bold
+	display: block
+	+rem(margin,0 0 40px)
+.section-anchors
+	&>#singin
+		+rem(max-width,730px)
+		margin: 0 auto
