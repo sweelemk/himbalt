@@ -47,11 +47,11 @@ block content
 															mixin anchors(name, link, bool)
 																if bool 
 																	li.achors-item.active
-																		a.anchor-trigger(href=link)
+																		a.anchor-trigger-bold(href=link)
 																			span #{name}
 																else 
 																	li.achors-item
-																		a.anchor-trigger(href=link)
+																		a.anchor-trigger-bold(href=link)
 																			span #{name}
 															+anchors("Documents for download", "personal_account.html", true)
 															+anchors("Personal information", "personal_account_info.html", false)

@@ -35,6 +35,7 @@ body
 	position: relative
 	width: 100%
 	height: 100%
+	overflow: hidden
 	a 
 		text-decoration: none
 	h1, .h1
@@ -114,6 +115,7 @@ body
 	height: 100%
 	top: 0
 	left: 0
+	overflow: hidden
 .root_frame-content
 	position: absolute
 	width: 100%
@@ -133,6 +135,7 @@ body
 	transition: all 0.5s ease
 	width: 0
 	will-change: width
+	overflow: hidden
 	&.transition
 		transform: translate(10%, 0)
 		+r(1280)
@@ -214,6 +217,7 @@ body
 	+rem(top, 59px)
 	left: 33.7%
 	.account-enter
+		+tr(opacity .3s)
 		span
 			font-size: 12px
 			text-transform: uppercase
@@ -291,7 +295,7 @@ body
 			&:hover
 				color: $hover
 .inactive
-	.navigation-site, .address
+	.navigation-site, .address,.account .account-enter
 		opacity: 0.5
 .menu
 	position: absolute
@@ -533,6 +537,8 @@ body
 		+rem(right, -41px)
 	.svg-icon-atom
 		width: 49%
+		svg
+			overflow: visible
 	.svg-icon-oil
 		width: 46%
 		position: absolute
@@ -633,6 +639,7 @@ body
 	height: 100%
 .pages
 	height: 100%
+	width: 100%
 	&.transfer-pages
 		.loader-container
 			overflow: hidden
@@ -651,6 +658,7 @@ body
 			.section-scroll-container
 				opacity: 1
 				transform: translate(0, 0)
+
 @keyframes contentOut
 	0% 
 		opacity: 1
@@ -770,13 +778,17 @@ body
 			display: inline-block
 			vertical-align: bottom
 			height: auto
+
 		img
 			display: inline-block
 			vertical-align: bottom
 			margin-bottom: 0
 			max-height: 100%
+			max-width: 100%
 		svg
 			width: auto
+			max-height: 100%
+			max-width: 100%
 		.icon-container
 			+rem(width, 115px)
 		.icon-tanker
@@ -1178,6 +1190,9 @@ body
 		position: absolute
 		width: 100%
 		height: 100%
+		pointer-events: none
+		.gm-bundled-control
+			pointer-events: all
 		img	
 			max-width: 100%
 			overflow: hidden
@@ -1852,13 +1867,15 @@ body
 		+rem(margin, 0 -13px)
 	.achors-item
 		display: inline-block
-		.anchor-trigger
+		.anchor-trigger,.anchor-trigger-bold
 			font-family: $Medium
 			+rem(font-size, 20px)
 			padding: 13px
 			display: inline-block
 			color: $maincolor
 			transition: color 0.3s ease
+			&.active
+				pointer-events: none
 			&:hover
 				color: $black
 .container-image
@@ -2081,12 +2098,12 @@ body
 		display: inline-block
 		vertical-align: middle
 		.achors-item
-			.anchor-trigger
+			.anchor-trigger,.anchor-trigger-bold
 				span
 					border-bottom: 1px dotted
 					+rem(padding-bottom, 5px)
 			&.active
-				.anchor-trigger
+				.anchor-trigger,.anchor-trigger-bold
 					span
 						color: $black
 						border-color: transparent
@@ -2114,8 +2131,11 @@ body
 .documents-container
 	+rem(margin-top, 80px)
 	.documents-item
+		+clr
 		&:not(:last-child)
 			+rem(margin-bottom, 87px)
+		&:last-child
+			+rem(margin-bottom, 37px)
 		.documents-head
 			width: 39%
 			float: left
@@ -2213,7 +2233,9 @@ body
 				bottom: 0
 				right: 0
 				height: 100%
-				transition: height 0.3s ease
+				transition: height 0.3s ease, transform .4s ease-in-out
+				transform: scaleY(0)
+				transform-origin: bottom center
 				&::after
 					content: ""
 					+rem(width, 7px)
@@ -2245,6 +2267,9 @@ body
 			display: block
 			width: 100%
 			+rem(padding-left, 21px)
+			transition: opacity .5s, transform .5s
+			opacity: 0
+			transform: translateX(-5%)
 			p 
 				+rem(font-size, 16px)
 			.year
@@ -2372,7 +2397,7 @@ body
 				transition: filter 0.3s ease
 				&:hover
 					filter: grayscale(0)
-.container-content
+.container-content,.wrapper-changed-content
 	transition: background-color 0.3s ease-in-out;
 	&.bg-color
 		background-color: #f4f4f4
@@ -2409,6 +2434,7 @@ body
 		.btn-goto
 			border: 2px solid $white
 			display: inline-block
+			text-decoration: none
 			span
 				display: inline-block
 				+rem(padding, 12px 15px)
@@ -2427,7 +2453,29 @@ body
 .push-it
 	.container, .l, &.groups-container_item
 		opacity: 1
-		transform: none
+		transform: none 
+	.scheme_item
+		.line
+			transform: none !important;
+		.scheme_info
+			transform: none !important;
+			opacity: 1
+		&:nth-child(1)
+			.line
+				transition-delay: .6s
+			.scheme_info
+				transition-delay: .8s
+		&:nth-child(2)
+			.line
+				transition-delay: .8s
+			.scheme_info
+				transition-delay: 1s
+		&:nth-child(3)
+			.scheme_info
+				transition-delay: 1.2s
+			.line
+				transition-delay: 1s
+
 .table-container
 	table
 		table-layout: fixed
@@ -2506,16 +2554,42 @@ body
 	+clr
 	.btn
 		float: right
+.bg-color
+	.map-container
+		&-inner
+			&:before
+				top: -1px
+				box-shadow: 20px -9px 20px 20px #f4f4f4;
+			&:after
+				bottom: -1px
+				box-shadow:  20px 9px 20px 20px #f4f4f4; 
 .map-container
+
 	&-inner
 		width: 100%
 		height: 100%
 		pointer-events: none
+		position: relative
+		overflow: hidden
+		&:before,&:after
+			content: ''
+			position: absolute
+			left: 0
+			right: 0
+			height: 1px
+			z-index: 1
+		&:before
+			top: -1px
+			box-shadow: 20px -9px 20px 20px #fff;
+		&:after
+			bottom: -1px
+			box-shadow:  20px 9px 20px 20px #fff; 
 		.map-main
 			// height: 800px;
 			// width: 1024px;
 			height: 100%
 			width: 100%
+			box-shadow: inset 0px 21px 20px -10px #CCC,inset 0px -21px 20px -10px #CCC; 
 
 #markerLayer
 	// transition: opacity .35s, margin-top .35s
@@ -2535,7 +2609,38 @@ body
 	font-family: $Bold
 	display: block
 	+rem(margin,0 0 40px)
-.section-anchors
-	&>#singin
+section.section-anchors
+	#signin
 		+rem(max-width,730px)
 		margin: 0 auto
+.cap .cap-inner .btn
+	text-decoration: none
+.register
+	&:hover
+		.stregist0,svg
+			fill: #000
+	.icon
+		+rem(max-width, 25px)
+		display: inline-block
+		vertical-align: middle
+		+rem(margin-right,8px)
+		svg 
+			max-width: 100%
+		.stregist0
+			+tr(fill .3s)
+.account-enter
+	&.active
+		pointer-events: none
+.documents-container .documents-item .documents-head
+	padding-right: 5%
+.content-scrolls
+	+r(1450)
+		#register,#singin
+			padding-left: 17%;
+			padding-right: 14.5%;
+		.goods-desrciption
+			padding-left: 0 !important
+		.groups-content .table .table-body .table-body-row .table-body-item:first-child, .news-content .table .table-body .table-body-row .table-body-item:first-child
+			width: 14.5rem;
+		.groups-content .table .table-body .table-body-row .table-body-item, .news-content .table .table-body .table-body-row .table-body-item
+			width: 24%

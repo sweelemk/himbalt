@@ -764,7 +764,8 @@ function initialize(){
 	var _icon = null;
 	var marker;
 	if($("#map").data("coord")){
-		var coord = $("#map").data("coord").split(";");	
+		var coord = $("#map").data("coord").split(";");
+			
 	}
 	
 
@@ -816,7 +817,7 @@ function initialize(){
 				map: map,
 				visible: true,
 				zIndex: (i + 1),
-				optimized: false,
+				optimized: true,
 				icon: _icon
 			});
 	});
@@ -1172,6 +1173,10 @@ function initialize(){
 			}
 		});
 	}
+	setTimeout(function(){
+		google.maps.event.trigger(map, 'resize');
+	},500)
+	
 }
 
 function googleMaps(){
